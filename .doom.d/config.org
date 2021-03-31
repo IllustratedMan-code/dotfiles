@@ -1,16 +1,35 @@
+#+TITLE: Doom configuration
+
+* Identity information
+#+BEGIN_SRC elisp
 (setq user-full-name "David Lewis"
       user-mail-address "davidalewis00@gmail.com")
-
+#+END_SRC
+* Theme
+set theme with doom-theme or load theme with load-theme
+#+BEGIN_SRC elisp
 (setq doom-theme 'doom-dracula)
-
+#+END_SRC
+* Org Setup
+** Org Directory
+#+BEGIN_SRC elisp
 (setq org-directory "~/Dropbox/org/")
-
+#+END_SRC
+** Hide emphasis markers
+#+BEGIN_SRC elisp
 (setq org-hide-emphasis-markers 't)
-
+#+END_SRC
+* General configuration
+** remove line numbers
+#+Begin_SRC elisp
 (setq display-line-numbers-type nil)
-
+#+END_SRC
+** Fix treemacs ace-window bug
+#+BEGIN_SRC elisp
 (require 'ace-window)
-
+#+END_SRC
+** deletes compilation buffer if successful (ignores python buffers)
+#+BEGIN_SRC elisp
 (add-hook 'compilation-finish-functions
           (lambda(buffer string)
             (if (and (null (string-match ".*exited abnormally.*" string))
@@ -22,14 +41,19 @@
                    (get-buffer-create "*compilation*"))
                   (print major-mode)
                   (message "Compilation finished successfully")))))
-
+#+END_SRC
+* Key Map
+** General Buffers
+#+BEGIN_SRC elisp
 (map! :leader
       :desc "treemacs" "0" #'treemacs
       :desc "last-buffer" "l" #'evil-switch-to-windows-last-buffer
       :nv "`" nil
       (:prefix ("w")
        :desc "ace-window" "a" #'ace-window))
-
+#+END_SRC
+** Python mode map
+#+BEGIN_SRC elisp
 (map!  (:map python-mode-map
         :localleader
         :desc "repl" "'" #'+python/open-ipython-repl
@@ -38,7 +62,21 @@
          :desc "function" "f" #'python-shell-send-defun
          :desc "region" "r" #'python-shell-send-region
          :desc "statement" "s" #'python-shell-send-statement)))
-
+#+END_SRC
+** Doc-view mode map
+#+BEGIN_SRC elisp
 (map! (:map doc-view-mode-map
        :nv "l" #'doc-view-next-page
        :nv "h" #'doc-view-previous-page))
+#+END_SRC
+* Helpful info
+** Font variables
++ doom-font (normal font)
++ doom-variable-pitch-font (easy reading font)
++ doom-big-font (doom-big-font-mode for presentations)
+** Useful customization functions
++ load! (load external .el files)
++ use-package! (for configuring packages)
++ after! (runs config after packages has loaded)
++ add-load-path! (adds directories to load-path variable)
++ map! (binds keys)
