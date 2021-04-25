@@ -8,7 +8,7 @@
 * Theme
 set theme with doom-theme or load theme with load-theme
 #+BEGIN_SRC elisp
-(setq doom-theme 'doom-dracula)
+(setq doom-theme 'doom-gruvbox)
 #+END_SRC
 * Org Setup
 ** Org Directory
@@ -19,6 +19,55 @@ set theme with doom-theme or load theme with load-theme
 #+BEGIN_SRC elisp
 (setq org-hide-emphasis-markers 't)
 #+END_SRC
+** Org Tab behaviour
+  #+BEGIN_SRC elisp
+  (after! evil-org
+    (setq org-tab-first-hook nil))
+  #+END_SRC
+** org code blocks
+#+begin_src elisp
+(defun insert-jupyter-block ()
+  "Inserts a python code block"
+  (interactive)
+  (progn
+    (insert "#+begin_src jupyter-python :session py\n"
+            "#+end_src")
+    )
+  )
+#+end_src
+** Functions
+#+begin_src elisp
+(defun cache-address ()
+ (interactive)
+ (progn
+   (setq size (read-string "Enter the MM size: "))
+   (setq strunit (substring size -2 nil))
+   (if (eq (compare-strings strunit nil nil "GB" nil nil) 't)
+       (message "true"))
+ )
+ )
+#+end_src
+
+#+RESULTS:
+: cache-address
+
+** org keymap
+#+begin_src elisp
+(map! (:map org-mode-map
+       :localleader
+       (:prefix ("S" . "source")
+        :desc "jupyter-python" "p" #'insert-jupyter-block)))
+#+end_src
+
+#+RESULTS:
+
+* Python setup
+
+** Anaconda directory
+#+begin_src elisp
+(setq conda-anaconda-home "~/.conda")
+#+end_src
+
 * General configuration
 ** remove line numbers
 #+Begin_SRC elisp
@@ -68,6 +117,15 @@ set theme with doom-theme or load theme with load-theme
 (map! (:map doc-view-mode-map
        :nv "l" #'doc-view-next-page
        :nv "h" #'doc-view-previous-page))
+#+END_SRC
+** mips mode map
+#+BEGIN_SRC elisp
+(map! (:map mips-mode-map
+       :localleader
+       (:prefix ("s" . "send")
+        :desc "file" "f" #'mips-run-file
+        :desc "region" "r" #'mips-run-region
+        :desc "buffer" "b" #'mips-run-region)))
 #+END_SRC
 * Helpful info
 ** Font variables

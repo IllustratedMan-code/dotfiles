@@ -1,11 +1,40 @@
 (setq user-full-name "David Lewis"
       user-mail-address "davidalewis00@gmail.com")
 
-(setq doom-theme 'doom-dracula)
+(setq doom-theme 'doom-gruvbox)
 
 (setq org-directory "~/Dropbox/org/")
 
 (setq org-hide-emphasis-markers 't)
+
+(after! evil-org
+  (setq org-tab-first-hook nil))
+
+(defun insert-jupyter-block ()
+  "Inserts a python code block"
+  (interactive)
+  (progn
+    (insert "#+begin_src jupyter-python :session py\n"
+            "#+end_src")
+    )
+  )
+
+(defun cache-address ()
+ (interactive)
+ (progn
+   (setq size (read-string "Enter the MM size: "))
+   (setq strunit (substring size -2 nil))
+   (if (eq (compare-strings strunit nil nil "GB" nil nil) 't)
+       (message "true"))
+ )
+ )
+
+(map! (:map org-mode-map
+       :localleader
+       (:prefix ("S" . "source")
+        :desc "jupyter-python" "p" #'insert-jupyter-block)))
+
+(setq conda-anaconda-home "~/.conda")
 
 (setq display-line-numbers-type nil)
 
@@ -42,3 +71,10 @@
 (map! (:map doc-view-mode-map
        :nv "l" #'doc-view-next-page
        :nv "h" #'doc-view-previous-page))
+
+(map! (:map mips-mode-map
+       :localleader
+       (:prefix ("s" . "send")
+        :desc "file" "f" #'mips-run-file
+        :desc "region" "r" #'mips-run-region
+        :desc "buffer" "b" #'mips-run-region)))
