@@ -9,6 +9,7 @@
 set theme with doom-theme or load theme with load-theme
 #+BEGIN_SRC elisp
 (setq doom-theme 'doom-gruvbox)
+(setq doom-themes-treemacs-theme "doom-colors")
 #+END_SRC
 * Org Setup
 ** Org Directory
@@ -26,15 +27,33 @@ set theme with doom-theme or load theme with load-theme
   #+END_SRC
 ** org code blocks
 #+begin_src elisp
-(defun insert-jupyter-block ()
+(defun insert-jupyter-python-block ()
   "Inserts a python code block"
   (interactive)
   (progn
     (insert "#+begin_src jupyter-python :session py\n"
             "#+end_src")
     )
+  (org-edit-special)
+  )
+
+(defun insert-jupyter-ess-block()
+  "Inserts an ESS(R) code block"
+  (interactive)
+  (insert "#+begin_src jupyter-R :session R\n"
+          "#+end_src")
+  (org-edit-special)
+  )
+
+(defun insert-elisp-block()
+  "inserts an elisp code block"
+  (interactive)
+  (insert "#+begin_src elisp\n"
+          "#+end_src")
+  (org-edit-special)
   )
 #+end_src
+
 ** Functions
 #+begin_src elisp
 (defun cache-address ()
@@ -48,25 +67,131 @@ set theme with doom-theme or load theme with load-theme
  )
 #+end_src
 
-#+RESULTS:
-: cache-address
+** Org default image size
+#+begin_src elisp
+(after! evil-org
+(setq org-image-actual-width 400))
+#+end_src
 
 ** org keymap
 #+begin_src elisp
 (map! (:map org-mode-map
-       :localleader
-       (:prefix ("S" . "source")
-        :desc "jupyter-python" "p" #'insert-jupyter-block)))
+       :leader
+       (:prefix ("j" . "jupyter-source")
+        :desc "jupyter-python" "p" #'insert-jupyter-python-block
+        :desc "jupyter-R" "r" #'insert-jupyter-ess-block
+        :desc "elisp" "e" #'insert-elisp-block)))
+#+end_src
+
+** org headline
+#+begin_src elisp
+(setq org-fontify-todo-headline t)
+#+end_src
+** org-fancy-priorities-mode work around
+#+begin_src elisp
+(defadvice! +org-dont-fontify-my-thangs-a (orig-fn &rest args)
+  :around '(org-superstar-mode org-fancy-priorities-mode)
+  (letf! ((#'font-lock-ensure #'ignore)
+          (#'font-lock-flush #'ignore)
+          (#'font-lock-fontify-buffer #'ignore))
+    (apply orig-fn args)))
+#+end_src
+** org-safe-variables
+*** html export
+#+begin_src elisp
+(add-to-list 'safe-local-eval-forms '(add-hook 'after-save-hook 'org-html-export-to-html t t))
+(add-to-list 'safe-local-eval-forms '(add-hook 'after-save-hook 'org-re-reveal-export-to-html t t))
 #+end_src
 
 #+RESULTS:
+| add-hook | 'after-save-hook      | 'org-re-reveal-export-to-html | t   | t |
+| add-hook | 'after-save-hook      | 'org-html-export-to-html      | t   | t |
+| add-hook | 'write-file-hooks     | 'time-stamp                   |     |   |
+| add-hook | 'write-file-functions | 'time-stamp                   |     |   |
+| add-hook | 'before-save-hook     | 'time-stamp                   | nil | t |
+| add-hook | 'before-save-hook     | 'delete-trailing-whitespace   | nil | t |
+*** Org-babel
+#+begin_src elisp
+(add-to-list 'safe-local-eval-forms '(add-hook 'after-save-hook 'org-babel-tangle t t))
+#+end_src
+
+#+RESULTS:
+| add-hook | 'after-save-hook      | 'org-babel-tangle             | t   | t |
+| add-hook | 'after-save-hook      | 'org-re-reveal-export-to-html | t   | t |
+| add-hook | 'after-save-hook      | 'org-html-export-to-html      | t   | t |
+| add-hook | 'write-file-hooks     | 'time-stamp                   |     |   |
+| add-hook | 'write-file-functions | 'time-stamp                   |     |   |
+| add-hook | 'before-save-hook     | 'time-stamp                   | nil | t |
+| add-hook | 'before-save-hook     | 'delete-trailing-whitespace   | nil | t |
+** format all error
+#+begin_src elisp
+(add-to-list '+format-on-save-enabled-modes 'web-mode 1)
+#+end_src
+
+#+RESULTS:
+| not | emacs-lisp-mode | sql-mode | tex-mode | latex-mode | org-msg-edit-mode | web-mode |
 
 * Python setup
 
 ** Anaconda directory
 #+begin_src elisp
-(setq conda-anaconda-home "~/.conda")
+(setq conda-anaconda-home "~/opt/anaconda")
 #+end_src
+
+* R setup
+** keymap
+#+begin_src elisp
+(map! (:map ess-mode-map
+       :nv "C-<return>" #'ess-eval-line-and-step
+       )
+      )
+#+end_src
+
+#+RESULTS:
+** Font lock keywords
+*** R-major-mode
+#+begin_src elisp
+(setq ess-R-font-lock-keywords '(
+ (ess-R-fl-keyword:keywords . t)
+ (ess-R-fl-keyword:constants . t)
+ (ess-R-fl-keyword:modifiers . t)
+ (ess-R-fl-keyword:fun-defs . t)
+ (ess-R-fl-keyword:assign-ops . t)
+ (ess-R-fl-keyword:%op% . t)
+ (ess-fl-keyword:fun-calls . t)
+ (ess-fl-keyword:numbers . t)
+ (ess-fl-keyword:operators . t)
+ (ess-fl-keyword:delimiters . t)
+ (ess-fl-keyword:= . t)
+ (ess-R-fl-keyword:F&T . t)
+ )
+)
+#+end_src
+
+#+RESULTS:
+: ((ess-R-fl-keyword:keywords . t) (ess-R-fl-keyword:constants . t) (ess-R-fl-keyword:modifiers . t) (ess-R-fl-keyword:fun-defs . t) (ess-R-fl-keyword:assign-ops . t) (ess-R-fl-keyword:%op% . t) (ess-fl-keyword:fun-calls . t) (ess-fl-keyword:numbers . t) (ess-fl-keyword:operators . t) (ess-fl-keyword:delimiters . t) (ess-fl-keyword:= . t) (ess-R-fl-keyword:F&T . t))
+
+*** R-inferior-mode
+#+begin_src elisp
+(setq inferior-ess-r-font-lock-keywords '(
+ (ess-R-fl-keyword:keywords . t)
+ (ess-R-fl-keyword:constants . t)
+ (ess-R-fl-keyword:modifiers . t)
+ (ess-R-fl-keyword:fun-defs . t)
+ (ess-R-fl-keyword:assign-ops . t)
+ (ess-R-fl-keyword:%op% . t)
+ (ess-fl-keyword:fun-calls . t)
+ (ess-fl-keyword:numbers . t)
+ (ess-fl-keyword:operators . t)
+ (ess-fl-keyword:delimiters . t)
+ (ess-fl-keyword:= . t)
+ (ess-R-fl-keyword:F&T . t)
+ )
+)
+#+end_src
+
+#+RESULTS:
+: ((ess-R-fl-keyword:keywords . t) (ess-R-fl-keyword:constants . t) (ess-R-fl-keyword:modifiers . t) (ess-R-fl-keyword:fun-defs . t) (ess-R-fl-keyword:assign-ops . t) (ess-R-fl-keyword:%op% . t) (ess-fl-keyword:fun-calls . t) (ess-fl-keyword:numbers . t) (ess-fl-keyword:operators . t) (ess-fl-keyword:delimiters . t) (ess-fl-keyword:= . t) (ess-R-fl-keyword:F&T . t))
 
 * General configuration
 ** remove line numbers

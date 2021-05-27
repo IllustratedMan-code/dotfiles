@@ -49,3 +49,4 @@
 ;(unpin! t)
 (package! mips-mode)
 (package! good-scroll)
+(package! jupyter :pin "1f0612eb936d36abab0f27b09cca691e81fc6e74")
