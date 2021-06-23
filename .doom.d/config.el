@@ -8,8 +8,8 @@
 
 (setq org-hide-emphasis-markers 't)
 
-  (after! evil-org
-    (setq org-tab-first-hook nil))
+(after! evil-org
+  (setq org-tab-first-hook nil))
 
 (defun insert-jupyter-python-block ()
   "Inserts a python code block"
@@ -75,8 +75,10 @@
 
 (setq conda-anaconda-home "~/opt/anaconda")
 
-(map! (:map ess-mode-map
-       :nv "C-<return>" #'ess-eval-line-and-step
+(map! (:after ess-mode
+       :map ess-mode-map
+       :nvi "C-<return>" #'ess-eval-line-and-step
+       :nvi "M-e" #'insert-R-assign
        )
       )
 
@@ -112,6 +114,12 @@
  )
 )
 
+(defun insert-R-assign ()
+  "Inserts the assign statement in R <-"
+  (interactive)
+  (insert "<-")
+  )
+
 (setq display-line-numbers-type nil)
 
 (require 'ace-window)
@@ -127,6 +135,8 @@
                    (get-buffer-create "*compilation*"))
                   (print major-mode)
                   (message "Compilation finished successfully")))))
+
+(setq +ligatures-extras-in-modes '(org-mode))
 
 (map! :leader
       :desc "treemacs" "0" #'treemacs

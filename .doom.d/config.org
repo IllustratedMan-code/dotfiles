@@ -83,6 +83,9 @@ set theme with doom-theme or load theme with load-theme
         :desc "elisp" "e" #'insert-elisp-block)))
 #+end_src
 
+#+RESULTS:
+: insert-elisp-block
+
 ** org headline
 #+begin_src elisp
 (setq org-fontify-todo-headline t)
@@ -116,13 +119,17 @@ set theme with doom-theme or load theme with load-theme
 #+end_src
 
 #+RESULTS:
-| add-hook | 'after-save-hook      | 'org-babel-tangle             | t   | t |
-| add-hook | 'after-save-hook      | 'org-re-reveal-export-to-html | t   | t |
-| add-hook | 'after-save-hook      | 'org-html-export-to-html      | t   | t |
-| add-hook | 'write-file-hooks     | 'time-stamp                   |     |   |
-| add-hook | 'write-file-functions | 'time-stamp                   |     |   |
-| add-hook | 'before-save-hook     | 'time-stamp                   | nil | t |
-| add-hook | 'before-save-hook     | 'delete-trailing-whitespace   | nil | t |
+| add-hook | 'org-export-before-parsing-hook | '(delete-matching-lines begin_export) |     |   |
+| add-hook | 'org-export-before-parsing-hook | '(delete-matching-lines end_export)   |     |   |
+| add-hook | 'org-export-before-parsing-hook | (delete-matching-lines begin_export)  |     |   |
+| add-hook | 'org-export-before-parsing-hook | (delete-matching-lines end_export)    |     |   |
+| add-hook | 'after-save-hook                | 'org-babel-tangle                     | t   | t |
+| add-hook | 'after-save-hook                | 'org-re-reveal-export-to-html         | t   | t |
+| add-hook | 'after-save-hook                | 'org-html-export-to-html              | t   | t |
+| add-hook | 'write-file-hooks               | 'time-stamp                           |     |   |
+| add-hook | 'write-file-functions           | 'time-stamp                           |     |   |
+| add-hook | 'before-save-hook               | 'time-stamp                           | nil | t |
+| add-hook | 'before-save-hook               | 'delete-trailing-whitespace           | nil | t |
 ** format all error
 #+begin_src elisp
 (add-to-list '+format-on-save-enabled-modes 'web-mode 1)
@@ -141,8 +148,10 @@ set theme with doom-theme or load theme with load-theme
 * R setup
 ** keymap
 #+begin_src elisp
-(map! (:map ess-mode-map
-       :nv "C-<return>" #'ess-eval-line-and-step
+(map! (:after ess-mode
+       :map ess-mode-map
+       :nvi "C-<return>" #'ess-eval-line-and-step
+       :nvi "M-e" #'insert-R-assign
        )
       )
 #+end_src
@@ -192,6 +201,18 @@ set theme with doom-theme or load theme with load-theme
 
 #+RESULTS:
 : ((ess-R-fl-keyword:keywords . t) (ess-R-fl-keyword:constants . t) (ess-R-fl-keyword:modifiers . t) (ess-R-fl-keyword:fun-defs . t) (ess-R-fl-keyword:assign-ops . t) (ess-R-fl-keyword:%op% . t) (ess-fl-keyword:fun-calls . t) (ess-fl-keyword:numbers . t) (ess-fl-keyword:operators . t) (ess-fl-keyword:delimiters . t) (ess-fl-keyword:= . t) (ess-R-fl-keyword:F&T . t))
+** Custom Functions
+#+begin_src elisp
+(defun insert-R-assign ()
+  "Inserts the assign statement in R <-"
+  (interactive)
+  (insert "<-")
+  )
+#+end_src
+
+#+RESULTS:
+: insert-R-assign
+
 
 * General configuration
 ** remove line numbers
@@ -216,6 +237,14 @@ set theme with doom-theme or load theme with load-theme
                   (print major-mode)
                   (message "Compilation finished successfully")))))
 #+END_SRC
+** ligatures
+#+begin_src elisp
+(setq +ligatures-extras-in-modes '(org-mode))
+#+end_src
+
+#+RESULTS:
+| org-mode |
+
 * Key Map
 ** General Buffers
 #+BEGIN_SRC elisp
