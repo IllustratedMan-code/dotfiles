@@ -1,15 +1,20 @@
 #+TITLE: Doom configuration
-
+#+STARTUP: overview
 * Identity information
 #+BEGIN_SRC elisp
 (setq user-full-name "David Lewis"
       user-mail-address "davidalewis00@gmail.com")
 #+END_SRC
+* Build information
+#+begin_src sh
+./configure -with-json -with-imagemagick --with-xpm=ifavailable --with-native-compilation
+#+end_src
 * Theme
 set theme with doom-theme or load theme with load-theme
 #+BEGIN_SRC elisp
-(setq doom-theme 'doom-gruvbox)
+(setq doom-theme 'doom-nord)
 (setq doom-themes-treemacs-theme "doom-colors")
+(add-hook 'pdf-tools-enabled-hook 'pdf-view-themed-minor-mode)
 #+END_SRC
 * Org Setup
 ** Org Directory
@@ -52,6 +57,32 @@ set theme with doom-theme or load theme with load-theme
           "#+end_src")
   (org-edit-special)
   )
+
+(defun insert-generic-block()
+  "inserts an elisp code block"
+  (interactive)
+  (insert "#+begin_src " (read-string "Enter src type:") "\n"
+          "#+end_src")
+  (org-edit-special)
+  )
+(defun insert-gnuplot-block()
+  (interactive)
+  (insert "#+begin_src gnuplot :results output :file " (read-string "Enter file name:") "\n"
+          "#+end_src")
+  (org-edit-special)
+  )
+
+(defun copy-down-x (x)
+  "copies the current cell down by the universal arg"
+  (interactive "P")
+  (cl-loop repeat (or x  1)
+           do (org-table-copy-down 0))
+        )
+(defun universal-test (x)
+  (interactive "P")
+  (cl-loop repeat x
+           do (message "hello"))
+  (message "done"))
 #+end_src
 
 ** Functions
@@ -75,16 +106,17 @@ set theme with doom-theme or load theme with load-theme
 
 ** org keymap
 #+begin_src elisp
-(map! (:map org-mode-map
+(map! (:after org
+       :map org-mode-map
+       :nvi "S-<return>" #'copy-down-x
        :leader
        (:prefix ("j" . "jupyter-source")
         :desc "jupyter-python" "p" #'insert-jupyter-python-block
         :desc "jupyter-R" "r" #'insert-jupyter-ess-block
-        :desc "elisp" "e" #'insert-elisp-block)))
+        :desc "elisp" "e" #'insert-elisp-block
+        :desc "gnuplot" "g" #'insert-elisp-block
+        :desc "generic" "b" #'insert-generic-block)))
 #+end_src
-
-#+RESULTS:
-: insert-elisp-block
 
 ** org headline
 #+begin_src elisp
@@ -113,6 +145,10 @@ set theme with doom-theme or load theme with load-theme
 | add-hook | 'write-file-functions | 'time-stamp                   |     |   |
 | add-hook | 'before-save-hook     | 'time-stamp                   | nil | t |
 | add-hook | 'before-save-hook     | 'delete-trailing-whitespace   | nil | t |
+*** Latex Export
+#+begin_src elisp
+(add-to-list 'safe-local-eval-forms '(add-hook 'after-save-hook 'org-latex-export-to-pdf t t))
+#+end_src
 *** Org-babel
 #+begin_src elisp
 (add-to-list 'safe-local-eval-forms '(add-hook 'after-save-hook 'org-babel-tangle t t))
@@ -137,6 +173,28 @@ set theme with doom-theme or load theme with load-theme
 
 #+RESULTS:
 | not | emacs-lisp-mode | sql-mode | tex-mode | latex-mode | org-msg-edit-mode | web-mode |
+** gnuplot
+This block changes the default term type for png file types
+#+begin_src elisp
+(after! gnuplot (add-to-list '*org-babel-gnuplot-terms* '(png . "pngcairo transparent")))
+#+end_src
+
+#+RESULTS:
+: ((png . pngcairo transparent) (eps . postscript eps))
+** org-fragtog
+#+begin_src elisp
+(use-package! org-fragtog
+  :after org
+  :hook (org-mode . org-fragtog-mode)
+  :config)
+#+end_src
+** ispell
+** Startup
+#+begin_src elisp
+(after! org
+  (setq! org-startup-with-latex-preview t)
+  (setq! org-startup-with-inline-images t))
+#+end_src
 
 * Python setup
 
@@ -213,7 +271,6 @@ set theme with doom-theme or load theme with load-theme
 #+RESULTS:
 : insert-R-assign
 
-
 * General configuration
 ** remove line numbers
 #+Begin_SRC elisp
@@ -244,6 +301,13 @@ set theme with doom-theme or load theme with load-theme
 
 #+RESULTS:
 | org-mode |
+** ispell dictionary
+#+begin_src elisp
+(setq! ispell-dictionary "en_US")
+#+end_src
+
+#+RESULTS:
+: en_US
 
 * Key Map
 ** General Buffers

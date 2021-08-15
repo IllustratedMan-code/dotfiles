@@ -1,0 +1,96 @@
+* bashrc sources
+:PROPERTIES:
+:HEADER-ARGS: :tangle bashrcSRC.sh
+:END:
+All code blocks here are appended to the bashrc file. The purpose of this file is to source the other files
+** Generic bashrc
+#+begin_src sh
+source .config/bash/genericBashrc.sh
+#+end_src
+** Sway
+#+begin_src sh
+if command -v sway &> /dev/null
+   then
+       source .config/bash/swayBashrc.sh
+fi
+#+end_src
+* generic Bashrc
+:PROPERTIES:
+:HEADER-ARGS: :tangle genericBashrc.sh
+:END:
+This is will be included in .bashrc regardless of linux install.
+** Test if interactive
+#+begin_src sh
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+#+end_src
+** set the prompt text with the PS1 variable
+#+begin_src sh
+PS1='\w > '
+#+end_src
+** set vi keybinds
+#+begin_src sh
+set -o vi
+#+end_src
+** aliases
+#+begin_src sh
+alias pm='paru'
+alias ls='ls --color=auto'
+alias pmi='paru -S'
+alias pms='paru -Ss'
+alias pmr='paru -R'
+alias vi='nvim'
+alias vim='nvim'
+alias vimedit='export EDITOR=nvim && sudoedit'
+alias emacsedit='export EDITOR=emacsclient && sudoedit'
+alias emacs='emacsclient'
+alias e='emacsclient'
+alias v='nvim'
+alias update-grub='grub-mkconfig -o /boot/grub/grub.cfg'
+alias sudo='sudo '
+alias c='clear'
+#+end_src
+** Environment variables
+#+begin_src sh
+export PATH=$PATH:~/.emacs.d/bin
+#+end_src
+* Sway specific
+:PROPERTIES:
+:HEADER-ARGS: :tangle swayBashrc.sh
+:END:
+** aliases
+#+begin_src sh
+alias web="swaymsg workspace web"
+#+end_src
+** Environment variables
+#+begin_src sh
+# qt themeing
+export XDG_CURRENT_DESKTOP=UNITY slack
+export QT_QPA_PLATFORMTHEME=qt5ct
+
+# grimshot screenshots directory
+export XDG_SCREENSHOTS_DIR=~/Pictures/Screenshots
+#+end_src
+
+* Install
+:PROPERTIES:
+:HEADER-ARGS: :tangle ../installBash.sh
+:END:
+This script installs the bash config
+** symlink files to .config/bash
+#+begin_src sh
+rm -rf $HOME/.config/bash
+cp -r ./bash $HOME/.config/bash
+#+end_src
+
+** add src file to bashrc
+#+begin_src sh
+SRC="$HOME/.config/bash/bashrcSRC.sh"
+grep -q $SRC $HOME/.bashrc || sed -i "1s,^,source $SRC \n," $HOME/.bashrc
+#+end_src
+
+* Local Variables :noexport:
+local variables:
+org-export-babel-evaluate: nil
+eval: (add-hook 'after-save-hook 'org-babel-tangle t t)
+end:

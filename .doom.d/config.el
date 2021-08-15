@@ -1,15 +1,16 @@
 (setq user-full-name "David Lewis"
       user-mail-address "davidalewis00@gmail.com")
 
-(setq doom-theme 'doom-gruvbox)
+(setq doom-theme 'doom-nord)
 (setq doom-themes-treemacs-theme "doom-colors")
+(add-hook 'pdf-tools-enabled-hook 'pdf-view-themed-minor-mode)
 
 (setq org-directory "~/Dropbox/org/")
 
 (setq org-hide-emphasis-markers 't)
 
-(after! evil-org
-  (setq org-tab-first-hook nil))
+  (after! evil-org
+    (setq org-tab-first-hook nil))
 
 (defun insert-jupyter-python-block ()
   "Inserts a python code block"
@@ -37,6 +38,32 @@
   (org-edit-special)
   )
 
+(defun insert-generic-block()
+  "inserts an elisp code block"
+  (interactive)
+  (insert "#+begin_src " (read-string "Enter src type:") "\n"
+          "#+end_src")
+  (org-edit-special)
+  )
+(defun insert-gnuplot-block()
+  (interactive)
+  (insert "#+begin_src gnuplot :results output :file " (read-string "Enter file name:") "\n"
+          "#+end_src")
+  (org-edit-special)
+  )
+
+(defun copy-down-x (x)
+  "copies the current cell down by the universal arg"
+  (interactive "P")
+  (cl-loop repeat (or x  1)
+           do (org-table-copy-down 0))
+        )
+(defun universal-test (x)
+  (interactive "P")
+  (cl-loop repeat x
+           do (message "hello"))
+  (message "done"))
+
 (defun cache-address ()
  (interactive)
  (progn
@@ -50,12 +77,16 @@
 (after! evil-org
 (setq org-image-actual-width 400))
 
-(map! (:map org-mode-map
+(map! (:after org
+       :map org-mode-map
+       :nvi "S-<return>" #'copy-down-x
        :leader
        (:prefix ("j" . "jupyter-source")
         :desc "jupyter-python" "p" #'insert-jupyter-python-block
         :desc "jupyter-R" "r" #'insert-jupyter-ess-block
-        :desc "elisp" "e" #'insert-elisp-block)))
+        :desc "elisp" "e" #'insert-elisp-block
+        :desc "gnuplot" "g" #'insert-elisp-block
+        :desc "generic" "b" #'insert-generic-block)))
 
 (setq org-fontify-todo-headline t)
 
@@ -69,9 +100,22 @@
 (add-to-list 'safe-local-eval-forms '(add-hook 'after-save-hook 'org-html-export-to-html t t))
 (add-to-list 'safe-local-eval-forms '(add-hook 'after-save-hook 'org-re-reveal-export-to-html t t))
 
+(add-to-list 'safe-local-eval-forms '(add-hook 'after-save-hook 'org-latex-export-to-pdf t t))
+
 (add-to-list 'safe-local-eval-forms '(add-hook 'after-save-hook 'org-babel-tangle t t))
 
 (add-to-list '+format-on-save-enabled-modes 'web-mode 1)
+
+(after! gnuplot (add-to-list '*org-babel-gnuplot-terms* '(png . "pngcairo transparent")))
+
+(use-package! org-fragtog
+  :after org
+  :hook (org-mode . org-fragtog-mode)
+  :config)
+
+(after! org
+  (setq! org-startup-with-latex-preview t)
+  (setq! org-startup-with-inline-images t))
 
 (setq conda-anaconda-home "~/opt/anaconda")
 
@@ -138,6 +182,8 @@
 
 (setq +ligatures-extras-in-modes '(org-mode))
 
+(setq! ispell-dictionary "en_US")
+
 (map! :leader
       :desc "treemacs" "0" #'treemacs
       :desc "last-buffer" "l" #'evil-switch-to-windows-last-buffer
@@ -164,3 +210,5 @@
         :desc "file" "f" #'mips-run-file
         :desc "region" "r" #'mips-run-region
         :desc "buffer" "b" #'mips-run-region)))
+
+./configure -with-json -with-imagemagick --with-xpm=ifavailable --with-native-compilation
