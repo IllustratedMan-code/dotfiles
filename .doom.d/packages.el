@@ -52,3 +52,6 @@
 (package! jupyter :pin "1f0612eb936d36abab0f27b09cca691e81fc6e74")
 (package! scad-mode)
 (package! org-fragtog)
+(package! edraw-org
+  :recipe (:host github :repo "lepisma/org-krita" :files ("resources" "*.el")))
+(package! lilypond)

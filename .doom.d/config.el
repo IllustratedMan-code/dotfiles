@@ -9,8 +9,8 @@
 
 (setq org-hide-emphasis-markers 't)
 
-  (after! evil-org
-    (setq org-tab-first-hook nil))
+(after! evil-org
+  (setq org-tab-first-hook nil))
 
 (defun insert-jupyter-python-block ()
   "Inserts a python code block"
@@ -85,7 +85,7 @@
         :desc "jupyter-python" "p" #'insert-jupyter-python-block
         :desc "jupyter-R" "r" #'insert-jupyter-ess-block
         :desc "elisp" "e" #'insert-elisp-block
-        :desc "gnuplot" "g" #'insert-elisp-block
+        :desc "gnuplot" "g" #'insert-gnuplot-block
         :desc "generic" "b" #'insert-generic-block)))
 
 (setq org-fontify-todo-headline t)
@@ -116,6 +116,26 @@
 (after! org
   (setq! org-startup-with-latex-preview t)
   (setq! org-startup-with-inline-images t))
+
+(setq! org-global-properties '(("header-args:latex" . ":results output file graphics :imagemagick yes :headers '(\"\\\\usepackage{tikz}\ \\\\usepackage{siunitx}\ \\\\usepackage{gensymb}\") :fit yes :iminoptions -density 600")
+                               ("header-args" . ":pandoc t")))
+
+(use-package! org-krita
+  :config
+  (add-hook 'org-mode-hook 'org-krita-mode))
+
+(setq! TeX-engine 'luatex)
+(setq! org-latex-pdf-process '("lualatex -f -pdf -%latex -interaction=nonstopmode -output-directory=%o %f"))
+
+(map!  (:after auctext
+       :map LaTeX-mode-map
+       :leader
+       :desc "compile" "c" #'TeX-command-master))
+
+(setq! ispell-personal-dictionary "~/.config/spell/dict.txt")
+
+(setq ispell-program-name "hunspell")
+(ispell-check-version)
 
 (setq conda-anaconda-home "~/opt/anaconda")
 
@@ -210,5 +230,3 @@
         :desc "file" "f" #'mips-run-file
         :desc "region" "r" #'mips-run-region
         :desc "buffer" "b" #'mips-run-region)))
-
-./configure -with-json -with-imagemagick --with-xpm=ifavailable --with-native-compilation

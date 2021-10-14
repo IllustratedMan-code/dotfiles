@@ -6,7 +6,7 @@
       user-mail-address "davidalewis00@gmail.com")
 #+END_SRC
 * Build information
-#+begin_src sh
+#+begin_src sh :tangle no
 ./configure -with-json -with-imagemagick --with-xpm=ifavailable --with-native-compilation
 #+end_src
 * Theme
@@ -114,7 +114,7 @@ set theme with doom-theme or load theme with load-theme
         :desc "jupyter-python" "p" #'insert-jupyter-python-block
         :desc "jupyter-R" "r" #'insert-jupyter-ess-block
         :desc "elisp" "e" #'insert-elisp-block
-        :desc "gnuplot" "g" #'insert-elisp-block
+        :desc "gnuplot" "g" #'insert-gnuplot-block
         :desc "generic" "b" #'insert-generic-block)))
 #+end_src
 
@@ -194,6 +194,53 @@ This block changes the default term type for png file types
 (after! org
   (setq! org-startup-with-latex-preview t)
   (setq! org-startup-with-inline-images t))
+#+end_src
+** set header args
+#+begin_src elisp
+(setq! org-global-properties '(("header-args:latex" . ":results output file graphics :imagemagick yes :headers '(\"\\\\usepackage{tikz}\ \\\\usepackage{siunitx}\ \\\\usepackage{gensymb}\") :fit yes :iminoptions -density 600")
+                               ("header-args" . ":pandoc t")))
+#+end_src
+
+#+RESULTS:
+: ((header-args:latex . :results output file graphics :imagemagick yes :headers '("\\usepackage{tikz}\\usepackage{siunitx}") :fit yes :iminoptions -density 600) (header-args . :pandoc t))
+** org-krita
+#+begin_src elisp
+(use-package! org-krita
+  :config
+  (add-hook 'org-mode-hook 'org-krita-mode))
+#+end_src
+#+RESULTS:
+| er/add-org-mode-expansions | edraw-org-link-image-mode | org-fragtog-mode | +lookup--init-org-mode-handlers-h | (closure (t) (&rest _) (add-hook 'before-save-hook 'org-encrypt-entries nil t)) | #[0 \300\301\302\303\304$\207 [add-hook change-major-mode-hook org-show-all append local] 5] | #[0 \300\301\302\303\304$\207 [add-hook change-major-mode-hook org-babel-show-result-all append local] 5] | org-babel-result-hide-spec | org-babel-hide-all-hashes | #[0 \301\211\207 [imenu-create-index-function org-imenu-get-tree] 2] | doom-disable-show-paren-mode-h | doom-disable-show-trailing-whitespace-h | +org-enable-auto-reformat-tables-h | +org-enable-auto-update-cookies-h | +org-make-last-point-visible-h | org-fancy-priorities-mode | org-superstar-mode | evil-org-mode | toc-org-enable | writegood-mode | embrace-org-mode-hook | org-eldoc-load | +literate-enable-recompile-h |
+
+* Latex setup
+** Use LuaTex
+#+begin_src elisp
+(setq! TeX-engine 'luatex)
+(setq! org-latex-pdf-process '("lualatex -f -pdf -%latex -interaction=nonstopmode -output-directory=%o %f"))
+#+end_src
+
+#+RESULTS:
+| lualatex -f -pdf -%latex -interaction=nonstopmode -output-directory=%o %f |
+
+** Keymap
+#+begin_src elisp
+(map!  (:after auctext
+       :map LaTeX-mode-map
+       :leader
+       :desc "compile" "c" #'TeX-command-master))
+#+end_src
+
+#+RESULTS:
+
+* Spell setup
+** Personal Dictionary
+#+begin_src elisp
+(setq! ispell-personal-dictionary "~/.config/spell/dict.txt")
+#+end_src
+** Fix hunspell bug
+#+begin_src elisp
+(setq ispell-program-name "hunspell")
+(ispell-check-version)
 #+end_src
 
 * Python setup
