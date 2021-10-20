@@ -115,7 +115,8 @@
 
 (after! org
   (setq! org-startup-with-latex-preview t)
-  (setq! org-startup-with-inline-images t))
+  (setq! org-startup-with-inline-images t)
+  (setq! org-latex-image-default-width "1in"))
 
 (setq! org-global-properties '(("header-args:latex" . ":results output file graphics :imagemagick yes :headers '(\"\\\\usepackage{tikz}\ \\\\usepackage{siunitx}\ \\\\usepackage{gensymb}\") :fit yes :iminoptions -density 600")
                                ("header-args" . ":pandoc t")))

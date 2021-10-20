@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: matrix
+# uuid: matrix
+# key: []
+# condition: t
+# --
+\begin{${1:bmatrix}} ${2:content} \end{$1}$0

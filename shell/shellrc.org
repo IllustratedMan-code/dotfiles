@@ -1,22 +1,35 @@
 * bashrc sources
 :PROPERTIES:
-:HEADER-ARGS: :tangle bashrcSRC.sh
+:HEADER-ARGS: :tangle SRC.sh
 :END:
 All code blocks here are appended to the bashrc file. The purpose of this file is to source the other files
-** Generic bashrc
+** Generic rc
 #+begin_src sh
-source .config/bash/genericBashrc.sh
+source ~/.config/shell/generic.sh
 #+end_src
+** Bash Specific
+#+begin_src sh
+if echo $SHELL | grep -q "bash"; then
+    source ~/.config/shell/bash.sh
+fi
+#+end_src
+** zsh Specific
+#+begin_src sh
+if echo $SHELL | grep -q "zsh"; then
+    source ~/.config/shell/zsh.sh
+fi
+#+end_src
+
 ** Sway
 #+begin_src sh
 if command -v sway &> /dev/null
    then
-       source .config/bash/swayBashrc.sh
+       source ~/.config/shell/swayBashrc.sh
 fi
 #+end_src
-* generic Bashrc
+* generic zsh/Bashrc
 :PROPERTIES:
-:HEADER-ARGS: :tangle genericBashrc.sh
+:HEADER-ARGS: :tangle generic.sh
 :END:
 This is will be included in .bashrc regardless of linux install.
 ** Test if interactive
@@ -54,6 +67,22 @@ alias c='clear'
 #+begin_src sh
 export PATH=$PATH:~/.emacs.d/bin
 #+end_src
+* Bash Specific
+:PROPERTIES:
+:HEADER-ARGS: :tangle bash.sh
+:END:
+** set the prompt text with the PS1 variable
+#+begin_src sh
+PS1='\w > '
+#+end_src
+* Zsh Specific
+:PROPERTIES:
+:HEADER-ARGS: :tangle zsh.sh
+:END:
+** set the prompt text with the PS1 variable
+#+begin_src sh
+PS1='%2d > '
+#+end_src
 * Sway specific
 :PROPERTIES:
 :HEADER-ARGS: :tangle swayBashrc.sh
@@ -74,19 +103,24 @@ export XDG_SCREENSHOTS_DIR=~/Pictures/Screenshots
 
 * Install
 :PROPERTIES:
-:HEADER-ARGS: :tangle ../installBash.sh
+:HEADER-ARGS: :tangle ../installShell.sh
 :END:
 This script installs the bash config
 ** symlink files to .config/bash
 #+begin_src sh
-rm -rf $HOME/.config/bash
-cp -r ./bash $HOME/.config/bash
+rm -rf $HOME/.config/shell
+cp -r ./shell $HOME/.config/shell
 #+end_src
 
 ** add src file to bashrc
 #+begin_src sh
-SRC="$HOME/.config/bash/bashrcSRC.sh"
+SRC="$HOME/.config/shell/SRC.sh"
 grep -q $SRC $HOME/.bashrc || sed -i "1s,^,source $SRC \n," $HOME/.bashrc
+#+end_src
+** add src file to zshrc
+#+begin_src sh
+SRC="$HOME/.config/shell/SRC.sh"
+grep -q $SRC $HOME/.zshrc || sed -i "1s,^,source $SRC \n," $HOME/.zshrc
 #+end_src
 
 * Local Variables :noexport:

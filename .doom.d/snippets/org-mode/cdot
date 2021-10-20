@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
 # name: cdot
-# uuid:
+# uuid: cdot
 # key: *
-# condition: t
+# condition: (org-inside-LaTeX-fragment-p)
 # --
 \cdot
