@@ -1,8 +1,6 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-PS1='\w > '
-
 set -o vi
 
 alias pm='paru'
@@ -22,3 +20,4 @@ alias sudo='sudo '
 alias c='clear'
 
 export PATH=$PATH:~/.emacs.d/bin
+export PATH=$PATH:~/.ghcup/bin

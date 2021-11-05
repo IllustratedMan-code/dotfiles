@@ -37,10 +37,6 @@ This is will be included in .bashrc regardless of linux install.
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 #+end_src
-** set the prompt text with the PS1 variable
-#+begin_src sh
-PS1='\w > '
-#+end_src
 ** set vi keybinds
 #+begin_src sh
 set -o vi
@@ -66,6 +62,7 @@ alias c='clear'
 ** Environment variables
 #+begin_src sh
 export PATH=$PATH:~/.emacs.d/bin
+export PATH=$PATH:~/.ghcup/bin
 #+end_src
 * Bash Specific
 :PROPERTIES:
@@ -81,7 +78,7 @@ PS1='\w > '
 :END:
 ** set the prompt text with the PS1 variable
 #+begin_src sh
-PS1='%2d > '
+PS1='%F{green}%~%f > '
 #+end_src
 * Sway specific
 :PROPERTIES:

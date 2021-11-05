@@ -55,3 +55,5 @@
 (package! edraw-org
   :recipe (:host github :repo "lepisma/org-krita" :files ("resources" "*.el")))
 (package! lilypond)
+(package! citeproc)
+(package! bibtex-completion)
