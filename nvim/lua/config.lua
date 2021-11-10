@@ -53,7 +53,5 @@ require("org-bullets").setup {
 	symbols = { "◉", "○", "✸", "✿" }
 }
 require'telescope'.load_extension('project')
-
-require('nord').set()
-vim.cmd [[hi link WhichKeyValue Question]]
-
+require('neogit').setup{}
+require('neogit').config.use_magit_keybindings()

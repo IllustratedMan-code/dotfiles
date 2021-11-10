@@ -21,6 +21,10 @@ wk.register({
 				p = {function () require('telescope').extensions.project.project{} end, "list projects"},
 			},
         w = {"<c-w>", "window", noremap=false},
+		g = {
+				name = "github",
+				g = {require('neogit').open, "git status"},
+			},
 	t = {"<cmd>NvimTreeToggle<cr>", "tree"}
 }, {prefix = "<leader>"})
 

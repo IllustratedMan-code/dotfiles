@@ -12,6 +12,8 @@ return require('packer').startup(function()
   	use {'kyazdani42/nvim-tree.lua',requires = 'kyazdani42/nvim-web-devicons'}
   	use {'kristijanhusak/orgmode.nvim', branch = 'tree-sitter', requires = 'akinsho/org-bullets.nvim'}
   	use 'neovim/nvim-lspconfig'
+	use {'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim'}
+	use {'jamespeapen/Nvim-R', brance = 'stable'}
 
 
   	use {'tpope/vim-dispatch', opt = true, cmd = {'Dispatch', 'Make', 'Focus', 'Start'}}

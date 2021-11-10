@@ -58,6 +58,14 @@ alias v='nvim'
 alias update-grub='grub-mkconfig -o /boot/grub/grub.cfg'
 alias sudo='sudo '
 alias c='clear'
+alias top='vtop --theme nord'
+#+end_src
+** Functions
+#+begin_src sh
+pdfcombine ()
+{
+   gs -q -dNOPAUSE -sDEVICE=pdfwrite -sOUTPUTFILE=${1%.*}.pdf -dBATCH ${@:2}
+}
 #+end_src
 ** Environment variables
 #+begin_src sh

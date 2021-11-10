@@ -18,6 +18,12 @@ alias v='nvim'
 alias update-grub='grub-mkconfig -o /boot/grub/grub.cfg'
 alias sudo='sudo '
 alias c='clear'
+alias top='vtop --theme nord'
+
+pdfcombine ()
+{
+   gs -q -dNOPAUSE -sDEVICE=pdfwrite -sOUTPUTFILE=${1%.*}.pdf -dBATCH ${@:2}
+}
 
 export PATH=$PATH:~/.emacs.d/bin
 export PATH=$PATH:~/.ghcup/bin
