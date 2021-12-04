@@ -1,8 +1,15 @@
+vim.cmd [[tnoremap <Esc> <C-\><C-n>]]
+vim.cmd [[nmap <leader>w <C-w>]]
+
+
 require("which-key").setup {}
+
 functions = require("myfunctions")
 
 local wk = require("which-key")
+local telescope = require('telescope.builtin')
 wk.register({
+	["<leader>"] = {
         c = {
          name = "config",
                 r = {"<cmd>source $MYVIMRC<cr>", "reload config"},
@@ -16,20 +23,55 @@ wk.register({
 		p = {
 				name = "projects",
 				c = {"<cmd>cd %:p:h<cr>", "change wd to cd"},
-				f = {require('telescope.builtin').find_files, "find file"},
-				b = {require('telescope.builtin').buffers, "list buffers"},
+				f = {telescope.find_files, "find file"},
+				b = {telescope.buffers, "list buffers"},
 				p = {function () require('telescope').extensions.project.project{} end, "list projects"},
+				g = {
+					name = "grep",
+					h = {telescope.grep_string, "grep string here"},
+					s = {telescope.live_grep, "grep string"},
+				},
 			},
-        w = {"<c-w>", "window", noremap=false},
+		l = {
+				name = "lsp",
+				a = {telescope.lsp_code_actions, "list actions here"},
+				p = {
+						name = "problems and diagnostics",
+						f = {telescope.lsp_document_diagnostics, "file diagnostics"},
+						w = {telescope.lsp_workspace_diagnostics, "workspace diagnostics"}
+					},
+				d = {telescope.lsp_definitions, "definition here"},
+				f = {vim.lsp.buf.formatting, "format buffer"},
+			},
+		w = {name="window"},
 		g = {
-				name = "github",
+				name = "git",
 				g = {require('neogit').open, "git status"},
 			},
-	t = {"<cmd>NvimTreeToggle<cr>", "tree"}
-}, {prefix = "<leader>"})
+		m = {
+				name =  "local-leader",
+				s = {
+						name = "send",
+						l = {"<cmd>TREPLSendLine<cr>", "send line"},
+						f = {"<cmd>TREPLSendFile<cr>", "send file"},
+					},
+				
+			},
+	t = {"<cmd>NvimTreeToggle<cr>", "toggle-tree"},
+	},
+})
 
-local custom_lsp_attach = function(client)
-vim.api.nvim_buf_set_keymap(0, 'n', 'K', '<cmd>lua vim.lsp.buf.defintion()<CR>', {noremap = true})
-vim.api.nvim_buf_set_option(0, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-vim.cmd [[hi link WhichKeyValue Question]]
-end
+wk.register({
+	["<leader>m"] = {
+						name = "local-leader", 
+						v = {"<cmd>TREPLSendSelection<cr>", "send selection", mode="v"},
+					}
+			}, {mode="v"})
+
+
+
+
+vim.api.nvim_set_keymap('n', 'z=', '<Cmd>Telescope spell_suggest theme=get_cursor<CR>', { noremap = false })
+vim.api.nvim_set_keymap('n', 'zt', '<Cmd>setlocal spell!<CR>', {noremap = false})
+vim.api.nvim_buf_set_keymap(0, 'n', 'K', '<cmd>Telescope man_pages<CR>', {noremap = false})
+

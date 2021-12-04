@@ -186,6 +186,10 @@
   :config
   (add-hook 'org-mode-hook 'org-krita-mode))
 
+(after! org
+  (setq! org-startup-truncated 'nil)
+  )
+
 (setq! TeX-engine 'luatex)
 (setq! org-latex-pdf-process '("lualatex -f -pdf -%latex -interaction=nonstopmode -output-directory=%o %f"))
 

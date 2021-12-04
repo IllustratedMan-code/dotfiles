@@ -10,32 +10,24 @@ return require('packer').startup(function()
   	use {'nvim-neorg/neorg', requires = 'nvim-lua/plenary.nvim'}
   	use {'nvim-telescope/telescope.nvim', requires = {'nvim-lua/plenary.nvim', 'nvim-telescope/telescope-project.nvim'}}
   	use {'kyazdani42/nvim-tree.lua',requires = 'kyazdani42/nvim-web-devicons'}
-  	use {'kristijanhusak/orgmode.nvim', branch = 'tree-sitter', requires = 'akinsho/org-bullets.nvim'}
+  	use {'kristijanhusak/orgmode.nvim', requires = 'akinsho/org-bullets.nvim'}
   	use 'neovim/nvim-lspconfig'
 	use {'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim'}
-	use {'jamespeapen/Nvim-R', brance = 'stable'}
-
+	use {'kassio/neoterm'}
+	use {'jubnzv/mdeval.nvim'}
+	use {'ms-jpq/coq_nvim', branch='coq'}
+	use {'ms-jpq/coq.artifacts', branch='artifacts'}
+	use {'lervag/vimtex'}
+	use {'ggandor/lightspeed.nvim'}
 
   	use {'tpope/vim-dispatch', opt = true, cmd = {'Dispatch', 'Make', 'Focus', 'Start'}}
 
-  -- Load on an autocommand event
-  	use {'andymass/vim-matchup', event = 'VimEnter'}
+  	use {'andymass/vim-matchup'}
 
   -- Load on a combination of conditions: specific filetypes or commands
   -- Also run code after load (see the "config" key)
-  	use {
-   	 'w0rp/ale',
-   	 ft = {'sh', 'zsh', 'bash', 'c', 'cpp', 'cmake', 'html', 'markdown', 'racket', 'vim', 'tex'},
-    	cmd = 'ALEEnable',
-    	config = 'vim.cmd[[ALEEnable]]'
-  	}
 
   -- Plugins can have dependencies on other plugins
-  	use {
-    	'haorenW1025/completion-nvim',
-    	opt = true,
-    	requires = {{'hrsh7th/vim-vsnip', opt = true}, {'hrsh7th/vim-vsnip-integ', opt = true}}
-  	}
 
   -- You can specify rocks in isolation
   	use_rocks 'penlight'
