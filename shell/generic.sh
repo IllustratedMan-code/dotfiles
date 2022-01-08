@@ -12,13 +12,13 @@ alias vi='nvim'
 alias vim='nvim'
 alias vimedit='export EDITOR=nvim && sudoedit'
 alias emacsedit='export EDITOR=emacsclient && sudoedit'
-alias emacs='emacsclient'
 alias e='emacsclient'
 alias v='nvim'
 alias update-grub='grub-mkconfig -o /boot/grub/grub.cfg'
 alias sudo='sudo '
 alias c='clear'
 alias top='vtop --theme nord'
+alias open='xdg-open'
 
 pdfcombine ()
 {
@@ -38,3 +38,4 @@ pdfinterleavebend ()
 export PATH=$PATH:~/.emacs.d/bin
 export PATH=$PATH:~/.ghcup/bin
 export PATH=$PATH:./node_modules/.bin
+export PATH=$PATH:~/.local/bin

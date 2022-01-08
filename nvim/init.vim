@@ -4,12 +4,14 @@ filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 set tabstop=4
 set shiftwidth=4
+set expandtab
 set timeoutlen=400
 inoremap <C-k> <C-x><C-o>
 nnoremap <SPACE> <nop>
 vnoremap <SPACE> <nop>
 let mapleader=" "
 let maplocalleader=" m"
+let g:python3_host_prog='/home/david/anaconda3/bin/python'
 
 lua require ('plugins')
 lua require ('config')

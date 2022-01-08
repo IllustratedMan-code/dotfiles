@@ -31,6 +31,7 @@ wk.register({
 					h = {telescope.grep_string, "grep string here"},
 					s = {telescope.live_grep, "grep string"},
 				},
+				e = {function() require('telescope').extensions.conda.conda{} end, "set conda environment"}
 			},
 		l = {
 				name = "lsp",

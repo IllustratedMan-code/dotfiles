@@ -1,5 +1,9 @@
 require('nvim-tree').setup{
 	update_cwd = true,
+	git = {
+		enable = true,
+		ignore = false
+			},
 }
 
 local parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
@@ -68,6 +72,14 @@ require('neogit').config.use_magit_keybindings()
 vim.o.completeopt = 'menuone,noselect,noinsert'
 vim.o.showmode = false
 
-vim.g.coq_settings = { ["auto_start"] = true, ["display.pum.fast_close"] = false, ['keymap.eval_snips'] = '<leader>j'}
+vim.g.coq_settings = { ["auto_start"] = true, ["display.pum.fast_close"] = false, ['keymap.eval_snips'] = '<leader>j', ["completion.always"] = false}
+
+vim.diagnostic.config({
+    virtual_text = false,
+})
+vim.cmd([[au CursorHold * lua vim.diagnostic.open_float(0,{scope = "cursor"})]])
+vim.o.updatetime = 300
+
+vim.g.nord_contrast = true
 
 
