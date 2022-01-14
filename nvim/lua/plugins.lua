@@ -29,6 +29,12 @@ return require('packer').startup(function(use)
   	}
   	use {'tjdevries/colorbuddy.vim'}
 	use {'chrisbra/csv.vim'}
+    use {
+    'goolord/alpha-nvim',
+    config = function ()
+        require'alpha'.setup(require'alpha.themes.dashboard'.opts)
+    end
+    }
 
 end)
 

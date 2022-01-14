@@ -68,7 +68,6 @@ require('telescope').setup{
 }
 require'telescope'.load_extension('project')
 require('neogit').setup{}
-require('neogit').config.use_magit_keybindings()
 vim.o.completeopt = 'menuone,noselect,noinsert'
 vim.o.showmode = false
 

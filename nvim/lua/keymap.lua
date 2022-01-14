@@ -19,6 +19,8 @@ wk.register({
                 name = "file",
                 s = {"<cmd>w<cr>", "save file"},
 				f = {require('telescope.builtin').file_browser, "find file"},
+                x = {vim.lsp.buf.formatting, "format file"},
+                
         },
 		p = {
 				name = "projects",
@@ -56,7 +58,6 @@ wk.register({
 						l = {"<cmd>TREPLSendLine<cr>", "send line"},
 						f = {"<cmd>TREPLSendFile<cr>", "send file"},
 					},
-				
 			},
 	t = {"<cmd>NvimTreeToggle<cr>", "toggle-tree"},
 	},
