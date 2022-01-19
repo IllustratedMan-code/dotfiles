@@ -11,7 +11,6 @@ nnoremap <SPACE> <nop>
 vnoremap <SPACE> <nop>
 let mapleader=" "
 let maplocalleader=" m"
-let g:python3_host_prog='/home/david/anaconda3/bin/python'
 
 lua require ('plugins')
 lua require ('config')

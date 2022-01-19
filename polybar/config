@@ -9,8 +9,7 @@
 ;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
 ;
 ;
-;   To learn more about how to configure Polybar
-;   go to https://github.com/polybar/polybar
+;   To learn more about how to configure Polybar go to https://github.com/polybar/polybar
 ;
 ;   The README contains a lot of information
 ;
@@ -449,10 +448,10 @@ margin-bottom = 5
 
 [module/bluetooth]
 type = custom/script
-exec = rofi-bluetooth --status
+exec = ~/.config/polybar/rofi-bluetooth --status
 label = %{T4}%output%%{T-}
 interval = 1
-click-left = rofi-bluetooth &
+click-left = ~/.config/polybar/rofi-bluetooth &
 format-underline = ${colors.nord0}
 
 
