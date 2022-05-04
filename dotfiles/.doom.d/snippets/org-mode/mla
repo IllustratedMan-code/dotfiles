@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# name: mla
+# uuid: mla
+# key: MLA
+# condition: t
+# --
+#+title: $1
+#+latex_header: \firstname{${3:David}}
+#+latex_header: \lastname{${4:Lewis}}
+#+latex_header: \professor{${5:professor}}
+#+latex_header: \class{${6:classname}}
+#+latex_class: mla
+#+cite_export: csl modern-language-association.csl
+#+options: toc:nil num:nil

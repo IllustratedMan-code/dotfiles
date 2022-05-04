@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: quadratic-formula
+# uuid: quadratic-formula
+# key: quadratic
+# condition: (org-inside-LaTeX-fragment-p)
+# --
+\frac{- ${1:b} \pm \sqrt{$1 ^2 - 4(${2:a} \cdot ${3:c})}}{2 \cdot $2}$0
