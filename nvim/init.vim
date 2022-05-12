@@ -18,8 +18,10 @@ lua require ('lsp')
 lua require ('keymap')
 lua require ('line')
 
-au VimEnter * highlight link WhichKeyValue Question
+
 colorscheme nord
+
+au VimEnter * highlight link WhichKeyValue Question
 
 if exists('g:started_by_firenvim')
     autocmd FocusLost * ++nested write

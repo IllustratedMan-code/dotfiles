@@ -6,6 +6,12 @@ require('nvim-tree').setup{
 			},
 }
 
+require("sidebar-nvim").setup({
+    open = false,
+    sections = {"files", "git", "todos", "diagnostics"}
+})
+
+
 local parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
 
 parser_configs.norg = {
@@ -15,15 +21,7 @@ parser_configs.norg = {
         branch = "main"
     },
 }
-parser_configs.org = {
-  install_info = {
-    url = 'https://github.com/milisims/tree-sitter-org',
-    revision = 'main',
-    files = {'src/parser.c', 'src/scanner.cc'},
-  },
-  filetype = 'org',
-}
-
+require('orgmode').setup_ts_grammar()
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "all",-- one of "all", "maintained" (parsers with maintainers), or a list of languages
   highlight = {
@@ -60,18 +58,19 @@ require("org-bullets").setup {
 	symbols = { "◉", "○", "✸", "✿" }
 }
 require('telescope').setup{
-	pickers = {
+	extensions = {
 		file_browser = {
 			theme = "ivy"
 		}
 	}
 }
 require'telescope'.load_extension('project')
+require'telescope'.load_extension('file_browser')
 require('neogit').setup{}
 vim.o.completeopt = 'menuone,noselect,noinsert'
 vim.o.showmode = false
 
-vim.g.coq_settings = { ["auto_start"] = true, ["display.pum.fast_close"] = false, ['keymap.eval_snips'] = '<leader>j', ["completion.always"] = false}
+vim.g.coq_settings = { ["auto_start"] = false, ["display.pum.fast_close"] = false, ['keymap.eval_snips'] = '<leader>j', ["completion.always"] = false}
 
 vim.diagnostic.config({
     virtual_text = false,

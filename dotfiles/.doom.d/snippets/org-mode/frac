@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: frac
-# uuid: frac
-# key: frac
-# key: /
-# condition: (org-inside-LaTeX-fragment-p)
-# --
-\frac{${1:numberator}}{${2:denominator}}$0

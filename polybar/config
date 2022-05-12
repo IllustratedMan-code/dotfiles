@@ -63,18 +63,18 @@ border-size = 1
 border-bottom = 5
 border-color = ${colors.nord0}
 
-padding-left = 2
-padding-right = 2
+padding-left = 1
+padding-right = 1
 
 module-margin-left = 1
-module-margin-right = 2
+module-margin-right = 0
 
 font-0 = "JetBrainsMono Nerd Font Mono:pixelsize=13;1"
-font-1 = unifont:fontformat=truetype:size=12:antialias=true;0
+font-1 = unifont:fontformat=truetype:size=15:antialias=true;0
 font-2 = "JetBrainsMono Nerd Font Mono:pixelsize=20;1"
 font-3 = "JetBrainsMono Nerd Font Mono:pixelsize=15;1"
 
-modules-left = battery wlan eth date
+modules-left = battery wlan eth date pomodoro
 modules-right = backlight-acpi pulseaudio bluetooth
 modules-center = i3 
 
@@ -242,7 +242,7 @@ label = %percentage_used%%
 
 [module/wlan]
 type = internal/network
-interface = wlan0
+interface = wlp82s0
 interval = 3.0
 
 format-connected = <ramp-signal>
@@ -254,7 +254,7 @@ format-disconnected = disconnected
 ;format-disconnected-underline = ${self.format-connected-underline}
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
-
+ramp-signal-font = 3
 ramp-signal-0 = 睊
 ramp-signal-1 = 直
 ramp-signal-2 = 直
@@ -356,7 +356,7 @@ type = internal/battery
 battery = BAT0
 adapter = AC
 full-at = 96
-
+font = 3
 format-charging = <label-charging>
 format-charging-underline = ${colors.nord14}
 
@@ -453,6 +453,12 @@ label = %{T4}%output%%{T-}
 interval = 1
 click-left = ~/.config/polybar/rofi-bluetooth &
 format-underline = ${colors.nord0}
+
+[module/pomodoro]
+type = custom/script
+exec = ~/.config/polybar/pomodoro.sh 
+interval = 5
+
 
 
 ; vim:ft=dosini

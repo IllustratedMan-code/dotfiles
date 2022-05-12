@@ -18,14 +18,14 @@ wk.register({
         f = {
                 name = "file",
                 s = {"<cmd>w<cr>", "save file"},
-				f = {require('telescope.builtin').file_browser, "find file"},
-                x = {vim.lsp.buf.formatting, "format file"},
+                z = {vim.lsp.buf.formatting, "format file"},
+				f = {function() require 'telescope'.extensions.file_browser.file_browser() end, "find file"},
                 
         },
 		p = {
 				name = "projects",
 				c = {"<cmd>cd %:p:h<cr>", "change wd to cd"},
-				f = {telescope.find_files, "find file"},
+				f = {function() require 'telescope'.extensions.file_browser.file_browser() end, "find file"},
 				b = {telescope.buffers, "list buffers"},
 				p = {function () require('telescope').extensions.project.project{} end, "list projects"},
 				g = {
@@ -59,7 +59,7 @@ wk.register({
 						f = {"<cmd>TREPLSendFile<cr>", "send file"},
 					},
 			},
-	t = {"<cmd>NvimTreeToggle<cr>", "toggle-tree"},
+	t = {require("sidebar-nvim").toggle, "toggle-tree"},
 	},
 })
 

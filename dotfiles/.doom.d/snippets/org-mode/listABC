@@ -1,9 +1,0 @@
-# -*- mode: snippet -*-
-# name: listABC
-# uuid: listABC
-# key: a.
-# condition: t
-# --
-
-#+attr_latex: :options [(a)]
-a.

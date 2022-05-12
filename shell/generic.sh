@@ -1,7 +1,7 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-set -o vi
+# set -o vi
 
 alias pm='paru'
 alias ls='ls --color=auto'
@@ -37,5 +37,6 @@ pdfinterleavebend ()
 
 export PATH=$PATH:~/.emacs.d/bin
 export PATH=$PATH:~/.ghcup/bin
-export PATH=$PATH:./node_modules/.bin
+export PATH=$PATH:~/node_modules/.bin
 export PATH=$PATH:~/.local/bin
+export PATH=$PATH:~/.npm-global/bin

@@ -5,6 +5,10 @@
 (setq user-full-name "David Lewis"
       user-mail-address "davidalewis00@gmail.com")
 #+END_SRC
+* Doom config
+#+begin_src elisp
+(setq! doom-private-dir "~/nixos/dotfiles/.doom.d/")
+#+end_src
 * Build information
 #+begin_src sh :tangle no
 ./configure -with-json -with-imagemagick --with-xpm=ifavailable --with-native-compilation
@@ -198,6 +202,7 @@ This block changes the default term type for png file types
   (setq! org-cite-export-processors '(t csl))
   (setq! org-cite-global-bibliography (list"~/Dropbox/org/citations/citations.json"))
   (setq! yas/triggers-in-field t)
+  (setq! org-xournalpp-image-type 'png)
   (setq! org-export-allow-bind-keywords t))
 (with-eval-after-load 'ox-latex
   (add-to-list 'org-latex-classes '("apa" "\\documentclass[11pt]{apa7}"
@@ -206,10 +211,25 @@ This block changes the default term type for png file types
                                     ("\\section{%s}" . "\\section*{%s}")
                                     ("\\subsection{%s}" . "\\subsection*{%s}")
                                     ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))))
+(with-eval-after-load 'ox-latex
+  (add-to-list 'org-latex-classes '("mla" "\\documentclass{mla}"
+                                    ("\\part{%s}" . "\\part*{%s}")
+                                    ("\\chapter{%s}" . "\\chapter*{%s}")
+                                    ("\\section{%s}" . "\\section*{%s}")
+                                    ("\\subsection{%s}" . "\\subsection*{%s}")
+                                    ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))))
 #+end_src
 
 #+RESULTS:
-: t
+| mla     | \documentclass{mla}                                      | (\part{%s} . \part*{%s})       | (\chapter{%s} . \chapter*{%s})       | (\section{%s} . \section*{%s})             | (\subsection{%s} . \subsection*{%s}) | (\subsubsection{%s} . \subsubsection*{%s}) |
+| mla     | \documentclass{article} \usepackage{~/.doom.d/mla13.sty} | (\part{%s} . \part*{%s})       | (\chapter{%s} . \chapter*{%s})       | (\section{%s} . \section*{%s})             | (\subsection{%s} . \subsection*{%s}) | (\subsubsection{%s} . \subsubsection*{%s}) |
+| mla     | \documentclass[11pt]{mla}                                | (\part{%s} . \part*{%s})       | (\chapter{%s} . \chapter*{%s})       | (\section{%s} . \section*{%s})             | (\subsection{%s} . \subsection*{%s}) | (\subsubsection{%s} . \subsubsection*{%s}) |
+| beamer  | \documentclass[presentation]{beamer}                     | (\section{%s} . \section*{%s}) | (\subsection{%s} . \subsection*{%s}) | (\subsubsection{%s} . \subsubsection*{%s}) |                                      |                                            |
+| apa     | \documentclass[11pt]{apa7}                               | (\part{%s} . \part*{%s})       | (\chapter{%s} . \chapter*{%s})       | (\section{%s} . \section*{%s})             | (\subsection{%s} . \subsection*{%s}) | (\subsubsection{%s} . \subsubsection*{%s}) |
+| article | \documentclass[11pt]{article}                            | (\section{%s} . \section*{%s}) | (\subsection{%s} . \subsection*{%s}) | (\subsubsection{%s} . \subsubsection*{%s}) | (\paragraph{%s} . \paragraph*{%s})   | (\subparagraph{%s} . \subparagraph*{%s})   |
+| report  | \documentclass[11pt]{report}                             | (\part{%s} . \part*{%s})       | (\chapter{%s} . \chapter*{%s})       | (\section{%s} . \section*{%s})             | (\subsection{%s} . \subsection*{%s}) | (\subsubsection{%s} . \subsubsection*{%s}) |
+| book    | \documentclass[11pt]{book}                               | (\part{%s} . \part*{%s})       | (\chapter{%s} . \chapter*{%s})       | (\section{%s} . \section*{%s})             | (\subsection{%s} . \subsection*{%s}) | (\subsubsection{%s} . \subsubsection*{%s}) |
+
 ** citations
 #+begin_src elisp
 (use-package! bibtex-completion
@@ -271,11 +291,12 @@ This block changes the default term type for png file types
 
 #+RESULTS:
 : ((header-args:latex . :results output file graphics :imagemagick yes :headers '("\\usepackage{tikz}\\usepackage{siunitx}") :fit yes :iminoptions -density 600) (header-args . :pandoc t))
-** org-krita
+** org-xournalpp
 #+begin_src elisp
-(use-package! org-krita
-  :config
-  (add-hook 'org-mode-hook 'org-krita-mode))
+;;(use-package! org-xournalpp
+;;  :config
+;;  (add-hook 'org-mode-hook 'org-xournalpp-mode))
+
 #+end_src
 #+RESULTS:
 | er/add-org-mode-expansions | edraw-org-link-image-mode | org-fragtog-mode | +lookup--init-org-mode-handlers-h | (closure (t) (&rest _) (add-hook 'before-save-hook 'org-encrypt-entries nil t)) | #[0 \300\301\302\303\304$\207 [add-hook change-major-mode-hook org-show-all append local] 5] | #[0 \300\301\302\303\304$\207 [add-hook change-major-mode-hook org-babel-show-result-all append local] 5] | org-babel-result-hide-spec | org-babel-hide-all-hashes | #[0 \301\211\207 [imenu-create-index-function org-imenu-get-tree] 2] | doom-disable-show-paren-mode-h | doom-disable-show-trailing-whitespace-h | +org-enable-auto-reformat-tables-h | +org-enable-auto-update-cookies-h | +org-make-last-point-visible-h | org-fancy-priorities-mode | org-superstar-mode | evil-org-mode | toc-org-enable | writegood-mode | embrace-org-mode-hook | org-eldoc-load | +literate-enable-recompile-h |
@@ -287,16 +308,70 @@ This block changes the default term type for png file types
 #+end_src
 
 #+RESULTS:
+** Org pomodoro
+#+begin_src elisp
+(setq alert-user-configuration (quote ((((:category . "org-pomodoro")) libnotify nil))))
+(defun david/org-pomodoro-time ()
+  "Return the remaining pomodoro time"
+  (if (fboundp 'org-pomodoro-active-p)
+  (if (org-pomodoro-active-p)
+      (cl-case org-pomodoro-state
+        (:pomodoro
+           (format "Pomo: %d minutes - %s" (/ (org-pomodoro-remaining-seconds) 60) org-clock-heading))
+        (:short-break
+         (format "Short break time: %d minutes" (/ (org-pomodoro-remaining-seconds) 60)))
+        (:long-break
+         (format "Long break time: %d minutes" (/ (org-pomodoro-remaining-seconds) 60)))
+        (:overtime
+         (format "Overtime! %d minutes" (/ (org-pomodoro-remaining-seconds) 60))))
+    "No active pomo") "no active pomo"))
+(use-package org-pomodoro
+  :ensure t
+  :commands (org-pomodoro)
+  :config
+  (setq
+   org-pomodoro-length 50
+   org-pomodoro-short-break-length 10
+   ))
+#+end_src
+
+#+RESULTS:
+: david/org-pomodoro-time
+
+** nix hack
+Org mode (latex export) has the wrong time. Not sure how to fix. This does not work.
+#+begin_src elisp
+
+#+end_src
+
+#+RESULTS:
+: 1643676254
+** plantuml
+#+begin_src elisp
+(after! org (setq! org-plantuml-exec-mode 'plantuml))
+#+end_src
 
 * Latex setup
 ** Use LuaTex
 #+begin_src elisp
 (setq! TeX-engine 'luatex)
-(setq! org-latex-pdf-process '("lualatex -f -pdf -%latex -interaction=nonstopmode -output-directory=%o %f"))
+(after! org
+  (setq! org-latex-pdf-process '("PDFLATEX=lualatex LATEX=lualatex texi2dvi --pdf --clean --verbose --batch --shell-escape %f")))
+(after! org
+  (setq! org-latex-compiler "lualatex"))
+(after! org
+  (setq! org-latex-listings 'minted))
+(after! org
+  (setq! org-latex-minted-options
+         '(
+             ("fontsize" "\\scriptsize")
+             )
+                ))
 #+end_src
 
 #+RESULTS:
-| lualatex -f -pdf -%latex -interaction=nonstopmode -output-directory=%o %f |
+| frame    | lines       |
+| fontsize | \scriptsize |
 
 ** Keymap
 #+begin_src elisp
@@ -324,6 +399,12 @@ This block changes the default term type for png file types
 ** Anaconda directory
 #+begin_src elisp
 (setq conda-anaconda-home "~/opt/anaconda")
+#+end_src
+** LSP nix
+#+begin_src elisp
+(after! lsp-python-ms
+  (setq lsp-python-ms-executable (executable-find "python-language-server"))
+  (set-lsp-priority! 'mspyls 1))
 #+end_src
 
 * R setup

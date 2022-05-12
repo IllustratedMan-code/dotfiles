@@ -39,7 +39,7 @@ This is will be included in .bashrc regardless of linux install.
 #+end_src
 ** set vi keybinds
 #+begin_src sh
-set -o vi
+# set -o vi
 #+end_src
 ** aliases
 #+begin_src sh
@@ -81,9 +81,9 @@ pdfinterleavebend ()
 #+begin_src sh
 export PATH=$PATH:~/.emacs.d/bin
 export PATH=$PATH:~/.ghcup/bin
-export PATH=$PATH:./node_modules/.bin
+export PATH=$PATH:~/node_modules/.bin
 export PATH=$PATH:~/.local/bin
-
+export PATH=$PATH:~/.npm-global/bin
 #+end_src
 * Bash Specific
 :PROPERTIES:
@@ -92,6 +92,7 @@ export PATH=$PATH:~/.local/bin
 ** set the prompt text with the PS1 variable
 #+begin_src sh
 PS1='\w > '
+eval "$(direnv hook bash)"
 #+end_src
 * Zsh Specific
 :PROPERTIES:
@@ -100,6 +101,8 @@ PS1='\w > '
 ** set the prompt text with the PS1 variable
 #+begin_src sh
 PS1='%F{green}%~%f > '
+eval "$(direnv hook zsh)"
+
 #+end_src
 ** Persistent history
 #+begin_src sh
