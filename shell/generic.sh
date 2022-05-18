@@ -19,6 +19,7 @@ alias sudo='sudo '
 alias c='clear'
 alias top='vtop --theme nord'
 alias open='xdg-open'
+alias nixos-rebuild='nixos-rebuild switch --use-remote-sudo'
 
 pdfcombine ()
 {
