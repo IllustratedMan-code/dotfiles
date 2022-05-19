@@ -41,3 +41,4 @@ export PATH=$PATH:~/.ghcup/bin
 export PATH=$PATH:~/node_modules/.bin
 export PATH=$PATH:~/.local/bin
 export PATH=$PATH:~/.npm-global/bin
+export PATH=$PATH:~/.cargo/bin
