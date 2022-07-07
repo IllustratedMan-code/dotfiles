@@ -405,7 +405,13 @@ Org mode (latex export) has the wrong time. Not sure how to fix. This does not w
 (after! lsp-python-ms
   (setq lsp-python-ms-executable (executable-find "python-language-server"))
   (set-lsp-priority! 'mspyls 1))
+(after! lsp-clients-lua-language-server
+  (setq lsp-clients-lua-language-server-bin (executable-find "lua-language-server"))
+  (set-lsp-priority! 'lua-language-server 1))
 #+end_src
+
+#+RESULTS:
+: /etc/profiles/per-user/david/bin/lua-language-server
 
 * R setup
 ** keymap

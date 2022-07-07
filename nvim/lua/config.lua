@@ -70,7 +70,7 @@ require('neogit').setup{}
 vim.o.completeopt = 'menuone,noselect,noinsert'
 vim.o.showmode = false
 
-vim.g.coq_settings = { ["auto_start"] = false, ["display.pum.fast_close"] = false, ['keymap.eval_snips'] = '<leader>j', ["completion.always"] = false}
+vim.g.coq_settings = { ["auto_start"] = true, ["display.pum.fast_close"] = false, ['keymap.eval_snips'] = '<leader>j', ["completion.always"] = false}
 
 vim.diagnostic.config({
     virtual_text = false,

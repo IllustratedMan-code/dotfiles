@@ -34,6 +34,7 @@ return require('packer').startup(function(use)
   	use {'tjdevries/colorbuddy.vim'}
 	use {'chrisbra/csv.vim'}
     use {'mfussenegger/nvim-dap'}
+    use {'mfussenegger/nvim-dap-python'}
     use {
     'goolord/alpha-nvim',
     config = function ()
