@@ -19,7 +19,9 @@ alias sudo='sudo '
 alias c='clear'
 alias top='vtop --theme nord'
 alias open='xdg-open'
+# nix aliases
 alias nrs='nixos-rebuild switch --flake "~/nixconfig" --use-remote-sudo'
+alias update-input='nix flake lock --update-input'
 
 pdfcombine ()
 {
