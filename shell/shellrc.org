@@ -59,7 +59,7 @@ alias sudo='sudo '
 alias c='clear'
 alias top='vtop --theme nord'
 alias open='xdg-open'
-alias nixos-rebuild-switch='nixos-rebuild switch --use-remote-sudo'
+alias nrs='nixos-rebuild switch --flake "~/nixconfig" --use-remote-sudo'
 #+end_src
 ** Functions
 #+begin_src sh
