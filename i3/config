@@ -1,4 +1,4 @@
-
+include ~/.config/i3/colors.conf
 #
 # Copy this to ~/.config/sway/config and edit it to your liking.
 #

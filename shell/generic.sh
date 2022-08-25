@@ -20,7 +20,6 @@ alias c='clear'
 alias top='vtop --theme nord'
 alias open='xdg-open'
 # nix aliases
-alias nrs='nixos-rebuild switch --flake $HOME/nixconfig --use-remote-sudo'
 alias update-input='nix flake lock --update-input'
 
 pdfcombine ()
@@ -36,6 +35,12 @@ pdfinterleave ()
 pdfinterleavebend ()
 {
     pdftk A=${1%.*}.pdf B=${2%.*}.pdf shuffle A Bend-1 output ${3%.*}.pdf
+}
+nrs ()
+{
+    cd ~/nixconfig
+    nix flake lock --update-input dotfiles
+    nixos-rebuild switch --flake $HOME/nixconfig --use-remote-sudo
 }
 
 export PATH=$PATH:~/.emacs.d/bin
