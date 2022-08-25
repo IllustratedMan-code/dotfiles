@@ -17,9 +17,10 @@ lua require ('config')
 lua require ('lsp')
 lua require ('keymap')
 lua require ('line')
+lua require ('base16')
 
 
-colorscheme nord
+colorscheme base16
 
 au VimEnter * highlight link WhichKeyValue Question
 
