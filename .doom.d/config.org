@@ -7,7 +7,7 @@
 #+END_SRC
 * Doom config
 #+begin_src elisp
-(setq! doom-private-dir "~/nixos/dotfiles/.doom.d/")
+(setq! doom-private-dir "~/dotfiles/.doom.d/")
 #+end_src
 * Build information
 #+begin_src sh :tangle no
@@ -16,7 +16,7 @@
 * Theme
 set theme with doom-theme or load theme with load-theme
 #+BEGIN_SRC elisp
-(setq doom-theme 'doom-nord)
+(setq doom-theme 'doom-base16)
 (setq doom-themes-treemacs-theme "doom-colors")
 (add-hook 'pdf-tools-enabled-hook 'pdf-view-themed-minor-mode)
 #+END_SRC

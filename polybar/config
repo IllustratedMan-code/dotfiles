@@ -448,7 +448,7 @@ margin-bottom = 5
 
 [module/bluetooth]
 type = custom/script
-exec = ~/dotfiles/polybar/rofi-bluetooth --status
+exec = ~/.config/polybar/rofi-bluetooth --status
 label = %{T4}%output%%{T-}
 interval = 1
 click-left = ~/.config/polybar/rofi-bluetooth &
