@@ -1,0 +1,10 @@
+
+(deflisten workspace0 "scripts/workspace.sh 0")
+(deflisten workspace1 "scripts/workspace.sh 1")
+(deflisten workspace2 "scripts/workspace.sh 2")
+(defwidget workspaces0 [] 
+    (literal :content workspace0 ))
+(defwidget workspaces1 [] 
+    (literal :content workspace1 ))
+(defwidget workspaces2 [] 
+    (literal :content workspace2 ))

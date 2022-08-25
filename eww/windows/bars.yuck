@@ -1,0 +1,32 @@
+(include "./widgets/bar.yuck")
+
+
+(defwindow bar0
+    :monitor 0
+    :geometry (geometry 
+        :x "95%"
+        :y "9px"
+        :width "99%"
+        :anchor "top center")
+    :exclusive true
+    (bar0))
+
+(defwindow bar1
+    :monitor 1
+    :geometry (geometry 
+        :x "95%"
+        :y "9px"
+        :width "99%"
+        :anchor "top center")
+    :exclusive true
+    (bar1))
+
+(defwindow bar2
+    :monitor 2
+    :geometry (geometry 
+        :x "95%"
+        :y "9px"
+        :width "99%"
+        :anchor "top center")
+    :exclusive true
+    (bar2))

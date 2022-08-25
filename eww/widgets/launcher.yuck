@@ -1,0 +1,12 @@
+(defvar launcher "(box :class launcher)")
+(defvar launcher-app "")
+(defwidget launchers []
+    (literal :content launcher))
+
+(defwidget launcher-search []
+    (box :orientation "v"
+        :space-evenly false
+        (input :class "launcher-search" :value "some content" :onchange "~/.config/eww/scripts/launcher.sh {}" :timeout "1s" :onaccept "~/.config/eww/scripts/close-launcher.sh ${launcher-app}")
+    (launchers)
+    )
+    )

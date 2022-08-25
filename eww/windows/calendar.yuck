@@ -1,0 +1,8 @@
+(defwindow calendar
+    :monitor 1
+    :geometry (geometry 
+        :y 5
+        :x 10
+        :width "15%"
+        :anchor "top right")
+    (calendar :class "calendar"))

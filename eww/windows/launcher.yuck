@@ -1,0 +1,24 @@
+(include "./widgets/launcher.yuck")
+
+(defwindow launcher
+    :monitor 1
+    :geometry (geometry 
+        :y 0
+        :x 0
+        :width "15%"
+        :anchor "top center")
+        (launchers) 
+    )
+
+(defwindow launcher-search
+    :monitor 1
+    :geometry (geometry 
+        :y -34
+        :x 0
+        :width "15%"
+        :height "10%"
+        :anchor "top center")
+        :focusable true
+        :stacking "overlay"
+        (launcher-search)
+        )

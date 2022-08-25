@@ -1,0 +1,85 @@
+// Pannels
+@import "base16.scss";
+* {
+    all: unset;
+}
+// Styles on classes (see eww.yuck for more information)
+.work button {
+    font-size: 20px;
+
+}
+
+.work button:hover {
+    font-size: 20px;
+    color: $base0C;
+}
+.workspaces {
+    border-radius: 5px;
+    padding: 10px;
+    margin-left: 5px
+}
+
+.bar0, .bar1, .bar2 {
+    border-radius: 20px;
+    background-color: $base01;
+    border: 3px solid $base02;
+}
+
+.active {
+    color: $base04;
+}
+.inactive {
+    color: $base04;
+}
+.time {
+    font-size: 20px;
+    color: $base04;
+}
+.clock {
+    padding: 4px;
+}
+.toggle {
+    border-radius: 50%;
+}
+.image {
+}
+.clock-button {
+    padding-right: 10px;
+}
+.clock-button:active {
+    background-color: $base00;
+    border-radius: 10px;
+}
+
+.calendar {
+    margin: 10px;
+    border-radius: 10px;
+    border: 3px solid $base02;
+    background-color: $base01;
+}
+.calendar:selected {
+    background-color: $base0C;
+    color: $base01;
+    border-radius: 10px;
+}
+
+.launcher {
+}
+
+.launcher-search {
+    background-color: $base00;
+    border-radius: 20px;
+    border: 2px solid $base0C;
+    padding: 5px;
+    padding-left: 10px;
+}
+.Name {
+    border-radius: 5px;
+    border: 2px solid transparent;
+}
+.Name:active {
+    border: 2px solid $base0C;
+}
+.Name:focus {
+    border: 2px solid $base0C;
+}

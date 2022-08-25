@@ -1,0 +1,12 @@
+(include "./widgets/clock.yuck")
+(include "./widgets/workspaces.yuck")
+
+(defwidget bar0 []
+  (centerbox :orientation "h"
+    (workspaces0) (label :text "") (clock)))
+(defwidget bar1 []
+  (centerbox :orientation "h"
+    (workspaces1 ) (label :text "") (clock)))
+(defwidget bar2 []
+  (centerbox :orientation "h"
+    (workspaces2 ) (label :text "") (clock)))

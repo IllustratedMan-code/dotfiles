@@ -1,0 +1,13 @@
+(defpoll clock_hour :interval "5s" "date +\%I")
+(defpoll clock_minute :interval "5s" "date +\%M")
+(defvar calendar_toggle true)
+(defwidget clock []
+    (box :space-evenly false :spacing 3 :class "clock" :halign "end"
+
+    (button :class "clock-button" :onclick "~/.config/eww/scripts/toggle_window.sh calendar"
+    (box
+        (label :class "time" :text clock_hour)
+        (label :class "time" :text ":")
+        (label :class "time" :text clock_minute)
+        )))
+)
