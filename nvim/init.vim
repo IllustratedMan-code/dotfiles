@@ -17,7 +17,6 @@ lua require ('config')
 lua require ('lsp')
 lua require ('keymap')
 lua require ('line')
-lua require ('base16')
 
 
 colorscheme base16

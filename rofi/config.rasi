@@ -5,5 +5,5 @@ configuration {
   icon-theme:         "Papirus";
 display-drun:                   "";
 }
-@theme "nord"
+@theme "theme"
 
