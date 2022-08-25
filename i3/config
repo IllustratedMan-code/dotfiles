@@ -29,8 +29,8 @@ floating_modifier $mod
 for_window [class=".*"] border pixel 1
 for_window [class="stalonetray"] border pixel 0
 
-client.focused #81A1C1 #81A1C1 #81A1C1 #81A1C1
-client.unfocused #4C566A #4C566A #4C566A #4C566A 
+client.focused $base0D $base0D $base0D
+client.unfocused $base03 $base03 $base03
 set $opacity 0.9
 
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
