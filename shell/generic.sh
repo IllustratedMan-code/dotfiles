@@ -38,8 +38,7 @@ pdfinterleavebend ()
 }
 nrs ()
 {
-    cd ~/nixconfig
-    nix flake lock --update-input dotfiles
+    (cd ~/nixconfig && nix flake lock --update-input dotfiles)
     nixos-rebuild switch --flake $HOME/nixconfig --use-remote-sudo
 }
 
