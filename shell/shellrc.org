@@ -112,7 +112,8 @@ eval "$(direnv hook bash)"
 :END:
 ** set the prompt text with the PS1 variable
 #+begin_src sh
-#PS1='%F{green}%~%f > '
+# this will get overwritten if oh-my-zsh is used
+PS1='%F{green}%~%f > '
 eval "$(direnv hook zsh)"
 
 #+end_src
@@ -123,6 +124,11 @@ HISTSIZE=10000
 SAVEHIST=10000
 setopt INC_APPEND_HISTORY
 #+end_src
+** oh-my-zsh
+#+begin_src sh
+DEFAULT_USER=$USER
+#+end_src
+
 * Sway specific
 :PROPERTIES:
 :HEADER-ARGS: :tangle swayBashrc.sh
