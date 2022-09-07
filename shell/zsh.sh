@@ -1,5 +1,4 @@
-# this will get overwritten if oh-my-zsh is used
-PS1='%F{green}%~%f > '
+#PS1='%F{green}%~%f > '
 eval "$(direnv hook zsh)"
 
 HISTFILE=~/.zsh_history

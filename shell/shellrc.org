@@ -112,8 +112,7 @@ eval "$(direnv hook bash)"
 :END:
 ** set the prompt text with the PS1 variable
 #+begin_src sh
-# this will get overwritten if oh-my-zsh is used
-PS1='%F{green}%~%f > '
+#PS1='%F{green}%~%f > '
 eval "$(direnv hook zsh)"
 
 #+end_src
