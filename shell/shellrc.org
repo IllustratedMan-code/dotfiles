@@ -113,7 +113,6 @@ eval "$(direnv hook bash)"
 ** set the prompt text with the PS1 variable
 #+begin_src sh
 #PS1='%F{green}%~%f > '
-eval "$(direnv hook zsh)"
 
 #+end_src
 ** Persistent history
@@ -126,6 +125,11 @@ setopt INC_APPEND_HISTORY
 ** oh-my-zsh
 #+begin_src sh
 DEFAULT_USER=$USER
+#+end_src
+** direnv
+Not needed when using nix (home manager)
+#+begin_src sh
+#eval "$(direnv hook zsh)"
 #+end_src
 
 * Sway specific
