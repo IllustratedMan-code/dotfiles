@@ -36,12 +36,6 @@ pdfinterleavebend ()
 {
     pdftk A=${1%.*}.pdf B=${2%.*}.pdf shuffle A Bend-1 output ${3%.*}.pdf
 }
-nrs ()
-{
-    (cd ~/dotfiles && git add . && git commit -m "nix change" && git push)
-    (cd ~/nixconfig && nix flake lock --update-input dotfiles)
-    nixos-rebuild switch --flake $HOME/nixconfig --use-remote-sudo
-}
 
 export PATH=$PATH:~/.emacs.d/bin
 export PATH=$PATH:~/.ghcup/bin

@@ -81,6 +81,7 @@ pdfinterleavebend ()
 {
     pdftk A=${1%.*}.pdf B=${2%.*}.pdf shuffle A Bend-1 output ${3%.*}.pdf
 }
+#+end_src
 ** Environment variables
 #+begin_src sh
 export PATH=$PATH:~/.emacs.d/bin
