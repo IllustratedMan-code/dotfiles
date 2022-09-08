@@ -48,10 +48,6 @@ base16.replace = {
 	y = {  fg = colors.base05, bg = colors.base02 },
 }
 
-base16.command = {
-	a = { fg = colors.base00, bg = colors.base09, gui = "bold" },
-	b = { fg = colors.base04, bg = colors.base02 },
-}
 
 base16.inactive = {
 	a = { fg = colors.base04, bg = colors.base00, gui = "bold" },
@@ -59,6 +55,7 @@ base16.inactive = {
 	c = { fg = colors.base04, bg = colors.base01 },
 }
 
+base16.command = base16.insert
 base16.terminal = base16.insert
 
 return base16
