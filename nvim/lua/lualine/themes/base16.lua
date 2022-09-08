@@ -51,7 +51,6 @@ base16.replace = {
 base16.command = {
 	a = { fg = colors.base00, bg = colors.base09, gui = "bold" },
 	b = { fg = colors.base04, bg = colors.base02 },
-	y = {  fg = colors.base05, bg = colors.base02 },
 }
 
 base16.inactive = {
