@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: canvas
+# uuid: canvas
+# key: CANVAS
+# condition: t
+# --
+#+options: toc:nil author:nil date:nil title:nil timestamp:nil num:nil

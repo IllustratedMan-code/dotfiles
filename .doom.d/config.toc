@@ -1,0 +1,62 @@
+\contentsline {section}{\numberline {1}Identity information}{3}{section.1}%
+\contentsline {section}{\numberline {2}Doom config}{3}{section.2}%
+\contentsline {section}{\numberline {3}Build information}{3}{section.3}%
+\contentsline {section}{\numberline {4}Theme}{3}{section.4}%
+\contentsline {section}{\numberline {5}Org Setup}{3}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Org Directory}{3}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Hide emphasis markers}{3}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Org Tab behaviour}{3}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}org code blocks}{4}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Functions}{4}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.6}Org default image size}{4}{subsection.5.6}%
+\contentsline {subsection}{\numberline {5.7}org keymap}{4}{subsection.5.7}%
+\contentsline {subsection}{\numberline {5.8}org headline}{4}{subsection.5.8}%
+\contentsline {subsection}{\numberline {5.9}org-fancy-priorities-mode work around}{4}{subsection.5.9}%
+\contentsline {subsection}{\numberline {5.10}org-safe-variables}{5}{subsection.5.10}%
+\contentsline {subsubsection}{\numberline {5.10.1}html export}{5}{subsubsection.5.10.1}%
+\contentsline {subsubsection}{\numberline {5.10.2}Latex Export}{5}{subsubsection.5.10.2}%
+\contentsline {subsubsection}{\numberline {5.10.3}Org-babel}{5}{subsubsection.5.10.3}%
+\contentsline {subsection}{\numberline {5.11}format all error}{5}{subsection.5.11}%
+\contentsline {subsection}{\numberline {5.12}gnuplot}{5}{subsection.5.12}%
+\contentsline {subsection}{\numberline {5.13}org-fragtog}{5}{subsection.5.13}%
+\contentsline {subsection}{\numberline {5.14}ispell}{5}{subsection.5.14}%
+\contentsline {subsection}{\numberline {5.15}Startup}{5}{subsection.5.15}%
+\contentsline {subsection}{\numberline {5.16}citations}{6}{subsection.5.16}%
+\contentsline {subsection}{\numberline {5.17}set header args}{6}{subsection.5.17}%
+\contentsline {subsection}{\numberline {5.18}org-xournalpp}{7}{subsection.5.18}%
+\contentsline {subsection}{\numberline {5.19}Disable Line wrapping}{7}{subsection.5.19}%
+\contentsline {subsection}{\numberline {5.20}Org pomodoro}{7}{subsection.5.20}%
+\contentsline {subsection}{\numberline {5.21}nix hack}{7}{subsection.5.21}%
+\contentsline {subsection}{\numberline {5.22}plantuml}{7}{subsection.5.22}%
+\contentsline {section}{\numberline {6}Latex setup}{7}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Use LuaTex}{7}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Keymap}{8}{subsection.6.2}%
+\contentsline {section}{\numberline {7}Spell setup}{8}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Personal Dictionary}{8}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Fix hunspell bug}{8}{subsection.7.2}%
+\contentsline {section}{\numberline {8}Python setup}{8}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Anaconda directory}{8}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}LSP nix}{8}{subsection.8.2}%
+\contentsline {section}{\numberline {9}R setup}{8}{section.9}%
+\contentsline {subsection}{\numberline {9.1}keymap}{8}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Font lock keywords}{9}{subsection.9.2}%
+\contentsline {subsubsection}{\numberline {9.2.1}R-major-mode}{9}{subsubsection.9.2.1}%
+\contentsline {subsubsection}{\numberline {9.2.2}R-inferior-mode}{9}{subsubsection.9.2.2}%
+\contentsline {subsection}{\numberline {9.3}Custom Functions}{9}{subsection.9.3}%
+\contentsline {section}{\numberline {10}General configuration}{9}{section.10}%
+\contentsline {subsection}{\numberline {10.1}remove line numbers}{9}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Fix treemacs ace-window bug}{9}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}deletes compilation buffer if successful (ignores python buffers)}{9}{subsection.10.3}%
+\contentsline {subsection}{\numberline {10.4}ligatures}{10}{subsection.10.4}%
+\contentsline {subsection}{\numberline {10.5}ispell dictionary}{10}{subsection.10.5}%
+\contentsline {section}{\numberline {11}Key Map}{10}{section.11}%
+\contentsline {subsection}{\numberline {11.1}General Buffers}{10}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11.2}Python mode map}{10}{subsection.11.2}%
+\contentsline {subsection}{\numberline {11.3}prolog map}{10}{subsection.11.3}%
+\contentsline {subsection}{\numberline {11.4}Doc-view mode map}{10}{subsection.11.4}%
+\contentsline {subsection}{\numberline {11.5}mips mode map}{10}{subsection.11.5}%
+\contentsline {subsection}{\numberline {11.6}haskell map}{10}{subsection.11.6}%
+\contentsline {section}{\numberline {12}remote}{11}{section.12}%
+\contentsline {section}{\numberline {13}Helpful info}{11}{section.13}%
+\contentsline {subsection}{\numberline {13.1}Font variables}{11}{subsection.13.1}%
+\contentsline {subsection}{\numberline {13.2}Useful customization functions}{11}{subsection.13.2}%
