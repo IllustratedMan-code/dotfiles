@@ -4,7 +4,14 @@ vim.cmd [[nmap <leader>w <C-w>]]
 
 require("which-key").setup {}
 
-functions = require("myfunctions")
+function findConfig()
+  require('telescope.builtin').find_files {
+    winblend = 5,
+    border = true,
+    cwd = '~/.config/nvim',
+  }
+end
+
 
 local wk = require("which-key")
 local telescope = require('telescope.builtin')
@@ -13,7 +20,7 @@ wk.register({
         c = {
          name = "config",
                 r = {"<cmd>source $MYVIMRC<cr>", "reload config"},
-                e = { functions.findConfig, "edit config"},
+                e = { findConfig, "edit config"},
         },
         f = {
                 name = "file",
