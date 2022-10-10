@@ -18,4 +18,4 @@ lsp.rnix.setup{capabilities=capabilities}
 lsp.sumneko_lua.setup{capabilities=capabilities}
 
 -- format buffer on save
-vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()]]
+vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
