@@ -71,7 +71,7 @@ wk.register({
 						f = {"<cmd>TREPLSendFile<cr>", "send file"},
 					},
 			},
-	t = {require("sidebar-nvim").toggle, "toggle-tree"},
+	t = {"<cmd>NvimTreeToggle<cr>", "toggle-tree"},
 	},
 })
 
