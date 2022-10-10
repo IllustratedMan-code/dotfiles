@@ -17,3 +17,6 @@ lsp.r_language_server.setup{capabilities=capabilities}
 lsp.emmet_ls.setup{capabilities=capabilities}
 lsp.rnix.setup{capabilities=capabilities}
 lsp.sumneko_lua.setup{capabilities=capabilities}
+
+-- format buffer on save
+vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()]]
