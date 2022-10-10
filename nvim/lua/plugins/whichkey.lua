@@ -46,18 +46,19 @@ wk.register({
 					s = {telescope.live_grep, "grep string"},
 				},
 				e = {function() require('telescope').extensions.conda.conda{} end, "set conda environment"}
-			},
-		l = {
-				name = "lsp",
-				a = {telescope.lsp_code_actions, "list actions here"},
-				p = {
-						name = "problems and diagnostics",
-						f = {telescope.lsp_document_diagnostics, "file diagnostics"},
-						w = {telescope.lsp_workspace_diagnostics, "workspace diagnostics"}
-					},
-				d = {telescope.lsp_definitions, "definition here"},
-				f = {vim.lsp.buf.formatting, "format buffer"},
-			},
+            l = {
+                    name = "lsp",
+                    a = {telescope.lsp_code_actions, "list actions here"},
+                    p = {
+                            name = "problems and diagnostics",
+                            f = {telescope.lsp_document_diagnostics, "file diagnostics"},
+                            w = {telescope.lsp_workspace_diagnostics, "workspace diagnostics"}
+                        },
+                    d = {telescope.lsp_definitions, "definition here"},
+                    f = {vim.lsp.buf.formatting, "format buffer"},
+                },
+		},
+        l = {"<cmd>b#<cr>", "last buffer"},
 		w = {name="window"},
 		g = {
 				name = "git",
