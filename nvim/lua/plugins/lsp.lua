@@ -17,8 +17,8 @@ lsp.emmet_ls.setup { capabilities = capabilities }
 lsp.rnix.setup { capabilities = capabilities }
 lsp.sumneko_lua.setup {
 	capabilities = capabilities,
-	Lua = {
-		settings = {
+	settings = {
+		Lua = {
 			diagnostics = {
 				globals = { 'vim' },
 			},
