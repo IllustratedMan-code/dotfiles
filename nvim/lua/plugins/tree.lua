@@ -37,6 +37,6 @@ require("nvim-tree").setup(
     view = {
       mappings = {
         { key = "?", action = keymap:activate() }
-      },
-    },
+      }
+    }
 )
