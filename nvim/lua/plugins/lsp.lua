@@ -12,10 +12,17 @@ lsp.r_language_server.setup{capabilities=capabilities}
 lsp.html.setup{capabilities=capabilities}
 lsp.eslint.setup{capabilities=capabilities}
 lsp.gdscript.setup{capabilities=capabilities}
-lsp.r_language_server.setup{capabilities=capabilities}
 lsp.emmet_ls.setup{capabilities=capabilities}
 lsp.rnix.setup{capabilities=capabilities}
-lsp.sumneko_lua.setup{capabilities=capabilities}
+lsp.sumneko_lua.setup{
+  capabilities=capabilities
+  settings = {
+    diagnostics = {
+      globals = { 'vim' }
+    }
+  }
+
+}
 lsp.ltex.setup{capabilities=capabilities}
 
 -- format buffer on save
