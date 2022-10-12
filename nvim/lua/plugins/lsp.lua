@@ -16,10 +16,12 @@ lsp.emmet_ls.setup{capabilities=capabilities}
 lsp.rnix.setup{capabilities=capabilities}
 lsp.sumneko_lua.setup{
   capabilities=capabilities,
+  Lua = {
   settings = {
     diagnostics = {
-      globals = { 'vim' }
+      globals = { 'vim' },
     },
+  },
   },
 }
 lsp.ltex.setup{capabilities=capabilities}
