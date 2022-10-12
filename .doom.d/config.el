@@ -7,6 +7,9 @@
 (setq doom-themes-treemacs-theme "doom-colors")
 (add-hook 'pdf-tools-enabled-hook 'pdf-view-themed-minor-mode)
 
+(add-hook! org-mode 'rainbow-mode')
+(add-hook! prog-mode 'rainbow-mode')
+
 (setq org-directory "~/Dropbox/org/")
 
 (setq org-hide-emphasis-markers 't)
