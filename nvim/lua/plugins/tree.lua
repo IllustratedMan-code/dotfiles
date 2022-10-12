@@ -33,10 +33,4 @@ local keymap = Hydra({
    }
 })
 
-require("nvim-tree").setup(
-    view = {
-      mappings = {
-        { key = "?", action = keymap:activate() }
-      }
-    }
-)
+require("nvim-tree").setup()
