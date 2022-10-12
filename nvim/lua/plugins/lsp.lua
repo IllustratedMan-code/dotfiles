@@ -15,13 +15,12 @@ lsp.gdscript.setup{capabilities=capabilities}
 lsp.emmet_ls.setup{capabilities=capabilities}
 lsp.rnix.setup{capabilities=capabilities}
 lsp.sumneko_lua.setup{
-  capabilities=capabilities
+  capabilities=capabilities,
   settings = {
     diagnostics = {
       globals = { 'vim' }
-    }
-  }
-
+    },
+  },
 }
 lsp.ltex.setup{capabilities=capabilities}
 
