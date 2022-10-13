@@ -1,6 +1,5 @@
 local lsp = require "lspconfig"
 local lsp_status = require "lsp-status"
-
 local cmp_capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 local capabilities = vim.tbl_extend('keep', cmp_capabilities, lsp_status.capabilities)
 
