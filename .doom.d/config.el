@@ -245,6 +245,13 @@
              ("fontsize" "\\scriptsize")
              )
                 ))
+(after! org
+  (add-to-list 'org-latex-classes
+               '("memo" "\\documentclass{texMemo}"
+                 ("\\section{%s}" . "\\section*{%s}")
+                 ("\\subsection{%s}" . "\\subsection*{%s}")
+                 ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))
+                 ))
 
 (map!  (:after auctext
        :map LaTeX-mode-map

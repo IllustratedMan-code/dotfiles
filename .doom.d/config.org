@@ -374,19 +374,16 @@ Org mode (latex export) has the wrong time. Not sure how to fix. This does not w
              ("fontsize" "\\scriptsize")
              )
                 ))
+(after! org
+  (add-to-list 'org-latex-classes
+               '("memo" "\\documentclass{texMemo}"
+                 ("\\section{%s}" . "\\section*{%s}")
+                 ("\\subsection{%s}" . "\\subsection*{%s}")
+                 ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))
+                 ))
 #+end_src
 
 #+RESULTS:
-| factsheet | \documentclass[11pt]{apa7}           | (\chapter{%s} . \chapter*{%s}) | (\section{%s} . \section*{%s})       | (\subsection{%s} . \subsection*{%s})       | (\subsubsection{%s} . \subsubsection*{%s}) |                                            |
-| factsheet | \documentclass[11pt]{apa7}           | (\section{%s} . \section*{%s}) | (\subsection{%s} . \subsection*{%s}) | (\subsubsection{%s} . \subsubsection*{%s}) |                                            |                                            |
-| myreport  | \documentclass[11pt]{apa7}           | (\section{%s} . \section*{%s}) | (\subsection{%s} . \subsection*{%s}) | (\subsubsection{%s} . \subsubsection*{%s}) |                                            |                                            |
-| myreport  | \documentclass[11pt]{report}         | (\section{%s} . \section*{%s}) | (\subsection{%s} . \subsection*{%s}) | (\subsubsection{%s} . \subsubsection*{%s}) |                                            |                                            |
-| beamer    | \documentclass[presentation]{beamer} | (\section{%s} . \section*{%s}) | (\subsection{%s} . \subsection*{%s}) | (\subsubsection{%s} . \subsubsection*{%s}) |                                            |                                            |
-| mla       | \documentclass{mla}                  | (\part{%s} . \part*{%s})       | (\chapter{%s} . \chapter*{%s})       | (\section{%s} . \section*{%s})             | (\subsection{%s} . \subsection*{%s})       | (\subsubsection{%s} . \subsubsection*{%s}) |
-| apa       | \documentclass[11pt]{apa7}           | (\part{%s} . \part*{%s})       | (\chapter{%s} . \chapter*{%s})       | (\section{%s} . \section*{%s})             | (\subsection{%s} . \subsection*{%s})       | (\subsubsection{%s} . \subsubsection*{%s}) |
-| article   | \documentclass[11pt]{article}        | (\section{%s} . \section*{%s}) | (\subsection{%s} . \subsection*{%s}) | (\subsubsection{%s} . \subsubsection*{%s}) | (\paragraph{%s} . \paragraph*{%s})         | (\subparagraph{%s} . \subparagraph*{%s})   |
-| report    | \documentclass[11pt]{report}         | (\part{%s} . \part*{%s})       | (\chapter{%s} . \chapter*{%s})       | (\section{%s} . \section*{%s})             | (\subsection{%s} . \subsection*{%s})       | (\subsubsection{%s} . \subsubsection*{%s}) |
-| book      | \documentclass[11pt]{book}           | (\part{%s} . \part*{%s})       | (\chapter{%s} . \chapter*{%s})       | (\section{%s} . \section*{%s})             | (\subsection{%s} . \subsection*{%s})       | (\subsubsection{%s} . \subsubsection*{%s}) |
 
 ** Keymap
 #+begin_src elisp
