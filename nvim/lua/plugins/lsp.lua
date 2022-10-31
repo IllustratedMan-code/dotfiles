@@ -28,9 +28,8 @@ lsp.sumneko_lua.setup {
 lsp.ltex.setup { capabilities = capabilities }
 
 -- format buffer on save
-vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 -- neoformat
 vim.cmd [[augroup fmt
           autocmd!
-          autocmd BufWritePre * undojoin | Neoformat
+          autocmd BufWritePre * undojoin | Neoformat | lua vim.lsp.buf.format()
           augroup END]]
