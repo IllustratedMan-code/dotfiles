@@ -31,5 +31,5 @@ lsp.ltex.setup { capabilities = capabilities }
 -- neoformat
 vim.cmd [[augroup fmt
           autocmd!
-          autocmd BufWritePre * undojoin | Neoformat | lua vim.lsp.buf.format()
+          autocmd BufWritePre * undojoin | silent Neoformat | lua vim.lsp.buf.format()
           augroup END]]
