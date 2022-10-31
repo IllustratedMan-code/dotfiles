@@ -16,16 +16,21 @@ lsp.gdscript.setup { capabilities = capabilities }
 lsp.emmet_ls.setup { capabilities = capabilities }
 lsp.rnix.setup { capabilities = capabilities }
 lsp.sumneko_lua.setup {
-	capabilities = capabilities,
-	settings = {
-		Lua = {
-			diagnostics = {
-				globals = { 'vim' },
-			},
-		},
-	},
+  capabilities = capabilities,
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { 'vim' },
+      },
+    },
+  },
 }
 lsp.ltex.setup { capabilities = capabilities }
 
 -- format buffer on save
 vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
+-- neoformat
+vim.cmd [[augroup fmt
+          autocmd!
+          autocmd BufWritePre * undojoin | Neoformat
+          augroup END]]
