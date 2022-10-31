@@ -4,7 +4,8 @@ local cmp_capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.pro
 local capabilities = vim.tbl_extend('keep', cmp_capabilities, lsp_status.capabilities)
 
 lsp.hls.setup { capabilities = capabilities }
-lsp.pyright.setup { capabilities = capabilities }
+-- lsp.pyright.setup { capabilities = capabilities }
+lsp.pylsp.setup { capabilities = capabilities }
 lsp.bashls.setup { capabilities = capabilities }
 lsp.ccls.setup { capabilities = capabilities }
 lsp.rust_analyzer.setup { capabilities = capabilities }
