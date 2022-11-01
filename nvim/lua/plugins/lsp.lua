@@ -16,6 +16,7 @@ lsp.eslint.setup { capabilities = capabilities }
 lsp.gdscript.setup { capabilities = capabilities }
 lsp.emmet_ls.setup { capabilities = capabilities }
 lsp.rnix.setup { capabilities = capabilities }
+lsp.jsonls.setup { capabilities = capabilities }
 lsp.sumneko_lua.setup {
   capabilities = capabilities,
   settings = {
@@ -27,6 +28,7 @@ lsp.sumneko_lua.setup {
   },
 }
 lsp.ltex.setup { capabilities = capabilities }
+
 
 
 -- format buffer on save
