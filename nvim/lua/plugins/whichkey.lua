@@ -39,6 +39,7 @@ wk.register({
       f = { function() require 'telescope'.extensions.file_browser.file_browser() end, "find file" },
       b = { telescope.buffers, "list buffers" },
       p = { function() require('telescope').extensions.project.project {} end, "list projects" },
+      t = { telescope.treesitter, "treesitter" },
       g = {
         name = "grep",
         h = { telescope.grep_string, "grep string here" },
@@ -50,11 +51,14 @@ wk.register({
         a = { "<cmd>CodeActionMenu<cr>", "list actions here" },
         p = {
           name = "problems and diagnostics",
-          f = { telescope.lsp_document_diagnostics, "file diagnostics" },
-          w = { telescope.lsp_workspace_diagnostics, "workspace diagnostics" }
+          d = { telescope.diagnostics, "file diagnostics" },
+          s = { telescope.lsp_document_symbols, "document symbols" },
+          w = { telescope.lsp_workspace_symbols, "workspace symbols" }
         },
         d = { telescope.lsp_definitions, "definition here" },
         f = { vim.lsp.buf.formatting, "format buffer" },
+        i = { telescope.lsp_implementation, "implementation here" },
+        t = { telescope.lsp_type_definitions, "definition for type here" },
       },
     },
     l = { "<cmd>b#<cr>", "last buffer" },
