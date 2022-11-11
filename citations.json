@@ -1,1 +1,5 @@
-[]
+[
+  {"id":"GNUEmacsGNU","accessed":{"date-parts":[[2022,11,11]]},"citation-key":"GNUEmacsGNU","title":"GNU Emacs - GNU Project","type":"webpage","URL":"https://www.gnu.org/software/emacs/"},
+  {"id":"LaTeXDocumentPreparation","accessed":{"date-parts":[[2022,11,11]]},"citation-key":"LaTeXDocumentPreparation","title":"LaTeX - A document preparation system","type":"webpage","URL":"https://www.latex-project.org/"},
+  {"id":"OverleafOnlineLaTeX","abstract":"An online LaTeX editor that’s easy to use. No installation, real-time collaboration, version control, hundreds of LaTeX templates, and more.","accessed":{"date-parts":[[2022,11,11]]},"citation-key":"OverleafOnlineLaTeX","language":"en","title":"Overleaf, Online LaTeX Editor","type":"webpage","URL":"https://www.overleaf.com"}
+]
