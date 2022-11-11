@@ -23,8 +23,8 @@ set theme with doom-theme or load theme with load-theme
 * Rainbow
 Enables rainbow mode for programming buffers and org mode.
 #+begin_src elisp
-(add-hook! org-mode 'rainbow-mode')
-(add-hook! prog-mode 'rainbow-mode')
+(add-hook! 'org-mode 'rainbow-mode')
+(add-hook! 'prog-mode 'rainbow-mode')
 #+end_src
 * Org Setup
 ** Org Directory
