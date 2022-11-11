@@ -123,7 +123,7 @@
   (setq! org-startup-with-inline-images t)
   (setq! org-latex-image-default-width "1in")
   (setq! org-cite-export-processors '(t csl))
-  (setq! org-cite-global-bibliography (list"~/Dropbox/org/citations/citations.json"))
+  (setq! org-cite-global-bibliography (list"~/dotfiles/citations.json"))
   (setq! yas/triggers-in-field t)
   (setq! org-xournalpp-image-type 'png)
   (setq! org-export-allow-bind-keywords t))
