@@ -203,19 +203,28 @@ This block changes the default term type for png file types
   (setq! org-cite-export-processors '(t csl))
   (setq! yas/triggers-in-field t)
   (setq! org-xournalpp-image-type 'png)
-  (setq! org-export-allow-bind-keywords t)
+  (setq! org-export-allow-bind-keywords t))
+(with-eval-after-load 'ox-latex
   (add-to-list 'org-latex-classes '("apa" "\\documentclass[11pt]{apa7}"
                                     ("\\part{%s}" . "\\part*{%s}")
                                     ("\\chapter{%s}" . "\\chapter*{%s}")
                                     ("\\section{%s}" . "\\section*{%s}")
                                     ("\\subsection{%s}" . "\\subsection*{%s}")
                                     ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))))
+(with-eval-after-load 'ox-latex
   (add-to-list 'org-latex-classes '("mla" "\\documentclass{mla}"
                                     ("\\part{%s}" . "\\part*{%s}")
                                     ("\\chapter{%s}" . "\\chapter*{%s}")
                                     ("\\section{%s}" . "\\section*{%s}")
                                     ("\\subsection{%s}" . "\\subsection*{%s}")
-                                    ("\\subsubsection{%s}" . "\\subsubsection*{%s}")))))
+                                    ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))))
+(with-eval-after-load 'ox-latex
+  (add-to-list 'org-latex-classes
+            '("memo" "\\documentclass{texMemo}"
+                ("\\section{%s}" . "\\section*{%s}")
+                ("\\subsection{%s}" . "\\subsection*{%s}")
+                ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))
+                ))
 #+end_src
 
 #+RESULTS:
@@ -366,13 +375,6 @@ Org mode (latex export) has the wrong time. Not sure how to fix. This does not w
              ("fontsize" "\\scriptsize")
              )
                 ))
-(after! org
-  (add-to-list 'org-latex-classes
-               '("memo" "\\documentclass{texMemo}"
-                 ("\\section{%s}" . "\\section*{%s}")
-                 ("\\subsection{%s}" . "\\subsection*{%s}")
-                 ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))
-                 ))
 #+end_src
 
 #+RESULTS:
