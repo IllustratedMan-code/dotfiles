@@ -7,9 +7,6 @@
 (setq doom-themes-treemacs-theme "doom-colors")
 (add-hook 'pdf-tools-enabled-hook 'pdf-view-themed-minor-mode)
 
-(add-hook! org-mode 'rainbow-mode')
-(add-hook! prog-mode 'rainbow-mode')
-
 (setq org-directory "~/Dropbox/org/")
 
 (setq org-hide-emphasis-markers 't)
@@ -122,10 +119,11 @@
   (setq! org-startup-with-latex-preview t)
   (setq! org-startup-with-inline-images t)
   (setq! org-latex-image-default-width "1in")
-  (setq! org-cite-export-processors '(t csl))
   (setq! org-cite-global-bibliography (list"~/dotfiles/citations.json"))
+  (setq! org-cite-export-processors '(t csl))
   (setq! yas/triggers-in-field t)
   (setq! org-xournalpp-image-type 'png)
+  (add-hook 'org-mode-hook 'turn-on-auto-fill)
   (setq! org-export-allow-bind-keywords t))
 (with-eval-after-load 'ox-latex
   (add-to-list 'org-latex-classes '("apa" "\\documentclass[11pt]{apa7}"
@@ -141,6 +139,13 @@
                                     ("\\section{%s}" . "\\section*{%s}")
                                     ("\\subsection{%s}" . "\\subsection*{%s}")
                                     ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))))
+(with-eval-after-load 'ox-latex
+  (add-to-list 'org-latex-classes
+            '("memo" "\\documentclass{texMemo}"
+                ("\\section{%s}" . "\\section*{%s}")
+                ("\\subsection{%s}" . "\\subsection*{%s}")
+                ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))
+                ))
 
 (use-package! bibtex-completion
   :defer t
@@ -245,13 +250,6 @@
              ("fontsize" "\\scriptsize")
              )
                 ))
-(after! org
-  (add-to-list 'org-latex-classes
-               '("memo" "\\documentclass{texMemo}"
-                 ("\\section{%s}" . "\\section*{%s}")
-                 ("\\subsection{%s}" . "\\subsection*{%s}")
-                 ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))
-                 ))
 
 (map!  (:after auctext
        :map LaTeX-mode-map

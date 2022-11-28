@@ -203,6 +203,7 @@ This block changes the default term type for png file types
   (setq! org-cite-export-processors '(t csl))
   (setq! yas/triggers-in-field t)
   (setq! org-xournalpp-image-type 'png)
+  (add-hook 'org-mode-hook 'turn-on-auto-fill)
   (setq! org-export-allow-bind-keywords t))
 (with-eval-after-load 'ox-latex
   (add-to-list 'org-latex-classes '("apa" "\\documentclass[11pt]{apa7}"
