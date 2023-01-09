@@ -7,4 +7,4 @@ require('nvim-treesitter.configs').setup {
   }
 }
 -- workaround for nextflow
-vim.cmd [[au BufRead,BufNewFile *.nf setfiletype groovy]]
+-- vim.cmd [[au BufRead,BufNewFile *.nf setfiletype groovy]]
