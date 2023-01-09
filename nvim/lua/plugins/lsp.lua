@@ -1,7 +1,8 @@
 local lsp = require "lspconfig"
 local lsp_status = require "lsp-status"
-local cmp_capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local cmp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 local capabilities = vim.tbl_extend('keep', cmp_capabilities, lsp_status.capabilities)
+capabilities = vim.tbl_extend('keep', capabilities, cmp_capabilities)
 
 lsp.hls.setup { capabilities = capabilities }
 -- lsp.pyright.setup { capabilities = capabilities }
