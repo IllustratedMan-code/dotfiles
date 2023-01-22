@@ -15,7 +15,7 @@ window {
     background-color:               @bg;
     text-color:                     @fg;
 	border:							2px;
-	border-color:					transparent;
+	border-color:					@bg;
     border-radius:                  0px;
 	width:							30%;
     location:                       north;
