@@ -27,7 +27,6 @@ pdfcombine ()
 {
    gs -q -dNOPAUSE -sDEVICE=pdfwrite -sOUTPUTFILE=${1%.*}.pdf -dBATCH ${@:2}
 }
-export -f pdfcombine
 
 # pdfinterleave odd.pdf even.pdf output.pdf
 pdfinterleave ()
