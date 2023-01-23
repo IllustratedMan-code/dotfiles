@@ -22,10 +22,12 @@ alias open='xdg-open'
 # nix aliases
 alias update-input='nix flake lock --update-input'
 
+# pdfcombine output input1 input2
 pdfcombine ()
 {
    gs -q -dNOPAUSE -sDEVICE=pdfwrite -sOUTPUTFILE=${1%.*}.pdf -dBATCH ${@:2}
 }
+export -f pdfcombine
 
 # pdfinterleave odd.pdf even.pdf output.pdf
 pdfinterleave ()
