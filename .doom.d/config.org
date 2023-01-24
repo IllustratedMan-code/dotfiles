@@ -358,6 +358,7 @@ Org mode (latex export) has the wrong time. Not sure how to fix. This does not w
 #+begin_src elisp
 (after! org (setq! org-plantuml-exec-mode 'plantuml))
 #+end_src
+** mathjax
 
 * Latex setup
 ** Use LuaTex
@@ -365,7 +366,7 @@ Org mode (latex export) has the wrong time. Not sure how to fix. This does not w
 (setq! TeX-engine 'luatex)
 (after! org
   ;(setq! org-latex-pdf-process '("PDFLATEX=lualatex LATEX=lualatex texi2dvi --pdf --clean --verbose --batch --shell-escape -output-directory=%o %f")))
-(setq! org-latex-pdf-process '("latexmk -f -pdf -%latex -interaction=nonstopmode -output-directory=%o %f")))
+(setq! org-latex-pdf-process '("latexmk -f -pdf -%latex -interaction=nonstopmode -shell-excape -output-directory=%o %f")))
 (after! org
   (setq! org-latex-compiler "lualatex"))
 (after! org
@@ -379,6 +380,18 @@ Org mode (latex export) has the wrong time. Not sure how to fix. This does not w
 #+end_src
 
 #+RESULTS:
+** Extra Packages
+#+begin_src elisp
+(after! org
+  (setq! org-latex-packages-alist '())
+  (add-to-list 'org-latex-packages-alist '("" "physics" t))
+  (add-to-list 'org-latex-packages-alist '("" "minted" nil))
+)
+#+end_src
+
+#+RESULTS:
+|   | minted  | nil |
+|   | physics | t   |
 
 ** Keymap
 #+begin_src elisp

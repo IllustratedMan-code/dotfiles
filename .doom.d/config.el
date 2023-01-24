@@ -11,8 +11,8 @@
 
 (setq org-hide-emphasis-markers 't)
 
-(after! evil-org
-  (setq org-tab-first-hook nil))
+  (after! evil-org
+    (setq org-tab-first-hook nil))
 
 (defun insert-jupyter-python-block ()
   "Inserts a python code block"
@@ -239,7 +239,7 @@
 (setq! TeX-engine 'luatex)
 (after! org
   ;(setq! org-latex-pdf-process '("PDFLATEX=lualatex LATEX=lualatex texi2dvi --pdf --clean --verbose --batch --shell-escape -output-directory=%o %f")))
-(setq! org-latex-pdf-process '("latexmk -f -pdf -%latex -interaction=nonstopmode -output-directory=%o %f")))
+(setq! org-latex-pdf-process '("latexmk -f -pdf -%latex -interaction=nonstopmode -shell-excape -output-directory=%o %f")))
 (after! org
   (setq! org-latex-compiler "lualatex"))
 (after! org
@@ -250,6 +250,12 @@
              ("fontsize" "\\scriptsize")
              )
                 ))
+
+(after! org
+  (setq! org-latex-packages-alist '())
+  (add-to-list 'org-latex-packages-alist '("" "physics" t))
+  (add-to-list 'org-latex-packages-alist '("" "minted" nil))
+)
 
 (map!  (:after auctext
        :map LaTeX-mode-map
