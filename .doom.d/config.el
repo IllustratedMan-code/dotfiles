@@ -341,7 +341,7 @@
                   (print major-mode)
                   (message "Compilation finished successfully")))))
 
-
+(setq +ligatures-extras-in-modes nil)
 
 (setq! ispell-dictionary "en_US")
 
