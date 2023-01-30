@@ -530,7 +530,6 @@ Org mode (latex export) has the wrong time. Not sure how to fix. This does not w
 #+END_SRC
 ** ligatures
 #+begin_src elisp
-(setq +ligatures-extras-in-modes '(org-mode))
 #+end_src
 
 #+RESULTS:
