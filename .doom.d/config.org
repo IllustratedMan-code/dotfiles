@@ -301,9 +301,9 @@ This block changes the default term type for png file types
 : ((header-args:latex . :results output file graphics :imagemagick yes :headers '("\\usepackage{tikz}\\usepackage{siunitx}") :fit yes :iminoptions -density 600) (header-args . :pandoc t))
 ** org-xournalpp
 #+begin_src elisp
-(use-package! org-xournalpp
-  :config
-  (add-hook 'org-mode-hook 'org-xournalpp-mode))
+;;(use-package! org-xournalpp
+ ;; :config
+  ;;(add-hook 'org-mode-hook 'org-xournalpp-mode))
 
 #+end_src
 #+RESULTS:

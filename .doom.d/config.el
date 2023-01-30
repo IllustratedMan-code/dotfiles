@@ -200,9 +200,9 @@
 (setq! org-global-properties '(("header-args:latex" . ":results output file graphics :imagemagick yes :headers '(\"\\\\usepackage{tikz}\ \\\\usepackage{siunitx}\ \\\\usepackage{gensymb}\") :fit yes :iminoptions -density 600")
                                ("header-args" . ":pandoc t")))
 
-(use-package! org-xournalpp
-  :config
-  (add-hook 'org-mode-hook 'org-xournalpp-mode))
+;;(use-package! org-xournalpp
+ ;; :config
+  ;;(add-hook 'org-mode-hook 'org-xournalpp-mode))
 
 (after! org
   (setq! org-startup-truncated 'nil)
