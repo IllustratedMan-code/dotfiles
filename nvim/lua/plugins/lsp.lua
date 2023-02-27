@@ -18,7 +18,7 @@ lsp.gdscript.setup { capabilities = capabilities }
 lsp.emmet_ls.setup { capabilities = capabilities }
 lsp.rnix.setup { capabilities = capabilities }
 lsp.jsonls.setup { capabilities = capabilities }
-lsp.sumneko_lua.setup {
+lsp.lua_ls.setup {
   capabilities = capabilities,
   settings = {
     Lua = {
