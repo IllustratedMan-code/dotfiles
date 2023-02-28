@@ -162,7 +162,7 @@
                                 ("\\paragraph{%s}" . "\\paragraph*{%s}")
                                 ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
 
-(with-eval-after-load 'ox-latex
+(after! org
   (setq! org-latex-default-class "Assignment"))
 (with-eval-after-load 'ox-latex
   (add-to-list 'org-latex-classes '("mla" "\\documentclass{mla}"
