@@ -151,9 +151,9 @@
                                            "\\usepackage{etoolbox}"
                                            "\\usepackage[ruled]{algorithm2e}"
                                            "\\BeforeBeginEnvironment{minted}{\\begin{tcolorbox}}%"
-                                           "\\AfterEndEnvironment{minted}{\\begin{tcolorbox}}%"
+                                           "\\AfterEndEnvironment{minted}{\\end{tcolorbox}}%"
                                            "\\BeforeBeginEnvironment{verbatim}{\\begin{tcolorbox}}%"
-                                           "\\AfterEndEnvironment{verbatim}{\\begin{tcolorbox}}%"
+                                           "\\AfterEndEnvironment{verbatim}{\\end{tcolorbox}}%"
                                            ) "\n")
                                 ("\\section{%s}" . "\\section*{%s}")
                                 ("\\subsection{%s}" . "\\subsection*{%s}")
