@@ -222,20 +222,19 @@ This block changes the default term type for png file types
                                     ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))))
 
 (with-eval-after-load 'ox-latex
- (add-to-list 'org-latex-classes '("Assignment"
-                                   (concat "\\documentclass[11pt]{article}"
+ (add-to-list 'org-latex-classes `("Assignment"
+                                   ,(string-join '("\\documentclass[11pt]{article}"
                                            "\\usepackage[margin=0.5in]{geometry}"
                                            "\\usepackage{syntax}"
-                                           "\\usepackage{algorithm}"
-                                           "\\usepackage{algpseudocode}"
                                            "\\usepackage{pdfpages}"
                                            "\\usepackage{tcolorbox}"
                                            "\\usepackage{etoolbox}"
-                                           "\\BeforeBeginEnvironment{minted}{\\begin{tcolorbox}}% \n"
-                                           "\\AfterEndEnvironment{minted}{\\begin{tcolorbox}}% \n"
-                                           "\\BeforeBeginEnvironment{verbatim}{\\begin{tcolorbox}}% \n"
-                                           "\\AfterEndEnvironment{verbatim}{\\begin{tcolorbox}}% \n"
-                                           )
+                                           "\\usepackage[ruled]{algorithm2e}"
+                                           "\\BeforeBeginEnvironment{minted}{\\begin{tcolorbox}}%"
+                                           "\\AfterEndEnvironment{minted}{\\begin{tcolorbox}}%"
+                                           "\\BeforeBeginEnvironment{verbatim}{\\begin{tcolorbox}}%"
+                                           "\\AfterEndEnvironment{verbatim}{\\begin{tcolorbox}}%"
+                                           ) "\n")
                                 ("\\section{%s}" . "\\section*{%s}")
                                 ("\\subsection{%s}" . "\\subsection*{%s}")
                                 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
@@ -244,6 +243,14 @@ This block changes the default term type for png file types
 
 (after! org
   (setq! org-latex-default-class "Assignment"))
+
+(after! org
+  (setq! org-export-with-toc nil))
+
+(after! org
+  (setq! org-export-with-section-numbers nil))
+
+
 (with-eval-after-load 'ox-latex
   (add-to-list 'org-latex-classes '("mla" "\\documentclass{mla}"
                                     ("\\part{%s}" . "\\part*{%s}")
@@ -261,13 +268,9 @@ This block changes the default term type for png file types
 #+end_src
 
 #+RESULTS:
-| beamer  | \documentclass[presentation]{beamer} | (\section{%s} . \section*{%s}) | (\subsection{%s} . \subsection*{%s}) | (\subsubsection{%s} . \subsubsection*{%s}) |                                      |                                            |
-| memo    | \documentclass{texMemo}              | (\section{%s} . \section*{%s}) | (\subsection{%s} . \subsection*{%s}) | (\subsubsection{%s} . \subsubsection*{%s}) |                                      |                                            |
-| mla     | \documentclass{mla}                  | (\part{%s} . \part*{%s})       | (\chapter{%s} . \chapter*{%s})       | (\section{%s} . \section*{%s})             | (\subsection{%s} . \subsection*{%s}) | (\subsubsection{%s} . \subsubsection*{%s}) |
-| apa     | \documentclass[11pt]{apa7}           | (\part{%s} . \part*{%s})       | (\chapter{%s} . \chapter*{%s})       | (\section{%s} . \section*{%s})             | (\subsection{%s} . \subsection*{%s}) | (\subsubsection{%s} . \subsubsection*{%s}) |
-| article | \documentclass[11pt]{article}        | (\section{%s} . \section*{%s}) | (\subsection{%s} . \subsection*{%s}) | (\subsubsection{%s} . \subsubsection*{%s}) | (\paragraph{%s} . \paragraph*{%s})   | (\subparagraph{%s} . \subparagraph*{%s})   |
-| report  | \documentclass[11pt]{report}         | (\part{%s} . \part*{%s})       | (\chapter{%s} . \chapter*{%s})       | (\section{%s} . \section*{%s})             | (\subsection{%s} . \subsection*{%s}) | (\subsubsection{%s} . \subsubsection*{%s}) |
-| book    | \documentclass[11pt]{book}           | (\part{%s} . \part*{%s})       | (\chapter{%s} . \chapter*{%s})       | (\section{%s} . \section*{%s})             | (\subsection{%s} . \subsection*{%s}) | (\subsubsection{%s} . \subsubsection*{%s}) |
+| memo       | \documentclass{texMemo}       | (\section{%s} . \section*{%s}) | (\subsection{%s} . \subsection*{%s}) | (\subsubsection{%s} . \subsubsection*{%s}) |                                      |                                            |
+| mla        | \documentclass{mla}           | (\part{%s} . \part*{%s})       | (\chapter{%s} . \chapter*{%s})       | (\section{%s} . \section*{%s})             | (\subsection{%s} . \subsection*{%s}) | (\subsubsection{%s} . \subsubsection*{%s}) |
+| Assignment | \documentclass[11pt]{article} |                                |                                      |                                            |                                      |                                            |
 
 ** citations
 #+begin_src elisp

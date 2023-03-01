@@ -142,20 +142,19 @@
                                     ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))))
 
 (with-eval-after-load 'ox-latex
- (add-to-list 'org-latex-classes '("Assignment"
-                                   (concat "\\documentclass[11pt]{article}"
+ (add-to-list 'org-latex-classes `("Assignment"
+                                   ,(string-join '("\\documentclass[11pt]{article}"
                                            "\\usepackage[margin=0.5in]{geometry}"
                                            "\\usepackage{syntax}"
-                                           "\\usepackage{algorithm}"
-                                           "\\usepackage{algpseudocode}"
                                            "\\usepackage{pdfpages}"
                                            "\\usepackage{tcolorbox}"
                                            "\\usepackage{etoolbox}"
-                                           "\\BeforeBeginEnvironment{minted}{\\begin{tcolorbox}}% \n"
-                                           "\\AfterEndEnvironment{minted}{\\begin{tcolorbox}}% \n"
-                                           "\\BeforeBeginEnvironment{verbatim}{\\begin{tcolorbox}}% \n"
-                                           "\\AfterEndEnvironment{verbatim}{\\begin{tcolorbox}}% \n"
-                                           )
+                                           "\\usepackage[ruled]{algorithm2e}"
+                                           "\\BeforeBeginEnvironment{minted}{\\begin{tcolorbox}}%"
+                                           "\\AfterEndEnvironment{minted}{\\begin{tcolorbox}}%"
+                                           "\\BeforeBeginEnvironment{verbatim}{\\begin{tcolorbox}}%"
+                                           "\\AfterEndEnvironment{verbatim}{\\begin{tcolorbox}}%"
+                                           ) "\n")
                                 ("\\section{%s}" . "\\section*{%s}")
                                 ("\\subsection{%s}" . "\\subsection*{%s}")
                                 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
@@ -164,6 +163,14 @@
 
 (after! org
   (setq! org-latex-default-class "Assignment"))
+
+(after! org
+  (setq! org-export-with-toc nil))
+
+(after! org
+  (setq! org-export-with-section-numbers nil))
+
+
 (with-eval-after-load 'ox-latex
   (add-to-list 'org-latex-classes '("mla" "\\documentclass{mla}"
                                     ("\\part{%s}" . "\\part*{%s}")
