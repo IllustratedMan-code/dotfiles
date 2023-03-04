@@ -149,18 +149,23 @@
                                            "\\usepackage{pdfpages}"
                                            "\\usepackage{tcolorbox}"
                                            "\\usepackage{etoolbox}"
+                                           "\\usepackage{environ}"
                                            "\\usepackage[ruled]{algorithm2e}"
+                                           "\\let\\oldtabular\\tabular"
+                                           "\\let\\oldendtabular\\endtabular"
+                                           "\\NewEnviron{tabular2}[1]{\\tcbox[left=0mm, right=0mm, top=0mm, bottom=0mm]{\\oldtabular{#1}\\BODY\\oldendtabular}}"
                                            "\\BeforeBeginEnvironment{minted}{\\begin{tcolorbox}}%"
-                                           "\\AfterEndEnvironment{minted}{\\end{tcolorbox}}%"
+                                           "\\AfterEndEnvironment{minted}{\\end{tcolorbox}}"
                                            "\\BeforeBeginEnvironment{verbatim}{\\begin{tcolorbox}}%"
-                                           "\\AfterEndEnvironment{verbatim}{\\end{tcolorbox}}%"
+                                           "\\AfterEndEnvironment{verbatim}{\\end{tcolorbox}}"
                                            ) "\n")
                                 ("\\section{%s}" . "\\section*{%s}")
                                 ("\\subsection{%s}" . "\\subsection*{%s}")
                                 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
                                 ("\\paragraph{%s}" . "\\paragraph*{%s}")
                                 ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
-
+(after! org
+  (setq! org-latex-default-table-environment "tabular2"))
 (after! org
   (setq! org-latex-default-class "Assignment"))
 

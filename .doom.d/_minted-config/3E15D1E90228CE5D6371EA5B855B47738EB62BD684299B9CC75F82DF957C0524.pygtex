@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{p}{(}\PYG{k}{setq}\PYG{+w}{ }\PYG{n+nv}{doom\PYGZhy{}theme}\PYG{+w}{ }\PYG{l+s+ss}{\PYGZsq{}doom\PYGZhy{}base16}\PYG{p}{)}
+\PYG{p}{(}\PYG{k}{setq}\PYG{+w}{ }\PYG{n+nv}{doom\PYGZhy{}themes\PYGZhy{}treemacs\PYGZhy{}theme}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}doom\PYGZhy{}colors\PYGZdq{}}\PYG{p}{)}
+\PYG{p}{(}\PYG{n+nv}{add\PYGZhy{}hook}\PYG{+w}{ }\PYG{l+s+ss}{\PYGZsq{}pdf\PYGZhy{}tools\PYGZhy{}enabled\PYGZhy{}hook}\PYG{+w}{ }\PYG{l+s+ss}{\PYGZsq{}pdf\PYGZhy{}view\PYGZhy{}themed\PYGZhy{}minor\PYGZhy{}mode}\PYG{p}{)}
+\end{Verbatim}

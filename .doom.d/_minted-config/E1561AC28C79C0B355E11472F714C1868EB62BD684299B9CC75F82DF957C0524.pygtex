@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{p}{(}\PYG{n+nv}{setq!}\PYG{+w}{ }\PYG{n+nv}{org\PYGZhy{}global\PYGZhy{}properties}\PYG{+w}{ }\PYG{o}{\PYGZsq{}}\PYG{p}{((}\PYG{l+s}{\PYGZdq{}header\PYGZhy{}args:latex\PYGZdq{}}\PYG{+w}{ }\PYG{o}{.}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}:results output file graphics :imagemagick yes :headers \PYGZsq{}(\PYGZbs{}\PYGZdq{}\PYGZbs{}\PYGZbs{}\PYGZbs{}\PYGZbs{}usepackage\PYGZob{}tikz\PYGZcb{}\PYGZbs{} \PYGZbs{}\PYGZbs{}\PYGZbs{}\PYGZbs{}usepackage\PYGZob{}siunitx\PYGZcb{}\PYGZbs{} \PYGZbs{}\PYGZbs{}\PYGZbs{}\PYGZbs{}usepackage\PYGZob{}gensymb\PYGZcb{}\PYGZbs{}\PYGZdq{}) :fit yes :iminoptions \PYGZhy{}density 600\PYGZdq{}}\PYG{p}{)}
+\PYG{+w}{                               }\PYG{p}{(}\PYG{l+s}{\PYGZdq{}header\PYGZhy{}args\PYGZdq{}}\PYG{+w}{ }\PYG{o}{.}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}:pandoc t\PYGZdq{}}\PYG{p}{)))}
+\end{Verbatim}

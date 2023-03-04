@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{p}{(}\PYG{n+nv}{add\PYGZhy{}hook}\PYG{+w}{ }\PYG{l+s+ss}{\PYGZsq{}compilation\PYGZhy{}finish\PYGZhy{}functions}
+\PYG{+w}{          }\PYG{p}{(}\PYG{n+nb}{lambda}\PYG{p}{(}\PYG{n+nv}{buffer}\PYG{+w}{ }\PYG{n+nf}{string}\PYG{p}{)}
+\PYG{+w}{            }\PYG{p}{(}\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{k}{and}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nf}{null}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nf}{string\PYGZhy{}match}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}.*exited abnormally.*\PYGZdq{}}\PYG{+w}{ }\PYG{n+nf}{string}\PYG{p}{))}
+\PYG{+w}{                     }\PYG{p}{(}\PYG{n+nf}{null}\PYG{p}{(}\PYG{n+nf}{eq}\PYG{+w}{ }\PYG{n+nv}{major\PYGZhy{}mode}\PYG{+w}{ }\PYG{l+s+ss}{\PYGZsq{}inferior\PYGZhy{}python\PYGZhy{}mode}\PYG{p}{)))}
+\PYG{+w}{                }\PYG{c+c1}{;; make compilation window go away after a few seconds}
+\PYG{+w}{                }\PYG{p}{(}\PYG{k}{progn}
+\PYG{+w}{                  }\PYG{p}{(}\PYG{n+nv}{run\PYGZhy{}at\PYGZhy{}time}
+\PYG{+w}{                   }\PYG{l+s}{\PYGZdq{}1 sec\PYGZdq{}}\PYG{+w}{ }\PYG{n+no}{nil}\PYG{+w}{ }\PYG{l+s+ss}{\PYGZsq{}delete\PYGZhy{}windows\PYGZhy{}on}
+\PYG{+w}{                   }\PYG{p}{(}\PYG{n+nf}{get\PYGZhy{}buffer\PYGZhy{}create}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}*compilation*\PYGZdq{}}\PYG{p}{))}
+\PYG{+w}{                  }\PYG{p}{(}\PYG{n+nf}{print}\PYG{+w}{ }\PYG{n+nv}{major\PYGZhy{}mode}\PYG{p}{)}
+\PYG{+w}{                  }\PYG{p}{(}\PYG{n+nf}{message}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}Compilation finished successfully\PYGZdq{}}\PYG{p}{)))))}
+\end{Verbatim}

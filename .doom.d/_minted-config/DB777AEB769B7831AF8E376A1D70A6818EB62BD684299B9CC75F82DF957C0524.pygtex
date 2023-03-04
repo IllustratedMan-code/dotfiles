@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{p}{(}\PYG{n+nv}{after!}\PYG{+w}{ }\PYG{n+nv}{org}
+\PYG{+w}{  }\PYG{p}{(}\PYG{n+nv}{setq!}\PYG{+w}{ }\PYG{n+nv}{org\PYGZhy{}latex\PYGZhy{}packages\PYGZhy{}alist}\PYG{+w}{ }\PYG{o}{\PYGZsq{}}\PYG{p}{())}
+\PYG{+w}{  }\PYG{p}{(}\PYG{n+nv}{add\PYGZhy{}to\PYGZhy{}list}\PYG{+w}{ }\PYG{l+s+ss}{\PYGZsq{}org\PYGZhy{}latex\PYGZhy{}packages\PYGZhy{}alist}\PYG{+w}{ }\PYG{o}{\PYGZsq{}}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZdq{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}physics\PYGZdq{}}\PYG{+w}{ }\PYG{n+no}{t}\PYG{p}{))}
+\PYG{+w}{  }\PYG{p}{(}\PYG{n+nv}{add\PYGZhy{}to\PYGZhy{}list}\PYG{+w}{ }\PYG{l+s+ss}{\PYGZsq{}org\PYGZhy{}latex\PYGZhy{}packages\PYGZhy{}alist}\PYG{+w}{ }\PYG{o}{\PYGZsq{}}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZdq{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}minted\PYGZdq{}}\PYG{+w}{ }\PYG{n+no}{nil}\PYG{p}{))}
+\PYG{p}{)}
+\end{Verbatim}

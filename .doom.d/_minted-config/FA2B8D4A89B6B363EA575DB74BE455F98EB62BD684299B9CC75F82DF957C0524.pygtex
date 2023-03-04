@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{p}{(}\PYG{n+nv}{defadvice!}\PYG{+w}{ }\PYG{n+nv}{+org\PYGZhy{}dont\PYGZhy{}fontify\PYGZhy{}my\PYGZhy{}thangs\PYGZhy{}a}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nv}{orig\PYGZhy{}fn}\PYG{+w}{ }\PYG{k+kp}{\PYGZam{}rest}\PYG{+w}{ }\PYG{n+nv}{args}\PYG{p}{)}
+\PYG{+w}{  }\PYG{n+nb}{:around}\PYG{+w}{ }\PYG{o}{\PYGZsq{}}\PYG{p}{(}\PYG{n+nv}{org\PYGZhy{}superstar\PYGZhy{}mode}\PYG{+w}{ }\PYG{n+nv}{org\PYGZhy{}fancy\PYGZhy{}priorities\PYGZhy{}mode}\PYG{p}{)}
+\PYG{+w}{  }\PYG{p}{(}\PYG{n+nv}{letf!}\PYG{+w}{ }\PYG{p}{((}\PYG{n+nf}{\PYGZsh{}\PYGZsq{}}\PYG{n+nv}{font\PYGZhy{}lock\PYGZhy{}ensure}\PYG{+w}{ }\PYG{n+nf}{\PYGZsh{}\PYGZsq{}}\PYG{n+nv}{ignore}\PYG{p}{)}
+\PYG{+w}{          }\PYG{p}{(}\PYG{n+nf}{\PYGZsh{}\PYGZsq{}}\PYG{n+nv}{font\PYGZhy{}lock\PYGZhy{}flush}\PYG{+w}{ }\PYG{n+nf}{\PYGZsh{}\PYGZsq{}}\PYG{n+nv}{ignore}\PYG{p}{)}
+\PYG{+w}{          }\PYG{p}{(}\PYG{n+nf}{\PYGZsh{}\PYGZsq{}}\PYG{n+nv}{font\PYGZhy{}lock\PYGZhy{}fontify\PYGZhy{}buffer}\PYG{+w}{ }\PYG{n+nf}{\PYGZsh{}\PYGZsq{}}\PYG{n+nv}{ignore}\PYG{p}{))}
+\PYG{+w}{    }\PYG{p}{(}\PYG{n+nf}{apply}\PYG{+w}{ }\PYG{n+nv}{orig\PYGZhy{}fn}\PYG{+w}{ }\PYG{n+nv}{args}\PYG{p}{)))}
+\end{Verbatim}

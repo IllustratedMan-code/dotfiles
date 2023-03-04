@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{;;(use\PYGZhy{}package! org\PYGZhy{}xournalpp}
+\PYG{+w}{ }\PYG{c+c1}{;; :config}
+\PYG{+w}{  }\PYG{c+c1}{;;(add\PYGZhy{}hook \PYGZsq{}org\PYGZhy{}mode\PYGZhy{}hook \PYGZsq{}org\PYGZhy{}xournalpp\PYGZhy{}mode))}
+
+\end{Verbatim}

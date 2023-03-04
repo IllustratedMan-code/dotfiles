@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{p}{(}\PYG{n+nb}{defun}\PYG{+w}{ }\PYG{n+nv}{insert\PYGZhy{}R\PYGZhy{}assign}\PYG{+w}{ }\PYG{p}{()}
+\PYG{+w}{  }\PYG{l+s}{\PYGZdq{}Inserts the assign statement in R \PYGZlt{}\PYGZhy{}\PYGZdq{}}
+\PYG{+w}{  }\PYG{p}{(}\PYG{k}{interactive}\PYG{p}{)}
+\PYG{+w}{  }\PYG{p}{(}\PYG{n+nf}{insert}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}\PYGZlt{}\PYGZhy{}\PYGZdq{}}\PYG{p}{)}
+\PYG{+w}{  }\PYG{p}{)}
+\end{Verbatim}

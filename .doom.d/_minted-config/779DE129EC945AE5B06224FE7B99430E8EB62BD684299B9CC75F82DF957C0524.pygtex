@@ -1,0 +1,25 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{p}{(}\PYG{k}{setq}\PYG{+w}{ }\PYG{n+nv}{alert\PYGZhy{}user\PYGZhy{}configuration}\PYG{+w}{ }\PYG{p}{(}\PYG{k}{quote}\PYG{+w}{ }\PYG{p}{((((}\PYG{n+nb}{:category}\PYG{+w}{ }\PYG{o}{.}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}org\PYGZhy{}pomodoro\PYGZdq{}}\PYG{p}{))}\PYG{+w}{ }\PYG{n+nv}{libnotify}\PYG{+w}{ }\PYG{n+no}{nil}\PYG{p}{))))}
+\PYG{p}{(}\PYG{n+nb}{defun}\PYG{+w}{ }\PYG{n+nv}{david/org\PYGZhy{}pomodoro\PYGZhy{}time}\PYG{+w}{ }\PYG{p}{()}
+\PYG{+w}{  }\PYG{l+s}{\PYGZdq{}Return the remaining pomodoro time\PYGZdq{}}
+\PYG{+w}{  }\PYG{p}{(}\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nf}{fboundp}\PYG{+w}{ }\PYG{l+s+ss}{\PYGZsq{}org\PYGZhy{}pomodoro\PYGZhy{}active\PYGZhy{}p}\PYG{p}{)}
+\PYG{+w}{  }\PYG{p}{(}\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nv}{org\PYGZhy{}pomodoro\PYGZhy{}active\PYGZhy{}p}\PYG{p}{)}
+\PYG{+w}{      }\PYG{p}{(}\PYG{n+nb}{cl\PYGZhy{}case}\PYG{+w}{ }\PYG{n+nv}{org\PYGZhy{}pomodoro\PYGZhy{}state}
+\PYG{+w}{        }\PYG{p}{(}\PYG{n+nb}{:pomodoro}
+\PYG{+w}{           }\PYG{p}{(}\PYG{n+nf}{format}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}Pomo: \PYGZpc{}d minutes \PYGZhy{} \PYGZpc{}s\PYGZdq{}}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nf}{/}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nv}{org\PYGZhy{}pomodoro\PYGZhy{}remaining\PYGZhy{}seconds}\PYG{p}{)}\PYG{+w}{ }\PYG{l+m+mi}{60}\PYG{p}{)}\PYG{+w}{ }\PYG{n+nv}{org\PYGZhy{}clock\PYGZhy{}heading}\PYG{p}{))}
+\PYG{+w}{        }\PYG{p}{(}\PYG{n+nb}{:short\PYGZhy{}break}
+\PYG{+w}{         }\PYG{p}{(}\PYG{n+nf}{format}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}Short break time: \PYGZpc{}d minutes\PYGZdq{}}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nf}{/}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nv}{org\PYGZhy{}pomodoro\PYGZhy{}remaining\PYGZhy{}seconds}\PYG{p}{)}\PYG{+w}{ }\PYG{l+m+mi}{60}\PYG{p}{)))}
+\PYG{+w}{        }\PYG{p}{(}\PYG{n+nb}{:long\PYGZhy{}break}
+\PYG{+w}{         }\PYG{p}{(}\PYG{n+nf}{format}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}Long break time: \PYGZpc{}d minutes\PYGZdq{}}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nf}{/}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nv}{org\PYGZhy{}pomodoro\PYGZhy{}remaining\PYGZhy{}seconds}\PYG{p}{)}\PYG{+w}{ }\PYG{l+m+mi}{60}\PYG{p}{)))}
+\PYG{+w}{        }\PYG{p}{(}\PYG{n+nb}{:overtime}
+\PYG{+w}{         }\PYG{p}{(}\PYG{n+nf}{format}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}Overtime! \PYGZpc{}d minutes\PYGZdq{}}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nf}{/}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nv}{org\PYGZhy{}pomodoro\PYGZhy{}remaining\PYGZhy{}seconds}\PYG{p}{)}\PYG{+w}{ }\PYG{l+m+mi}{60}\PYG{p}{))))}
+\PYG{+w}{    }\PYG{l+s}{\PYGZdq{}No active pomo\PYGZdq{}}\PYG{p}{)}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}no active pomo\PYGZdq{}}\PYG{p}{))}
+\PYG{p}{(}\PYG{n+nb}{use\PYGZhy{}package}\PYG{+w}{ }\PYG{n+nv}{org\PYGZhy{}pomodoro}
+\PYG{+w}{  }\PYG{n+nb}{:ensure}\PYG{+w}{ }\PYG{n+no}{t}
+\PYG{+w}{  }\PYG{n+nb}{:commands}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nv}{org\PYGZhy{}pomodoro}\PYG{p}{)}
+\PYG{+w}{  }\PYG{n+nb}{:config}
+\PYG{+w}{  }\PYG{p}{(}\PYG{k}{setq}
+\PYG{+w}{   }\PYG{n+nv}{org\PYGZhy{}pomodoro\PYGZhy{}length}\PYG{+w}{ }\PYG{l+m+mi}{50}
+\PYG{+w}{   }\PYG{n+nv}{org\PYGZhy{}pomodoro\PYGZhy{}short\PYGZhy{}break\PYGZhy{}length}\PYG{+w}{ }\PYG{l+m+mi}{10}
+\PYG{+w}{   }\PYG{p}{))}
+\end{Verbatim}

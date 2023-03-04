@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{p}{(}\PYG{n+nb}{defun}\PYG{+w}{ }\PYG{n+nv}{cache\PYGZhy{}address}\PYG{+w}{ }\PYG{p}{()}
+\PYG{+w}{ }\PYG{p}{(}\PYG{k}{interactive}\PYG{p}{)}
+\PYG{+w}{ }\PYG{p}{(}\PYG{k}{progn}
+\PYG{+w}{   }\PYG{p}{(}\PYG{k}{setq}\PYG{+w}{ }\PYG{n+nv}{size}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nf}{read\PYGZhy{}string}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}Enter the MM size: \PYGZdq{}}\PYG{p}{))}
+\PYG{+w}{   }\PYG{p}{(}\PYG{k}{setq}\PYG{+w}{ }\PYG{n+nv}{strunit}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nf}{substring}\PYG{+w}{ }\PYG{n+nv}{size}\PYG{+w}{ }\PYG{l+m+mi}{\PYGZhy{}2}\PYG{+w}{ }\PYG{n+no}{nil}\PYG{p}{))}
+\PYG{+w}{   }\PYG{p}{(}\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nf}{eq}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nf}{compare\PYGZhy{}strings}\PYG{+w}{ }\PYG{n+nv}{strunit}\PYG{+w}{ }\PYG{n+no}{nil}\PYG{+w}{ }\PYG{n+no}{nil}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}GB\PYGZdq{}}\PYG{+w}{ }\PYG{n+no}{nil}\PYG{+w}{ }\PYG{n+no}{nil}\PYG{p}{)}\PYG{+w}{ }\PYG{l+s+ss}{\PYGZsq{}t}\PYG{p}{)}
+\PYG{+w}{       }\PYG{p}{(}\PYG{n+nf}{message}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}true\PYGZdq{}}\PYG{p}{))}
+\PYG{+w}{ }\PYG{p}{)}
+\PYG{+w}{ }\PYG{p}{)}
+\end{Verbatim}

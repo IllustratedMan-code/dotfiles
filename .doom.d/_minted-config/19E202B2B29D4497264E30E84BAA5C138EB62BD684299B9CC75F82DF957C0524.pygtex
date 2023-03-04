@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{+w}{  }\PYG{p}{(}\PYG{n+nv}{after!}\PYG{+w}{ }\PYG{n+nv}{evil\PYGZhy{}org}
+\PYG{+w}{    }\PYG{p}{(}\PYG{k}{setq}\PYG{+w}{ }\PYG{n+nv}{org\PYGZhy{}tab\PYGZhy{}first\PYGZhy{}hook}\PYG{+w}{ }\PYG{n+no}{nil}\PYG{p}{))}
+\end{Verbatim}

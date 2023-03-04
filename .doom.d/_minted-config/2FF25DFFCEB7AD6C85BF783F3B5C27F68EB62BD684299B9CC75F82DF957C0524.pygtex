@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{p}{(}\PYG{k}{setq}\PYG{+w}{ }\PYG{n+nv}{projectile\PYGZhy{}file\PYGZhy{}exists\PYGZhy{}remote\PYGZhy{}cache\PYGZhy{}expire}\PYG{+w}{ }\PYG{n+no}{nil}\PYG{p}{)}
+\PYG{p}{(}\PYG{k}{setq}\PYG{+w}{ }\PYG{n+nv}{tramp\PYGZhy{}auto\PYGZhy{}save\PYGZhy{}directory}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}\PYGZti{}/Documents/tramp\PYGZhy{}autosave\PYGZdq{}}\PYG{p}{)}
+\end{Verbatim}

@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{p}{(}\PYG{n+nv}{after!}\PYG{+w}{ }\PYG{n+nv}{lsp\PYGZhy{}python\PYGZhy{}ms}
+\PYG{+w}{  }\PYG{p}{(}\PYG{k}{setq}\PYG{+w}{ }\PYG{n+nv}{lsp\PYGZhy{}python\PYGZhy{}ms\PYGZhy{}executable}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nv}{executable\PYGZhy{}find}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}python\PYGZhy{}language\PYGZhy{}server\PYGZdq{}}\PYG{p}{))}
+\PYG{+w}{  }\PYG{p}{(}\PYG{n+nv}{set\PYGZhy{}lsp\PYGZhy{}priority!}\PYG{+w}{ }\PYG{l+s+ss}{\PYGZsq{}mspyls}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{))}
+\PYG{p}{(}\PYG{n+nv}{after!}\PYG{+w}{ }\PYG{n+nv}{lsp\PYGZhy{}rust\PYGZhy{}rls}
+\PYG{+w}{  }\PYG{p}{(}\PYG{k}{setq}\PYG{+w}{ }\PYG{n+nv}{lsp\PYGZhy{}rust\PYGZhy{}rls\PYGZhy{}server\PYGZhy{}command}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nv}{executable\PYGZhy{}find}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}rls\PYGZdq{}}\PYG{p}{))}
+\PYG{+w}{  }\PYG{p}{(}\PYG{n+nv}{set\PYGZhy{}lsp\PYGZhy{}priority!}\PYG{+w}{ }\PYG{l+s+ss}{\PYGZsq{}rls}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{))}
+
+\PYG{p}{(}\PYG{n+nv}{after!}\PYG{+w}{ }\PYG{n+nv}{lsp\PYGZhy{}clients\PYGZhy{}lua\PYGZhy{}language\PYGZhy{}server}
+\PYG{+w}{  }\PYG{p}{(}\PYG{k}{setq}\PYG{+w}{ }\PYG{n+nv}{lsp\PYGZhy{}clients\PYGZhy{}lua\PYGZhy{}language\PYGZhy{}server\PYGZhy{}bin}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nv}{executable\PYGZhy{}find}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}lua\PYGZhy{}language\PYGZhy{}server\PYGZdq{}}\PYG{p}{))}
+\PYG{+w}{  }\PYG{p}{(}\PYG{n+nv}{set\PYGZhy{}lsp\PYGZhy{}priority!}\PYG{+w}{ }\PYG{l+s+ss}{\PYGZsq{}lua\PYGZhy{}language\PYGZhy{}server}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{))}
+\end{Verbatim}

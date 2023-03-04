@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+./configure \PYGZhy{}with\PYGZhy{}json \PYGZhy{}with\PYGZhy{}imagemagick \PYGZhy{}\PYGZhy{}with\PYGZhy{}xpm\PYG{o}{=}ifavailable \PYGZhy{}\PYGZhy{}with\PYGZhy{}native\PYGZhy{}compilation
+\end{Verbatim}

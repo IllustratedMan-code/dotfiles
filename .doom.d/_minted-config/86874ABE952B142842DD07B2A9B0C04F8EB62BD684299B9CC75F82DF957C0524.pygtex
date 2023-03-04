@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{p}{(}\PYG{n+nv}{setq!}\PYG{+w}{ }\PYG{n+nv}{doom\PYGZhy{}private\PYGZhy{}dir}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}\PYGZti{}/dotfiles/.doom.d/\PYGZdq{}}\PYG{p}{)}
+\end{Verbatim}

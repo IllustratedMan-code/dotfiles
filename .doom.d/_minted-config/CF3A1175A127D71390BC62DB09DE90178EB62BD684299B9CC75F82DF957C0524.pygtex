@@ -1,0 +1,17 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{p}{(}\PYG{k}{setq}\PYG{+w}{ }\PYG{n+nv}{ess\PYGZhy{}R\PYGZhy{}font\PYGZhy{}lock\PYGZhy{}keywords}\PYG{+w}{ }\PYG{o}{\PYGZsq{}}\PYG{p}{(}
+\PYG{+w}{ }\PYG{p}{(}\PYG{n+nv}{ess\PYGZhy{}R\PYGZhy{}fl\PYGZhy{}keyword:keywords}\PYG{+w}{ }\PYG{o}{.}\PYG{+w}{ }\PYG{n+no}{t}\PYG{p}{)}
+\PYG{+w}{ }\PYG{p}{(}\PYG{n+nv}{ess\PYGZhy{}R\PYGZhy{}fl\PYGZhy{}keyword:constants}\PYG{+w}{ }\PYG{o}{.}\PYG{+w}{ }\PYG{n+no}{t}\PYG{p}{)}
+\PYG{+w}{ }\PYG{p}{(}\PYG{n+nv}{ess\PYGZhy{}R\PYGZhy{}fl\PYGZhy{}keyword:modifiers}\PYG{+w}{ }\PYG{o}{.}\PYG{+w}{ }\PYG{n+no}{t}\PYG{p}{)}
+\PYG{+w}{ }\PYG{p}{(}\PYG{n+nv}{ess\PYGZhy{}R\PYGZhy{}fl\PYGZhy{}keyword:fun\PYGZhy{}defs}\PYG{+w}{ }\PYG{o}{.}\PYG{+w}{ }\PYG{n+no}{t}\PYG{p}{)}
+\PYG{+w}{ }\PYG{p}{(}\PYG{n+nv}{ess\PYGZhy{}R\PYGZhy{}fl\PYGZhy{}keyword:assign\PYGZhy{}ops}\PYG{+w}{ }\PYG{o}{.}\PYG{+w}{ }\PYG{n+no}{t}\PYG{p}{)}
+\PYG{+w}{ }\PYG{p}{(}\PYG{n+nv}{ess\PYGZhy{}R\PYGZhy{}fl\PYGZhy{}keyword:\PYGZpc{}op\PYGZpc{}}\PYG{+w}{ }\PYG{o}{.}\PYG{+w}{ }\PYG{n+no}{t}\PYG{p}{)}
+\PYG{+w}{ }\PYG{p}{(}\PYG{n+nv}{ess\PYGZhy{}fl\PYGZhy{}keyword:fun\PYGZhy{}calls}\PYG{+w}{ }\PYG{o}{.}\PYG{+w}{ }\PYG{n+no}{t}\PYG{p}{)}
+\PYG{+w}{ }\PYG{p}{(}\PYG{n+nv}{ess\PYGZhy{}fl\PYGZhy{}keyword:numbers}\PYG{+w}{ }\PYG{o}{.}\PYG{+w}{ }\PYG{n+no}{t}\PYG{p}{)}
+\PYG{+w}{ }\PYG{p}{(}\PYG{n+nv}{ess\PYGZhy{}fl\PYGZhy{}keyword:operators}\PYG{+w}{ }\PYG{o}{.}\PYG{+w}{ }\PYG{n+no}{t}\PYG{p}{)}
+\PYG{+w}{ }\PYG{p}{(}\PYG{n+nv}{ess\PYGZhy{}fl\PYGZhy{}keyword:delimiters}\PYG{+w}{ }\PYG{o}{.}\PYG{+w}{ }\PYG{n+no}{t}\PYG{p}{)}
+\PYG{+w}{ }\PYG{p}{(}\PYG{n+nv}{ess\PYGZhy{}fl\PYGZhy{}keyword:=}\PYG{+w}{ }\PYG{o}{.}\PYG{+w}{ }\PYG{n+no}{t}\PYG{p}{)}
+\PYG{+w}{ }\PYG{p}{(}\PYG{n+nv}{ess\PYGZhy{}R\PYGZhy{}fl\PYGZhy{}keyword:F\PYGZam{}T}\PYG{+w}{ }\PYG{o}{.}\PYG{+w}{ }\PYG{n+no}{t}\PYG{p}{)}
+\PYG{+w}{ }\PYG{p}{)}
+\PYG{p}{)}
+\end{Verbatim}

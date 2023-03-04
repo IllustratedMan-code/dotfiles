@@ -1,0 +1,1 @@
+(setq! ispell-dictionary "en_US")

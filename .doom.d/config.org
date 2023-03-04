@@ -1,5 +1,4 @@
-#+TITLE: Doom configuration
-#+STARTUP: overview
+#+TITLE: Doom configuration #+STARTUP: overview
 * Identity information
 #+BEGIN_SRC elisp
 (setq user-full-name "David Lewis"
@@ -229,18 +228,23 @@ This block changes the default term type for png file types
                                            "\\usepackage{pdfpages}"
                                            "\\usepackage{tcolorbox}"
                                            "\\usepackage{etoolbox}"
+                                           "\\usepackage{environ}"
                                            "\\usepackage[ruled]{algorithm2e}"
+                                           "\\let\\oldtabular\\tabular"
+                                           "\\let\\oldendtabular\\endtabular"
+                                           "\\NewEnviron{tabular2}[1]{\\tcbox[left=0mm, right=0mm, top=0mm, bottom=0mm]{\\oldtabular{#1}\\BODY\\oldendtabular}}"
                                            "\\BeforeBeginEnvironment{minted}{\\begin{tcolorbox}}%"
-                                           "\\AfterEndEnvironment{minted}{\\end{tcolorbox}}%"
+                                           "\\AfterEndEnvironment{minted}{\\end{tcolorbox}}"
                                            "\\BeforeBeginEnvironment{verbatim}{\\begin{tcolorbox}}%"
-                                           "\\AfterEndEnvironment{verbatim}{\\end{tcolorbox}}%"
+                                           "\\AfterEndEnvironment{verbatim}{\\end{tcolorbox}}"
                                            ) "\n")
                                 ("\\section{%s}" . "\\section*{%s}")
                                 ("\\subsection{%s}" . "\\subsection*{%s}")
                                 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
                                 ("\\paragraph{%s}" . "\\paragraph*{%s}")
                                 ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
-
+(after! org
+  (setq! org-latex-default-table-environment "tabular2"))
 (after! org
   (setq! org-latex-default-class "Assignment"))
 
@@ -268,9 +272,7 @@ This block changes the default term type for png file types
 #+end_src
 
 #+RESULTS:
-| memo       | \documentclass{texMemo}       | (\section{%s} . \section*{%s}) | (\subsection{%s} . \subsection*{%s}) | (\subsubsection{%s} . \subsubsection*{%s}) |                                      |                                            |
-| mla        | \documentclass{mla}           | (\part{%s} . \part*{%s})       | (\chapter{%s} . \chapter*{%s})       | (\section{%s} . \section*{%s})             | (\subsection{%s} . \subsection*{%s}) | (\subsubsection{%s} . \subsubsection*{%s}) |
-| Assignment | \documentclass[11pt]{article} |                                |                                      |                                            |                                      |                                            |
+| Assignment | \documentclass[11pt]{article} |
 
 ** citations
 #+begin_src elisp

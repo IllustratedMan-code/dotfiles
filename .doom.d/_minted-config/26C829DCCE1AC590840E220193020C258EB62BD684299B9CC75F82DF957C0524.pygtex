@@ -1,0 +1,53 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{p}{(}\PYG{n+nb}{defun}\PYG{+w}{ }\PYG{n+nv}{insert\PYGZhy{}jupyter\PYGZhy{}python\PYGZhy{}block}\PYG{+w}{ }\PYG{p}{()}
+\PYG{+w}{  }\PYG{l+s}{\PYGZdq{}Inserts a python code block\PYGZdq{}}
+\PYG{+w}{  }\PYG{p}{(}\PYG{k}{interactive}\PYG{p}{)}
+\PYG{+w}{  }\PYG{p}{(}\PYG{k}{progn}
+\PYG{+w}{    }\PYG{p}{(}\PYG{n+nf}{insert}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}\PYGZsh{}+begin\PYGZus{}src jupyter\PYGZhy{}python :session py\PYGZbs{}n\PYGZdq{}}
+\PYG{+w}{            }\PYG{l+s}{\PYGZdq{}\PYGZsh{}+end\PYGZus{}src\PYGZdq{}}\PYG{p}{)}
+\PYG{+w}{    }\PYG{p}{)}
+\PYG{+w}{  }\PYG{p}{(}\PYG{n+nv}{org\PYGZhy{}edit\PYGZhy{}special}\PYG{p}{)}
+\PYG{+w}{  }\PYG{p}{)}
+
+\PYG{p}{(}\PYG{n+nb}{defun}\PYG{+w}{ }\PYG{n+nv}{insert\PYGZhy{}jupyter\PYGZhy{}ess\PYGZhy{}block}\PYG{p}{()}
+\PYG{+w}{  }\PYG{l+s}{\PYGZdq{}Inserts an ESS(R) code block\PYGZdq{}}
+\PYG{+w}{  }\PYG{p}{(}\PYG{k}{interactive}\PYG{p}{)}
+\PYG{+w}{  }\PYG{p}{(}\PYG{n+nf}{insert}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}\PYGZsh{}+begin\PYGZus{}src jupyter\PYGZhy{}R :session R\PYGZbs{}n\PYGZdq{}}
+\PYG{+w}{          }\PYG{l+s}{\PYGZdq{}\PYGZsh{}+end\PYGZus{}src\PYGZdq{}}\PYG{p}{)}
+\PYG{+w}{  }\PYG{p}{(}\PYG{n+nv}{org\PYGZhy{}edit\PYGZhy{}special}\PYG{p}{)}
+\PYG{+w}{  }\PYG{p}{)}
+
+\PYG{p}{(}\PYG{n+nb}{defun}\PYG{+w}{ }\PYG{n+nv}{insert\PYGZhy{}elisp\PYGZhy{}block}\PYG{p}{()}
+\PYG{+w}{  }\PYG{l+s}{\PYGZdq{}inserts an elisp code block\PYGZdq{}}
+\PYG{+w}{  }\PYG{p}{(}\PYG{k}{interactive}\PYG{p}{)}
+\PYG{+w}{  }\PYG{p}{(}\PYG{n+nf}{insert}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}\PYGZsh{}+begin\PYGZus{}src elisp\PYGZbs{}n\PYGZdq{}}
+\PYG{+w}{          }\PYG{l+s}{\PYGZdq{}\PYGZsh{}+end\PYGZus{}src\PYGZdq{}}\PYG{p}{)}
+\PYG{+w}{  }\PYG{p}{(}\PYG{n+nv}{org\PYGZhy{}edit\PYGZhy{}special}\PYG{p}{)}
+\PYG{+w}{  }\PYG{p}{)}
+
+\PYG{p}{(}\PYG{n+nb}{defun}\PYG{+w}{ }\PYG{n+nv}{insert\PYGZhy{}generic\PYGZhy{}block}\PYG{p}{()}
+\PYG{+w}{  }\PYG{l+s}{\PYGZdq{}inserts an elisp code block\PYGZdq{}}
+\PYG{+w}{  }\PYG{p}{(}\PYG{k}{interactive}\PYG{p}{)}
+\PYG{+w}{  }\PYG{p}{(}\PYG{n+nf}{insert}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}\PYGZsh{}+begin\PYGZus{}src \PYGZdq{}}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nf}{read\PYGZhy{}string}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}Enter src type:\PYGZdq{}}\PYG{p}{)}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}\PYGZbs{}n\PYGZdq{}}
+\PYG{+w}{          }\PYG{l+s}{\PYGZdq{}\PYGZsh{}+end\PYGZus{}src\PYGZdq{}}\PYG{p}{)}
+\PYG{+w}{  }\PYG{p}{(}\PYG{n+nv}{org\PYGZhy{}edit\PYGZhy{}special}\PYG{p}{)}
+\PYG{+w}{  }\PYG{p}{)}
+\PYG{p}{(}\PYG{n+nb}{defun}\PYG{+w}{ }\PYG{n+nv}{insert\PYGZhy{}gnuplot\PYGZhy{}block}\PYG{p}{()}
+\PYG{+w}{  }\PYG{p}{(}\PYG{k}{interactive}\PYG{p}{)}
+\PYG{+w}{  }\PYG{p}{(}\PYG{n+nf}{insert}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}\PYGZsh{}+begin\PYGZus{}src gnuplot :results output :file \PYGZdq{}}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nf}{read\PYGZhy{}string}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}Enter file name:\PYGZdq{}}\PYG{p}{)}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}\PYGZbs{}n\PYGZdq{}}
+\PYG{+w}{          }\PYG{l+s}{\PYGZdq{}\PYGZsh{}+end\PYGZus{}src\PYGZdq{}}\PYG{p}{)}
+\PYG{+w}{  }\PYG{p}{(}\PYG{n+nv}{org\PYGZhy{}edit\PYGZhy{}special}\PYG{p}{)}
+\PYG{+w}{  }\PYG{p}{)}
+
+\PYG{p}{(}\PYG{n+nb}{defun}\PYG{+w}{ }\PYG{n+nv}{copy\PYGZhy{}down\PYGZhy{}x}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nv}{x}\PYG{p}{)}
+\PYG{+w}{  }\PYG{l+s}{\PYGZdq{}copies the current cell down by the universal arg\PYGZdq{}}
+\PYG{+w}{  }\PYG{p}{(}\PYG{k}{interactive}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}P\PYGZdq{}}\PYG{p}{)}
+\PYG{+w}{  }\PYG{p}{(}\PYG{n+nb}{cl\PYGZhy{}loop}\PYG{+w}{ }\PYG{n+nv}{repeat}\PYG{+w}{ }\PYG{p}{(}\PYG{k}{or}\PYG{+w}{ }\PYG{n+nv}{x}\PYG{+w}{  }\PYG{l+m+mi}{1}\PYG{p}{)}
+\PYG{+w}{           }\PYG{n+nb}{do}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nv}{org\PYGZhy{}table\PYGZhy{}copy\PYGZhy{}down}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{))}
+\PYG{+w}{        }\PYG{p}{)}
+\PYG{p}{(}\PYG{n+nb}{defun}\PYG{+w}{ }\PYG{n+nv}{universal\PYGZhy{}test}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nv}{x}\PYG{p}{)}
+\PYG{+w}{  }\PYG{p}{(}\PYG{k}{interactive}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}P\PYGZdq{}}\PYG{p}{)}
+\PYG{+w}{  }\PYG{p}{(}\PYG{n+nb}{cl\PYGZhy{}loop}\PYG{+w}{ }\PYG{n+nv}{repeat}\PYG{+w}{ }\PYG{n+nv}{x}
+\PYG{+w}{           }\PYG{n+nb}{do}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nf}{message}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}hello\PYGZdq{}}\PYG{p}{))}
+\PYG{+w}{  }\PYG{p}{(}\PYG{n+nf}{message}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}done\PYGZdq{}}\PYG{p}{))}
+\end{Verbatim}
