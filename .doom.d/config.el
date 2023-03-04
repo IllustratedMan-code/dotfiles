@@ -118,7 +118,7 @@
 (after! org
   (setq! org-startup-with-latex-preview t)
   (setq! org-startup-with-inline-images t)
-  (setq! org-latex-image-default-width "1in")
+  (setq! org-latex-image-default-width "0.7\\textwidth")
   (setq! org-cite-global-bibliography (list"~/dotfiles/citations.json"))
   (setq! org-cite-export-processors '(t csl))
   (setq! yas/triggers-in-field t)
