@@ -170,6 +170,8 @@
   (setq! org-latex-default-class "Assignment"))
 
 (after! org
+  (setq! org-babel-default-header-args:python '((:exports . "both"))))
+(after! org
   (setq! org-export-with-toc nil))
 
 (after! org

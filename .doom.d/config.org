@@ -249,6 +249,8 @@ This block changes the default term type for png file types
   (setq! org-latex-default-class "Assignment"))
 
 (after! org
+  (setq! org-babel-default-header-args:python '((:exports . "both"))))
+(after! org
   (setq! org-export-with-toc nil))
 
 (after! org
