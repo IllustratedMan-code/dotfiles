@@ -1,0 +1,80 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{p}{(}\PYG{n+nv}{after!}\PYG{+w}{ }\PYG{n+nv}{org}
+\PYG{+w}{  }\PYG{p}{(}\PYG{n+nv}{setq!}\PYG{+w}{ }\PYG{n+nv}{org\PYGZhy{}startup\PYGZhy{}with\PYGZhy{}latex\PYGZhy{}preview}\PYG{+w}{ }\PYG{n+no}{t}\PYG{p}{)}
+\PYG{+w}{  }\PYG{p}{(}\PYG{n+nv}{setq!}\PYG{+w}{ }\PYG{n+nv}{org\PYGZhy{}startup\PYGZhy{}with\PYGZhy{}inline\PYGZhy{}images}\PYG{+w}{ }\PYG{n+no}{t}\PYG{p}{)}
+\PYG{+w}{  }\PYG{p}{(}\PYG{n+nv}{setq!}\PYG{+w}{ }\PYG{n+nv}{org\PYGZhy{}latex\PYGZhy{}image\PYGZhy{}default\PYGZhy{}width}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}0.7\PYGZbs{}\PYGZbs{}textwidth\PYGZdq{}}\PYG{p}{)}
+\PYG{+w}{  }\PYG{p}{(}\PYG{n+nv}{setq!}\PYG{+w}{ }\PYG{n+nv}{org\PYGZhy{}cite\PYGZhy{}global\PYGZhy{}bibliography}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nf}{list}\PYG{l+s}{\PYGZdq{}\PYGZti{}/dotfiles/citations.json\PYGZdq{}}\PYG{p}{))}
+\PYG{+w}{  }\PYG{p}{(}\PYG{n+nv}{setq!}\PYG{+w}{ }\PYG{n+nv}{org\PYGZhy{}cite\PYGZhy{}export\PYGZhy{}processors}\PYG{+w}{ }\PYG{o}{\PYGZsq{}}\PYG{p}{(}\PYG{n+no}{t}\PYG{+w}{ }\PYG{n+nv}{csl}\PYG{p}{))}
+\PYG{+w}{  }\PYG{p}{(}\PYG{n+nv}{setq!}\PYG{+w}{ }\PYG{n+nv}{yas/triggers\PYGZhy{}in\PYGZhy{}field}\PYG{+w}{ }\PYG{n+no}{t}\PYG{p}{)}
+\PYG{+w}{  }\PYG{p}{(}\PYG{n+nv}{setq!}\PYG{+w}{ }\PYG{n+nv}{org\PYGZhy{}xournalpp\PYGZhy{}image\PYGZhy{}type}\PYG{+w}{ }\PYG{l+s+ss}{\PYGZsq{}png}\PYG{p}{)}
+\PYG{+w}{  }\PYG{p}{(}\PYG{n+nv}{add\PYGZhy{}hook}\PYG{+w}{ }\PYG{l+s+ss}{\PYGZsq{}org\PYGZhy{}mode\PYGZhy{}hook}\PYG{+w}{ }\PYG{l+s+ss}{\PYGZsq{}turn\PYGZhy{}on\PYGZhy{}auto\PYGZhy{}fill}\PYG{p}{)}
+\PYG{+w}{  }\PYG{p}{(}\PYG{n+nv}{setq!}\PYG{+w}{ }\PYG{n+nv}{org\PYGZhy{}export\PYGZhy{}allow\PYGZhy{}bind\PYGZhy{}keywords}\PYG{+w}{ }\PYG{n+no}{t}\PYG{p}{))}
+\PYG{p}{(}\PYG{n+nb}{with\PYGZhy{}eval\PYGZhy{}after\PYGZhy{}load}\PYG{+w}{ }\PYG{l+s+ss}{\PYGZsq{}ox\PYGZhy{}latex}
+\PYG{+w}{  }\PYG{p}{(}\PYG{n+nv}{add\PYGZhy{}to\PYGZhy{}list}\PYG{+w}{ }\PYG{l+s+ss}{\PYGZsq{}org\PYGZhy{}latex\PYGZhy{}classes}\PYG{+w}{ }\PYG{o}{\PYGZsq{}}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}apa\PYGZdq{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}documentclass[11pt]\PYGZob{}apa7\PYGZcb{}\PYGZdq{}}
+\PYG{+w}{                                    }\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}part\PYGZob{}\PYGZpc{}s\PYGZcb{}\PYGZdq{}}\PYG{+w}{ }\PYG{o}{.}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}part*\PYGZob{}\PYGZpc{}s\PYGZcb{}\PYGZdq{}}\PYG{p}{)}
+\PYG{+w}{                                    }\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}chapter\PYGZob{}\PYGZpc{}s\PYGZcb{}\PYGZdq{}}\PYG{+w}{ }\PYG{o}{.}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}chapter*\PYGZob{}\PYGZpc{}s\PYGZcb{}\PYGZdq{}}\PYG{p}{)}
+\PYG{+w}{                                    }\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}section\PYGZob{}\PYGZpc{}s\PYGZcb{}\PYGZdq{}}\PYG{+w}{ }\PYG{o}{.}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}section*\PYGZob{}\PYGZpc{}s\PYGZcb{}\PYGZdq{}}\PYG{p}{)}
+\PYG{+w}{                                    }\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}subsection\PYGZob{}\PYGZpc{}s\PYGZcb{}\PYGZdq{}}\PYG{+w}{ }\PYG{o}{.}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}subsection*\PYGZob{}\PYGZpc{}s\PYGZcb{}\PYGZdq{}}\PYG{p}{)}
+\PYG{+w}{                                    }\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}subsubsection\PYGZob{}\PYGZpc{}s\PYGZcb{}\PYGZdq{}}\PYG{+w}{ }\PYG{o}{.}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}subsubsection*\PYGZob{}\PYGZpc{}s\PYGZcb{}\PYGZdq{}}\PYG{p}{))))}
+
+\PYG{p}{(}\PYG{n+nb}{with\PYGZhy{}eval\PYGZhy{}after\PYGZhy{}load}\PYG{+w}{ }\PYG{l+s+ss}{\PYGZsq{}ox\PYGZhy{}latex}
+\PYG{+w}{  }\PYG{p}{(}\PYG{n+nv}{add\PYGZhy{}to\PYGZhy{}list}\PYG{+w}{ }\PYG{l+s+ss}{\PYGZsq{}org\PYGZhy{}latex\PYGZhy{}classes}\PYG{+w}{ }\PYG{o}{\PYGZsq{}}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}apa\PYGZdq{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}documentclass[11pt]\PYGZob{}apa7\PYGZcb{}\PYGZdq{}}
+\PYG{+w}{                                    }\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}part\PYGZob{}\PYGZpc{}s\PYGZcb{}\PYGZdq{}}\PYG{+w}{ }\PYG{o}{.}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}part*\PYGZob{}\PYGZpc{}s\PYGZcb{}\PYGZdq{}}\PYG{p}{)}
+\PYG{+w}{                                    }\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}chapter\PYGZob{}\PYGZpc{}s\PYGZcb{}\PYGZdq{}}\PYG{+w}{ }\PYG{o}{.}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}chapter*\PYGZob{}\PYGZpc{}s\PYGZcb{}\PYGZdq{}}\PYG{p}{)}
+\PYG{+w}{                                    }\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}section\PYGZob{}\PYGZpc{}s\PYGZcb{}\PYGZdq{}}\PYG{+w}{ }\PYG{o}{.}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}section*\PYGZob{}\PYGZpc{}s\PYGZcb{}\PYGZdq{}}\PYG{p}{)}
+\PYG{+w}{                                    }\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}subsection\PYGZob{}\PYGZpc{}s\PYGZcb{}\PYGZdq{}}\PYG{+w}{ }\PYG{o}{.}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}subsection*\PYGZob{}\PYGZpc{}s\PYGZcb{}\PYGZdq{}}\PYG{p}{)}
+\PYG{+w}{                                    }\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}subsubsection\PYGZob{}\PYGZpc{}s\PYGZcb{}\PYGZdq{}}\PYG{+w}{ }\PYG{o}{.}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}subsubsection*\PYGZob{}\PYGZpc{}s\PYGZcb{}\PYGZdq{}}\PYG{p}{))))}
+
+\PYG{p}{(}\PYG{n+nb}{with\PYGZhy{}eval\PYGZhy{}after\PYGZhy{}load}\PYG{+w}{ }\PYG{l+s+ss}{\PYGZsq{}ox\PYGZhy{}latex}
+\PYG{+w}{ }\PYG{p}{(}\PYG{n+nv}{add\PYGZhy{}to\PYGZhy{}list}\PYG{+w}{ }\PYG{l+s+ss}{\PYGZsq{}org\PYGZhy{}latex\PYGZhy{}classes}\PYG{+w}{ }\PYG{o}{`}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Assignment\PYGZdq{}}
+\PYG{+w}{                                   }\PYG{o}{,}\PYG{p}{(}\PYG{n+nv}{string\PYGZhy{}join}\PYG{+w}{ }\PYG{o}{\PYGZsq{}}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}documentclass[11pt]\PYGZob{}article\PYGZcb{}\PYGZdq{}}
+\PYG{+w}{                                           }\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}usepackage[margin=0.5in]\PYGZob{}geometry\PYGZcb{}\PYGZdq{}}
+\PYG{+w}{                                           }\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}usepackage\PYGZob{}syntax\PYGZcb{}\PYGZdq{}}
+\PYG{+w}{                                           }\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}usepackage\PYGZob{}pdfpages\PYGZcb{}\PYGZdq{}}
+\PYG{+w}{                                           }\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}usepackage\PYGZob{}tcolorbox\PYGZcb{}\PYGZdq{}}
+\PYG{+w}{                                           }\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}usepackage\PYGZob{}etoolbox\PYGZcb{}\PYGZdq{}}
+\PYG{+w}{                                           }\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}usepackage\PYGZob{}environ\PYGZcb{}\PYGZdq{}}
+\PYG{+w}{                                           }\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}usepackage[shortlabels]\PYGZob{}enumitem\PYGZcb{}\PYGZdq{}}
+\PYG{+w}{                                           }\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}usepackage[ruled]\PYGZob{}algorithm2e\PYGZcb{}\PYGZdq{}}
+\PYG{+w}{                                           }\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}let\PYGZbs{}\PYGZbs{}oldtabular\PYGZbs{}\PYGZbs{}tabular\PYGZdq{}}
+\PYG{+w}{                                           }\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}let\PYGZbs{}\PYGZbs{}oldendtabular\PYGZbs{}\PYGZbs{}endtabular\PYGZdq{}}
+\PYG{+w}{                                           }\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}NewEnviron\PYGZob{}tabular2\PYGZcb{}[1]\PYGZob{}\PYGZbs{}\PYGZbs{}tcbox[left=0mm, right=0mm, top=0mm, bottom=0mm]\PYGZob{}\PYGZbs{}\PYGZbs{}oldtabular\PYGZob{}\PYGZsh{}1\PYGZcb{}\PYGZbs{}\PYGZbs{}BODY\PYGZbs{}\PYGZbs{}oldendtabular\PYGZcb{}\PYGZcb{}\PYGZdq{}}
+\PYG{+w}{                                           }\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}BeforeBeginEnvironment\PYGZob{}minted\PYGZcb{}\PYGZob{}\PYGZbs{}\PYGZbs{}begin\PYGZob{}tcolorbox\PYGZcb{}\PYGZcb{}\PYGZpc{}\PYGZdq{}}
+\PYG{+w}{                                           }\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}AfterEndEnvironment\PYGZob{}minted\PYGZcb{}\PYGZob{}\PYGZbs{}\PYGZbs{}end\PYGZob{}tcolorbox\PYGZcb{}\PYGZcb{}\PYGZdq{}}
+\PYG{+w}{                                           }\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}BeforeBeginEnvironment\PYGZob{}verbatim\PYGZcb{}\PYGZob{}\PYGZbs{}\PYGZbs{}begin\PYGZob{}tcolorbox\PYGZcb{}\PYGZcb{}\PYGZpc{}\PYGZdq{}}
+\PYG{+w}{                                           }\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}AfterEndEnvironment\PYGZob{}verbatim\PYGZcb{}\PYGZob{}\PYGZbs{}\PYGZbs{}end\PYGZob{}tcolorbox\PYGZcb{}\PYGZcb{}\PYGZdq{}}
+\PYG{+w}{                                           }\PYG{p}{)}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}\PYGZbs{}n\PYGZdq{}}\PYG{p}{)}
+\PYG{+w}{                                }\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}section\PYGZob{}\PYGZpc{}s\PYGZcb{}\PYGZdq{}}\PYG{+w}{ }\PYG{o}{.}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}section*\PYGZob{}\PYGZpc{}s\PYGZcb{}\PYGZdq{}}\PYG{p}{)}
+\PYG{+w}{                                }\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}subsection\PYGZob{}\PYGZpc{}s\PYGZcb{}\PYGZdq{}}\PYG{+w}{ }\PYG{o}{.}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}subsection*\PYGZob{}\PYGZpc{}s\PYGZcb{}\PYGZdq{}}\PYG{p}{)}
+\PYG{+w}{                                }\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}subsubsection\PYGZob{}\PYGZpc{}s\PYGZcb{}\PYGZdq{}}\PYG{+w}{ }\PYG{o}{.}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}subsubsection*\PYGZob{}\PYGZpc{}s\PYGZcb{}\PYGZdq{}}\PYG{p}{)}
+\PYG{+w}{                                }\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}paragraph\PYGZob{}\PYGZpc{}s\PYGZcb{}\PYGZdq{}}\PYG{+w}{ }\PYG{o}{.}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}paragraph*\PYGZob{}\PYGZpc{}s\PYGZcb{}\PYGZdq{}}\PYG{p}{)}
+\PYG{+w}{                                }\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}subparagraph\PYGZob{}\PYGZpc{}s\PYGZcb{}\PYGZdq{}}\PYG{+w}{ }\PYG{o}{.}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}subparagraph*\PYGZob{}\PYGZpc{}s\PYGZcb{}\PYGZdq{}}\PYG{p}{))))}
+\PYG{p}{(}\PYG{n+nv}{after!}\PYG{+w}{ }\PYG{n+nv}{org}
+\PYG{+w}{  }\PYG{p}{(}\PYG{n+nv}{setq!}\PYG{+w}{ }\PYG{n+nv}{org\PYGZhy{}latex\PYGZhy{}default\PYGZhy{}table\PYGZhy{}environment}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}tabular2\PYGZdq{}}\PYG{p}{))}
+\PYG{p}{(}\PYG{n+nv}{after!}\PYG{+w}{ }\PYG{n+nv}{org}
+\PYG{+w}{  }\PYG{p}{(}\PYG{n+nv}{setq!}\PYG{+w}{ }\PYG{n+nv}{org\PYGZhy{}latex\PYGZhy{}default\PYGZhy{}class}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}Assignment\PYGZdq{}}\PYG{p}{))}
+
+\PYG{p}{(}\PYG{n+nv}{after!}\PYG{+w}{ }\PYG{n+nv}{org}
+\PYG{+w}{  }\PYG{p}{(}\PYG{n+nv}{setq!}\PYG{+w}{ }\PYG{n+nv}{org\PYGZhy{}babel\PYGZhy{}default\PYGZhy{}header\PYGZhy{}args:python}\PYG{+w}{ }\PYG{o}{\PYGZsq{}}\PYG{p}{((}\PYG{n+nb}{:exports}\PYG{+w}{ }\PYG{o}{.}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}both\PYGZdq{}}\PYG{p}{))))}
+\PYG{p}{(}\PYG{n+nv}{after!}\PYG{+w}{ }\PYG{n+nv}{org}
+\PYG{+w}{  }\PYG{p}{(}\PYG{n+nv}{setq!}\PYG{+w}{ }\PYG{n+nv}{org\PYGZhy{}export\PYGZhy{}with\PYGZhy{}toc}\PYG{+w}{ }\PYG{n+no}{nil}\PYG{p}{))}
+
+\PYG{p}{(}\PYG{n+nv}{after!}\PYG{+w}{ }\PYG{n+nv}{org}
+\PYG{+w}{  }\PYG{p}{(}\PYG{n+nv}{setq!}\PYG{+w}{ }\PYG{n+nv}{org\PYGZhy{}export\PYGZhy{}with\PYGZhy{}section\PYGZhy{}numbers}\PYG{+w}{ }\PYG{n+no}{nil}\PYG{p}{))}
+
+
+\PYG{p}{(}\PYG{n+nb}{with\PYGZhy{}eval\PYGZhy{}after\PYGZhy{}load}\PYG{+w}{ }\PYG{l+s+ss}{\PYGZsq{}ox\PYGZhy{}latex}
+\PYG{+w}{  }\PYG{p}{(}\PYG{n+nv}{add\PYGZhy{}to\PYGZhy{}list}\PYG{+w}{ }\PYG{l+s+ss}{\PYGZsq{}org\PYGZhy{}latex\PYGZhy{}classes}\PYG{+w}{ }\PYG{o}{\PYGZsq{}}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}mla\PYGZdq{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}documentclass\PYGZob{}mla\PYGZcb{}\PYGZdq{}}
+\PYG{+w}{                                    }\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}part\PYGZob{}\PYGZpc{}s\PYGZcb{}\PYGZdq{}}\PYG{+w}{ }\PYG{o}{.}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}part*\PYGZob{}\PYGZpc{}s\PYGZcb{}\PYGZdq{}}\PYG{p}{)}
+\PYG{+w}{                                    }\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}chapter\PYGZob{}\PYGZpc{}s\PYGZcb{}\PYGZdq{}}\PYG{+w}{ }\PYG{o}{.}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}chapter*\PYGZob{}\PYGZpc{}s\PYGZcb{}\PYGZdq{}}\PYG{p}{)}
+\PYG{+w}{                                    }\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}section\PYGZob{}\PYGZpc{}s\PYGZcb{}\PYGZdq{}}\PYG{+w}{ }\PYG{o}{.}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}section*\PYGZob{}\PYGZpc{}s\PYGZcb{}\PYGZdq{}}\PYG{p}{)}
+\PYG{+w}{                                    }\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}subsection\PYGZob{}\PYGZpc{}s\PYGZcb{}\PYGZdq{}}\PYG{+w}{ }\PYG{o}{.}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}subsection*\PYGZob{}\PYGZpc{}s\PYGZcb{}\PYGZdq{}}\PYG{p}{)}
+\PYG{+w}{                                    }\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}subsubsection\PYGZob{}\PYGZpc{}s\PYGZcb{}\PYGZdq{}}\PYG{+w}{ }\PYG{o}{.}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}subsubsection*\PYGZob{}\PYGZpc{}s\PYGZcb{}\PYGZdq{}}\PYG{p}{))))}
+\PYG{p}{(}\PYG{n+nb}{with\PYGZhy{}eval\PYGZhy{}after\PYGZhy{}load}\PYG{+w}{ }\PYG{l+s+ss}{\PYGZsq{}ox\PYGZhy{}latex}
+\PYG{+w}{  }\PYG{p}{(}\PYG{n+nv}{add\PYGZhy{}to\PYGZhy{}list}\PYG{+w}{ }\PYG{l+s+ss}{\PYGZsq{}org\PYGZhy{}latex\PYGZhy{}classes}
+\PYG{+w}{            }\PYG{o}{\PYGZsq{}}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}memo\PYGZdq{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}documentclass\PYGZob{}texMemo\PYGZcb{}\PYGZdq{}}
+\PYG{+w}{                }\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}section\PYGZob{}\PYGZpc{}s\PYGZcb{}\PYGZdq{}}\PYG{+w}{ }\PYG{o}{.}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}section*\PYGZob{}\PYGZpc{}s\PYGZcb{}\PYGZdq{}}\PYG{p}{)}
+\PYG{+w}{                }\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}subsection\PYGZob{}\PYGZpc{}s\PYGZcb{}\PYGZdq{}}\PYG{+w}{ }\PYG{o}{.}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}subsection*\PYGZob{}\PYGZpc{}s\PYGZcb{}\PYGZdq{}}\PYG{p}{)}
+\PYG{+w}{                }\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}subsubsection\PYGZob{}\PYGZpc{}s\PYGZcb{}\PYGZdq{}}\PYG{+w}{ }\PYG{o}{.}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}subsubsection*\PYGZob{}\PYGZpc{}s\PYGZcb{}\PYGZdq{}}\PYG{p}{))}
+\PYG{+w}{                }\PYG{p}{))}
+\end{Verbatim}
