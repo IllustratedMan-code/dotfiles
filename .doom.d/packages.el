@@ -53,7 +53,7 @@
 (package! org-fragtog)
 (package! edraw-org
   :recipe (:host github :repo "lepisma/org-krita" :files ("resources" "*.el")))
-(package! anki-editor)
+(package! anki-editor :recipe (:host github :repo "orgtre/anki-editor"))
 (package! lilypond)
 (package! citeproc)
 (package! bibtex-completion)
