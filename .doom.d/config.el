@@ -11,8 +11,8 @@
 
 (setq org-hide-emphasis-markers 't)
 
-  (after! evil-org
-    (setq org-tab-first-hook nil))
+(after! evil-org
+  (setq org-tab-first-hook nil))
 
 (defun insert-jupyter-python-block ()
   "Inserts a python code block"
@@ -145,7 +145,7 @@
   (setq! org-startup-with-inline-images t)
   (setq! org-latex-image-default-width "0.7\\textwidth")
   (setq! org-cite-global-bibliography (list"~/dotfiles/citations.json"))
-  (setq! org-cite-export-processors '(t csl))
+  (setq! org-cite-export-processors '((t csl)))
   (setq! yas/triggers-in-field t)
   (setq! org-xournalpp-image-type 'png)
   (add-hook 'org-mode-hook 'turn-on-auto-fill)
