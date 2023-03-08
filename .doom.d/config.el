@@ -79,9 +79,34 @@
 (after! evil-org
 (setq org-image-actual-width 400))
 
+(defun insert-anki-note (heading)
+  "Inserts an anki note"
+  (interactive "MNote Title:")
+  (progn
+    (anki-editor--insert-note-skeleton "prefix" "IDA" heading "Basic" '("Back"))
+    )
+  )
+(defun make-anki-note (deck)
+  (interactive (list (read-string "Deck: " "IDA")))
+  (progn
+    (unless (save-excursion
+                (org-up-heading-safe)
+                ;; don't insert `ANKI_DECK' if some ancestor already has
+                ;; the same value
+                (and (not (string-blank-p deck))
+                    (string= deck (org-entry-get-with-inheritance anki-editor-prop-deck)))))
+    (org-set-property anki-editor-prop-note-type "Basic")
+    )
+  )
+(use-package anki-editor
+  :after org)
+
 (map! (:after org
        :map org-mode-map
        :nvi "S-<return>" #'copy-down-x
+       :leader (:prefix ("C" . "Anki cards")
+                :desc "insert anki note" "i" #'insert-anki-note
+                :desc "make anki note" "m" #'make-anki-note)
        :leader
        (:prefix ("j" . "jupyter-source")
         :desc "jupyter-python" "p" #'insert-jupyter-python-block
@@ -120,7 +145,7 @@
   (setq! org-startup-with-inline-images t)
   (setq! org-latex-image-default-width "0.7\\textwidth")
   (setq! org-cite-global-bibliography (list"~/dotfiles/citations.json"))
-  (setq! org-cite-export-processors '((t csl)))
+  (setq! org-cite-export-processors '(t csl))
   (setq! yas/triggers-in-field t)
   (setq! org-xournalpp-image-type 'png)
   (add-hook 'org-mode-hook 'turn-on-auto-fill)
