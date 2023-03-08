@@ -332,7 +332,7 @@
 (setq! ispell-personal-dictionary "~/.config/spell/dict.txt")
 
 (setq ispell-program-name "hunspell")
-(ispell-check-version)
+;;(ispell-check-version)
 
 (setq conda-anaconda-home "~/opt/anaconda")
 

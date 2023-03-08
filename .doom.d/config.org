@@ -478,7 +478,7 @@ Org mode (latex export) has the wrong time. Not sure how to fix. This does not w
 ** Fix hunspell bug
 #+begin_src elisp
 (setq ispell-program-name "hunspell")
-(ispell-check-version)
+;;(ispell-check-version)
 #+end_src
 
 * Python setup
