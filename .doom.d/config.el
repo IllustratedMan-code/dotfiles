@@ -79,6 +79,8 @@
 (after! evil-org
 (setq org-image-actual-width 400))
 
+
+
 (defun insert-anki-note (heading)
   "Inserts an anki note"
   (interactive "MNote Title:")
