@@ -110,6 +110,7 @@ set theme with doom-theme or load theme with load-theme
 #+begin_src elisp
 (after! jupyter
   (advice-add 'jupyter-command :around #'envrc-propagate-environment)
+  (message "added jupyter advice")
   )
 #+end_src
 ** Emacs anki setup

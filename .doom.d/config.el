@@ -81,6 +81,7 @@
 
 (after! jupyter
   (advice-add 'jupyter-command :around #'envrc-propagate-environment)
+  (message "added jupyter advice")
   )
 
 (defun insert-anki-note (heading)
