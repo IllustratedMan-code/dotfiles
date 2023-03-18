@@ -80,7 +80,8 @@
 (setq org-image-actual-width 400))
 
 (after! jupyter
-(advice-add 'jupyter-command :around #'envrc-propagate-environment))
+  (advice-add 'jupyter-command :around #'envrc-propagate-environment)
+  )
 
 (defun insert-anki-note (heading)
   "Inserts an anki note"
@@ -151,7 +152,7 @@
   (setq! org-cite-export-processors '(t csl))
   (setq! yas/triggers-in-field t)
   (setq! org-xournalpp-image-type 'png)
-  (add-hook 'org-mode-hook n
+  (add-hook 'org-mode-hook 'turn-on-auto-fill)
   (setq! org-export-allow-bind-keywords t))
 (with-eval-after-load 'ox-latex
   (add-to-list 'org-latex-classes '("apa" "\\documentclass[11pt]{apa7}"
