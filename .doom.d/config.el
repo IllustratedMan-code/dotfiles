@@ -81,7 +81,7 @@
 
 (after! jupyter
   (advice-add 'jupyter-command :around #'envrc-propagate-environment)
-  (advice-add 'jupyter-command :around #'(lambda (s) (car (last (split-string s "\n")))))
+  (advice-add 'jupyter-command :filter-return #'(lambda (s) (car (last (split-string s "\n")))))
   )
 
 (defun insert-anki-note (heading)
