@@ -11,8 +11,8 @@
 
 (setq org-hide-emphasis-markers 't)
 
-(after! evil-org
-  (setq org-tab-first-hook nil))
+  (after! evil-org
+    (setq org-tab-first-hook nil))
 
 (defun insert-jupyter-python-block ()
   "Inserts a python code block"
@@ -79,10 +79,8 @@
 (after! evil-org
 (setq org-image-actual-width 400))
 
-(use-package inheritenv
-  :after jupyter
-  (inheritenv-add-advice 'jupyter-command)
-  )
+(after! jupyter
+(advice-add 'jupyter-command :around #'envrc-propagate-environment))
 
 (defun insert-anki-note (heading)
   "Inserts an anki note"
@@ -94,13 +92,17 @@
 (defun make-anki-note (deck)
   (interactive (list (read-string "Deck: " "IDA")))
   (progn
-    (org-set-property anki-editor-prop-deck deck)
+    (unless (save-excursion
+                (org-up-heading-safe)
+                ;; don't insert `ANKI_DECK' if some ancestor already has
+                ;; the same value
+                (and (not (string-blank-p deck))
+                    (string= deck (org-entry-get-with-inheritance anki-editor-prop-deck)))))
     (org-set-property anki-editor-prop-note-type "Basic")
     )
   )
 (use-package anki-editor
-  :after org
-  :init (setq-default anki-editor-use-math-jax t))
+  :after org)
 
 (map! (:after org
        :map org-mode-map
@@ -146,10 +148,10 @@
   (setq! org-startup-with-inline-images t)
   (setq! org-latex-image-default-width "0.7\\textwidth")
   (setq! org-cite-global-bibliography (list"~/dotfiles/citations.json"))
-  (setq! org-cite-export-processors '((t csl)))
+  (setq! org-cite-export-processors '(t csl))
   (setq! yas/triggers-in-field t)
   (setq! org-xournalpp-image-type 'png)
-  (add-hook 'org-mode-hook 'turn-on-auto-fill)
+  (add-hook 'org-mode-hook n
   (setq! org-export-allow-bind-keywords t))
 (with-eval-after-load 'ox-latex
   (add-to-list 'org-latex-classes '("apa" "\\documentclass[11pt]{apa7}"
@@ -337,7 +339,7 @@
 (setq! ispell-personal-dictionary "~/.config/spell/dict.txt")
 
 (setq ispell-program-name "hunspell")
-;;(ispell-check-version)
+(ispell-check-version)
 
 (setq conda-anaconda-home "~/opt/anaconda")
 
