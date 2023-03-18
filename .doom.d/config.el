@@ -79,7 +79,10 @@
 (after! evil-org
 (setq org-image-actual-width 400))
 
-
+(use-package inheritenv
+  :after jupyter
+  (inheritenv-add-advice 'jupyter-command)
+  )
 
 (defun insert-anki-note (heading)
   "Inserts an anki note"

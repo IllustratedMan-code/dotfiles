@@ -108,6 +108,10 @@ set theme with doom-theme or load theme with load-theme
 #+end_src
 ** emacs-jupyter direnv fix
 #+begin_src elisp
+(use-package inheritenv
+  :after jupyter
+  (inheritenv-add-advice 'jupyter-command)
+  )
 #+end_src
 ** Emacs anki setup
 #+begin_src elisp
