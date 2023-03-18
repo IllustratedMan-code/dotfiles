@@ -81,7 +81,6 @@
 
 (after! jupyter
   (advice-add 'jupyter-command :around #'envrc-propagate-environment)
-  (advice-add 'jupyter-command :filter-return #'(lambda (s) (car (last (split-string s "\n")))))
   )
 
 (defun insert-anki-note (heading)
@@ -341,7 +340,7 @@
 (setq! ispell-personal-dictionary "~/.config/spell/dict.txt")
 
 (setq ispell-program-name "hunspell")
-(ispell-check-version)
+;;(ispell-check-version)
 
 (setq conda-anaconda-home "~/opt/anaconda")
 
