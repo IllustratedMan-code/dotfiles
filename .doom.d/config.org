@@ -24,6 +24,10 @@ set theme with doom-theme or load theme with load-theme
 #+BEGIN_SRC elisp
 (setq org-directory "~/Dropbox/org/")
 #+END_SRC
+** Hide end of file lines
+#+begin_src elisp
+(setq! indicate-empty-lines nil)
+#+end_src
 ** Hide emphasis markers
 #+BEGIN_SRC elisp
 (setq org-hide-emphasis-markers 't)

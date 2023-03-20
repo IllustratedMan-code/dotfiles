@@ -9,10 +9,12 @@
 
 (setq org-directory "~/Dropbox/org/")
 
+(setq! indicate-empty-lines nil)
+
 (setq org-hide-emphasis-markers 't)
 
-  (after! evil-org
-    (setq org-tab-first-hook nil))
+(after! evil-org
+  (setq org-tab-first-hook nil))
 
 (defun insert-jupyter-python-block ()
   "Inserts a python code block"
