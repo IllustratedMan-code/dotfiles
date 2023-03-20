@@ -62,3 +62,4 @@
            :files ("resources" "*.el")))
 (package! org-drill)
 (package! nextflow-mode :recipe (:host github :repo "emiller88/nextflow-mode"))
+(package! pdf-tools :built-in 'prefer)
