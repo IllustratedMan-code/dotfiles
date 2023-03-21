@@ -9,7 +9,7 @@
 
 (setq org-directory "~/Dropbox/org/")
 
-(fringe-mode 'no-fringes')
+(fringe-mode 'default')
 (setq! indicate-empty-lines nil)
 
 (setq org-hide-emphasis-markers 't)
