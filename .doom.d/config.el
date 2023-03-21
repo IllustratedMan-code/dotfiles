@@ -10,7 +10,8 @@
 (setq org-directory "~/Dropbox/org/")
 
 ;;(fringe-mode 'default')
-(setq! indicate-empty-lines nil)
+;;(setq! indicate-empty-lines nil)
+(remove-hook 'text-mode-hook #'vi-tilde-fringe-mode)
 
 (setq org-hide-emphasis-markers 't)
 
