@@ -26,7 +26,7 @@ set theme with doom-theme or load theme with load-theme
 #+END_SRC
 ** Hide end of file lines
 #+begin_src elisp
-(fringe-mode 'default')
+;;(fringe-mode 'default')
 (setq! indicate-empty-lines nil)
 #+end_src
 ** Hide emphasis markers
