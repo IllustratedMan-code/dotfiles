@@ -359,6 +359,10 @@
   (setq lsp-clients-lua-language-server-bin (executable-find "lua-language-server"))
   (set-lsp-priority! 'lua-language-server 1))
 
+(after! lsp-clangd
+  (setq lsp-clients-clangd-executable (executable-find "clangd"))
+  (set-lsp-priority! 'clangd 1))
+
 (map! (:after ess-mode
        :map ess-mode-map
        :nvi "C-<return>" #'ess-eval-line-and-step
