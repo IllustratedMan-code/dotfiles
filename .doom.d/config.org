@@ -1,4 +1,5 @@
 #+TITLE: Doom configuration #+STARTUP: overview
+
 * Identity information
 #+BEGIN_SRC elisp
 (setq user-full-name "David Lewis"
@@ -279,6 +280,7 @@ This block changes the default term type for png file types
                                            "\\usepackage{tcolorbox}"
                                            "\\usepackage{etoolbox}"
                                            "\\usepackage{environ}"
+                                           "\\AtBeginEnvironment{quote}{\\itshape}"
                                            "\\usepackage[ruled]{algorithm2e}"
                                            "\\let\\oldtabular\\tabular"
                                            "\\let\\oldendtabular\\endtabular"

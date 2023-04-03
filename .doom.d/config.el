@@ -183,6 +183,7 @@
                                            "\\usepackage{tcolorbox}"
                                            "\\usepackage{etoolbox}"
                                            "\\usepackage{environ}"
+                                           "\\AtBeginEnvironment{quote}{\\itshape}"
                                            "\\usepackage[ruled]{algorithm2e}"
                                            "\\let\\oldtabular\\tabular"
                                            "\\let\\oldendtabular\\endtabular"
