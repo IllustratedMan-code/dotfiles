@@ -25,6 +25,20 @@ set theme with doom-theme or load theme with load-theme
 #+BEGIN_SRC elisp
 (setq org-directory "~/Dropbox/org/")
 #+END_SRC
+** ansi escape codes
+#+begin_src elisp
+(after! org
+(defun david/babel-ansi ()
+  (when-let ((beg (org-babel-where-is-src-block-result nil nil)))
+    (save-excursion
+      (goto-char beg)
+      (when (looking-at org-babel-result-regexp)
+        (let ((end (org-babel-result-end))
+              (ansi-color-context-region nil))
+          (ansi-color-apply-on-region beg end))))))
+(add-hook 'org-babel-after-execute-hook 'david/babel-ansi)
+)
+#+end_src
 ** Hide end of file lines
 #+begin_src elisp
 ;;(fringe-mode 'default')

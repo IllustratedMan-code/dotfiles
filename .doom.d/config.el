@@ -9,6 +9,18 @@
 
 (setq org-directory "~/Dropbox/org/")
 
+(after! org
+(defun david/babel-ansi ()
+  (when-let ((beg (org-babel-where-is-src-block-result nil nil)))
+    (save-excursion
+      (goto-char beg)
+      (when (looking-at org-babel-result-regexp)
+        (let ((end (org-babel-result-end))
+              (ansi-color-context-region nil))
+          (ansi-color-apply-on-region beg end))))))
+(add-hook 'org-babel-after-execute-hook 'david/babel-ansi)
+)
+
 ;;(fringe-mode 'default')
 ;;(setq! indicate-empty-lines nil)
 (remove-hook 'text-mode-hook #'vi-tilde-fringe-mode)
