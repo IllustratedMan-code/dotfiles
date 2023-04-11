@@ -192,7 +192,7 @@
                                            "\\usepackage[margin=0.5in]{geometry}"
                                            "\\usepackage{syntax}"
                                            "\\usepackage{pdfpages}"
-                                           "\\usepackage{tcolorbox}"
+                                           "\\usepackage[most]{tcolorbox}"
                                            "\\usepackage{etoolbox}"
                                            "\\usepackage{environ}"
                                            "\\AtBeginEnvironment{quote}{\\itshape}"
@@ -200,7 +200,7 @@
                                            "\\let\\oldtabular\\tabular"
                                            "\\let\\oldendtabular\\endtabular"
                                            "\\NewEnviron{tabular2}[1]{\\tcbox[left=0mm, right=0mm, top=0mm, bottom=0mm]{\\oldtabular{#1}\\BODY\\oldendtabular}}"
-                                           "\\BeforeBeginEnvironment{minted}{\\begin{tcolorbox}}%"
+                                           "\\BeforeBeginEnvironment{minted}{\\begin{tcolorbox}[enhanced, breakable, skin first=enhanced, skin middle=enhanced, skin last=enhanced]}%"
                                            "\\AfterEndEnvironment{minted}{\\end{tcolorbox}}"
                                            "\\BeforeBeginEnvironment{verbatim}{\\begin{tcolorbox}}%"
                                            "\\AfterEndEnvironment{verbatim}{\\end{tcolorbox}}"
@@ -340,6 +340,8 @@
   (setq! org-latex-minted-options
          '(
              ("fontsize" "\\scriptsize")
+             ("breaklines" "true")
+             ("breakanywhere" "true")
              )
                 ))
 
