@@ -202,7 +202,7 @@
                                            "\\NewEnviron{tabular2}[1]{\\tcbox[left=0mm, right=0mm, top=0mm, bottom=0mm]{\\oldtabular{#1}\\BODY\\oldendtabular}}"
                                            "\\BeforeBeginEnvironment{minted}{\\begin{tcolorbox}[enhanced, breakable, skin first=enhanced, skin middle=enhanced, skin last=enhanced]}%"
                                            "\\AfterEndEnvironment{minted}{\\end{tcolorbox}}"
-                                           "\\BeforeBeginEnvironment{verbatim}{\\begin{tcolorbox}}%"
+                                           "\\BeforeBeginEnvironment{verbatim}{\\begin{tcolorbox}[enhanced, breakable, skin first=enhanced, skin middle=enhanced, skin last=enhanced]}%"
                                            "\\AfterEndEnvironment{verbatim}{\\end{tcolorbox}}"
                                            ) "\n")
                                 ("\\section{%s}" . "\\section*{%s}")
