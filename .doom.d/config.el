@@ -331,7 +331,7 @@
 (setq! TeX-engine 'luatex)
 (after! org
   ;(setq! org-latex-pdf-process '("PDFLATEX=lualatex LATEX=lualatex texi2dvi --pdf --clean --verbose --batch --shell-escape -output-directory=%o %f")))
-(setq! org-latex-pdf-process '("latexmk -f -pdf -%latex -interaction=nonstopmode -shell-escape -output-directory=%o %f")))
+(setq! org-latex-pdf-process '("latexmk -f -pdf -pdflatex=%latex -interaction=nonstopmode -shell-escape -output-directory=%o %f")))
 (after! org
   (setq! org-latex-compiler "lualatex"))
 (after! org
