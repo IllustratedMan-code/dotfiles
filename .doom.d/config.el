@@ -2,6 +2,7 @@
       user-mail-address "davidalewis00@gmail.com")
 
 (setq! doom-private-dir "~/dotfiles/.doom.d/")
+(setq! doom-font (font-spec :family "JetBrainsMono Nerd Font Mono"))
 
 (setq doom-theme 'doom-base16)
 (setq doom-themes-treemacs-theme "doom-colors")

@@ -8,6 +8,7 @@
 * Doom config
 #+begin_src elisp
 (setq! doom-private-dir "~/dotfiles/.doom.d/")
+(setq! doom-font (font-spec :family "JetBrainsMono Nerd Font Mono"))
 #+end_src
 * Build information
 #+begin_src sh :tangle no
