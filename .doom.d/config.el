@@ -201,6 +201,8 @@
                                            "\\let\\oldtabular\\tabular"
                                            "\\let\\oldendtabular\\endtabular"
                                            "\\NewEnviron{tabular2}[1]{\\tcbox[left=0mm, right=0mm, top=0mm, bottom=0mm]{\\oldtabular{#1}\\BODY\\oldendtabular}}"
+                                           "\\usepackage{fontspec}"
+                                           "\\setmonofont{JetBrainsMono Nerd Font Mono}[Renderer=Harfbuzz]"
                                            "\\BeforeBeginEnvironment{minted}{\\begin{tcolorbox}[enhanced, breakable, skin first=enhanced, skin middle=enhanced, skin last=enhanced]}%"
                                            "\\AfterEndEnvironment{minted}{\\end{tcolorbox}}"
                                            "\\BeforeBeginEnvironment{verbatim}{\\begin{tcolorbox}[enhanced, breakable, skin first=enhanced, skin middle=enhanced, skin last=enhanced]}%"
