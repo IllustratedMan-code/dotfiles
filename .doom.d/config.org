@@ -441,11 +441,11 @@ This block changes the default term type for png file types
         (:pomodoro
            (format "󰥔 %d minutes - %s" (/ (org-pomodoro-remaining-seconds) 60) org-clock-heading))
         (:short-break
-         (format "󰾩 Short break time: %d minutes" (/ (org-pomodoro-remaining-seconds) 60)))
+         (format "󰾩 %d minutes" (/ (org-pomodoro-remaining-seconds) 60)))
         (:long-break
-         (format "󰾩 Long break time: %d minutes" (/ (org-pomodoro-remaining-seconds) 60)))
+         (format "󰾩 %d minutes" (/ (org-pomodoro-remaining-seconds) 60)))
         (:overtime
-         (format "󰗎 Overtime! %d minutes" (/ (org-pomodoro-remaining-seconds) 60))))
+         (format "󰗎 %d minutes" (/ (org-pomodoro-remaining-seconds) 60))))
     "No active pomo") "no active pomo"))
 (use-package org-pomodoro
   :ensure t
