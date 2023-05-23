@@ -380,6 +380,9 @@
 (after! lsp-clangd
   (setq lsp-clients-clangd-executable (executable-find "clangd"))
   (set-lsp-priority! 'clangd 1))
+(after! lsp-ts-ls
+  (setq lsp-clients-clangd-executable (executable-find "clangd"))
+  (set-lsp-priority! 'clangd 1))
 
 (map! (:after ess-mode
        :map ess-mode-map

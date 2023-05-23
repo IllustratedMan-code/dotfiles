@@ -458,7 +458,7 @@ This block changes the default term type for png file types
 #+end_src
 
 #+RESULTS:
-: david/org-pomodoro-time
+: t
 
 ** nix hack
 Org mode (latex export) has the wrong time. Not sure how to fix. This does not work.
@@ -550,6 +550,9 @@ Org mode (latex export) has the wrong time. Not sure how to fix. This does not w
   (set-lsp-priority! 'lua-language-server 1))
 
 (after! lsp-clangd
+  (setq lsp-clients-clangd-executable (executable-find "clangd"))
+  (set-lsp-priority! 'clangd 1))
+(after! lsp-ts-ls
   (setq lsp-clients-clangd-executable (executable-find "clangd"))
   (set-lsp-priority! 'clangd 1))
 #+end_src
