@@ -134,7 +134,7 @@ Not needed when using nix (home manager)
 ** aliases
 #+begin_src sh
 alias web="swaymsg workspace web"
-alias bat=cat
+alias cat=bat
 #+end_src
 ** Environment variables
 #+begin_src sh
