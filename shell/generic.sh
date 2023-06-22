@@ -3,6 +3,7 @@
 
 # set -o vi
 
+alias cat="bat"
 alias pm='paru'
 alias ls='ls --color=auto'
 alias pmi='paru -S'

@@ -1,5 +1,4 @@
 alias web="swaymsg workspace web"
-alias cat="bat"
 
 # qt themeing
 export XDG_CURRENT_DESKTOP=UNITY slack
