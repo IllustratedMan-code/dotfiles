@@ -295,7 +295,7 @@ This block changes the default term type for png file types
 
 (with-eval-after-load 'ox-latex
  (add-to-list 'org-latex-classes `("Assignment"
-                                   ,(string-join '("\\documentclass{assignments.cls}"
+                                   ,(string-join '("\\documentclass{assignments}"
                                            ) "\n")
                                 ("\\section{%s}" . "\\section*{%s}")
                                 ("\\subsection{%s}" . "\\subsection*{%s}")
@@ -333,7 +333,13 @@ This block changes the default term type for png file types
 #+end_src
 
 #+RESULTS:
-| Assignment | \documentclass[11pt]{article} |
+| Assignment | \documentclass{Assignment}           | (\section{%s} . \section*{%s}) | (\subsection{%s} . \subsection*{%s}) | (\subsubsection{%s} . \subsubsection*{%s}) | (\paragraph{%s} . \paragraph*{%s})   | (\subparagraph{%s} . \subparagraph*{%s})   |
+| Assignment | \documentclass{assignments}          | (\section{%s} . \section*{%s}) | (\subsection{%s} . \subsection*{%s}) | (\subsubsection{%s} . \subsubsection*{%s}) | (\paragraph{%s} . \paragraph*{%s})   | (\subparagraph{%s} . \subparagraph*{%s})   |
+| Assignment | \documentclass{assignments.cls}      | (\section{%s} . \section*{%s}) | (\subsection{%s} . \subsection*{%s}) | (\subsubsection{%s} . \subsubsection*{%s}) | (\paragraph{%s} . \paragraph*{%s})   | (\subparagraph{%s} . \subparagraph*{%s})   |
+| beamer     | \documentclass[presentation]{beamer} | (\section{%s} . \section*{%s}) | (\subsection{%s} . \subsection*{%s}) | (\subsubsection{%s} . \subsubsection*{%s}) |                                      |                                            |
+| memo       | \documentclass{texMemo}              | (\section{%s} . \section*{%s}) | (\subsection{%s} . \subsection*{%s}) | (\subsubsection{%s} . \subsubsection*{%s}) |                                      |                                            |
+| mla        | \documentclass{mla}                  | (\part{%s} . \part*{%s})       | (\chapter{%s} . \chapter*{%s})       | (\section{%s} . \section*{%s})             | (\subsection{%s} . \subsection*{%s}) | (\subsubsection{%s} . \subsubsection*{%s}) |
+| Assignment | \documentclass[11pt]{article}        |                                |                                      |                                            |                                      |                                            |
 
 ** citations
 #+begin_src elisp

@@ -189,7 +189,7 @@
 
 (with-eval-after-load 'ox-latex
  (add-to-list 'org-latex-classes `("Assignment"
-                                   ,(string-join '("\\documentclass{assignments.cls}"
+                                   ,(string-join '("\\documentclass{assignments}"
                                            ) "\n")
                                 ("\\section{%s}" . "\\section*{%s}")
                                 ("\\subsection{%s}" . "\\subsection*{%s}")
