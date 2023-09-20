@@ -295,24 +295,7 @@ This block changes the default term type for png file types
 
 (with-eval-after-load 'ox-latex
  (add-to-list 'org-latex-classes `("Assignment"
-                                   ,(string-join '("\\documentclass[11pt]{article}"
-                                           "\\usepackage[margin=0.5in]{geometry}"
-                                           "\\usepackage{syntax}"
-                                           "\\usepackage{pdfpages}"
-                                           "\\usepackage[most]{tcolorbox}"
-                                           "\\usepackage{etoolbox}"
-                                           "\\usepackage{environ}"
-                                           "\\AtBeginEnvironment{quote}{\\itshape}"
-                                           "\\usepackage[ruled]{algorithm2e}"
-                                           "\\let\\oldtabular\\tabular"
-                                           "\\let\\oldendtabular\\endtabular"
-                                           "\\NewEnviron{tabular2}[1]{\\tcbox[left=0mm, right=0mm, top=0mm, bottom=0mm]{\\oldtabular{#1}\\BODY\\oldendtabular}}"
-                                           "\\usepackage{fontspec}"
-                                           "\\setmonofont{JetBrainsMono Nerd Font Mono}[Renderer=Harfbuzz]"
-                                           "\\BeforeBeginEnvironment{minted}{\\begin{tcolorbox}[enhanced, breakable, skin first=enhanced, skin middle=enhanced, skin last=enhanced]}%"
-                                           "\\AfterEndEnvironment{minted}{\\end{tcolorbox}}"
-                                           "\\BeforeBeginEnvironment{verbatim}{\\begin{tcolorbox}[enhanced, breakable, skin first=enhanced, skin middle=enhanced, skin last=enhanced]}%"
-                                           "\\AfterEndEnvironment{verbatim}{\\end{tcolorbox}}"
+                                   ,(string-join '("\\documentclass{assignments.cls}"
                                            ) "\n")
                                 ("\\section{%s}" . "\\section*{%s}")
                                 ("\\subsection{%s}" . "\\subsection*{%s}")
@@ -320,7 +303,7 @@ This block changes the default term type for png file types
                                 ("\\paragraph{%s}" . "\\paragraph*{%s}")
                                 ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
 (after! org
-  (setq! org-latex-default-table-environment "tabular2"))
+  (setq! org-latex-default-table-environment "tabular"))
 (after! org
   (setq! org-latex-default-class "Assignment"))
 
