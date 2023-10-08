@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+
+\PYG{p}{(}\PYG{n+nv}{after!}\PYG{+w}{ }\PYG{n+nv}{jupyter}
+\PYG{+w}{  }\PYG{p}{(}\PYG{n+nv}{advice\PYGZhy{}add}\PYG{+w}{ }\PYG{l+s+ss}{\PYGZsq{}jupyter\PYGZhy{}command}\PYG{+w}{ }\PYG{n+nb}{:around}\PYG{+w}{ }\PYG{n+nf}{\PYGZsh{}\PYGZsq{}}\PYG{n+nv}{envrc\PYGZhy{}propagate\PYGZhy{}environment}\PYG{p}{)}
+\PYG{+w}{  }\PYG{p}{)}
+\end{Verbatim}

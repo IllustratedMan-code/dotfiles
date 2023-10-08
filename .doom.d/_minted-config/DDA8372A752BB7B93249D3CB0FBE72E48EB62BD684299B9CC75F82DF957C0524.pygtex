@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{p}{(}\PYG{k}{setq}\PYG{+w}{ }\PYG{n+nv}{ispell\PYGZhy{}program\PYGZhy{}name}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}hunspell\PYGZdq{}}\PYG{p}{)}
+\PYG{c+c1}{;;(ispell\PYGZhy{}check\PYGZhy{}version)}
+\end{Verbatim}

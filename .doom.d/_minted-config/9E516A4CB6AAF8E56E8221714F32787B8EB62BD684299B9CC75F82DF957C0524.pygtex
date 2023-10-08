@@ -1,0 +1,18 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{p}{(}\PYG{n+nv}{setq!}\PYG{+w}{ }\PYG{n+nv}{TeX\PYGZhy{}engine}\PYG{+w}{ }\PYG{l+s+ss}{\PYGZsq{}luatex}\PYG{p}{)}
+\PYG{p}{(}\PYG{n+nv}{after!}\PYG{+w}{ }\PYG{n+nv}{org}
+\PYG{+w}{  }\PYG{c+c1}{;(setq! org\PYGZhy{}latex\PYGZhy{}pdf\PYGZhy{}process \PYGZsq{}(\PYGZdq{}PDFLATEX=lualatex LATEX=lualatex texi2dvi \PYGZhy{}\PYGZhy{}pdf \PYGZhy{}\PYGZhy{}clean \PYGZhy{}\PYGZhy{}verbose \PYGZhy{}\PYGZhy{}batch \PYGZhy{}\PYGZhy{}shell\PYGZhy{}escape \PYGZhy{}output\PYGZhy{}directory=\PYGZpc{}o \PYGZpc{}f\PYGZdq{})))}
+\PYG{p}{(}\PYG{n+nv}{setq!}\PYG{+w}{ }\PYG{n+nv}{org\PYGZhy{}latex\PYGZhy{}pdf\PYGZhy{}process}\PYG{+w}{ }\PYG{o}{\PYGZsq{}}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}latexmk \PYGZhy{}f \PYGZhy{}pdf \PYGZhy{}pdflatex=\PYGZpc{}latex \PYGZhy{}interaction=nonstopmode \PYGZhy{}shell\PYGZhy{}escape \PYGZhy{}output\PYGZhy{}directory=\PYGZpc{}o \PYGZpc{}f\PYGZdq{}}\PYG{p}{)))}
+\PYG{p}{(}\PYG{n+nv}{after!}\PYG{+w}{ }\PYG{n+nv}{org}
+\PYG{+w}{  }\PYG{p}{(}\PYG{n+nv}{setq!}\PYG{+w}{ }\PYG{n+nv}{org\PYGZhy{}latex\PYGZhy{}compiler}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}lualatex\PYGZdq{}}\PYG{p}{))}
+\PYG{p}{(}\PYG{n+nv}{after!}\PYG{+w}{ }\PYG{n+nv}{org}
+\PYG{+w}{  }\PYG{p}{(}\PYG{n+nv}{setq!}\PYG{+w}{ }\PYG{n+nv}{org\PYGZhy{}latex\PYGZhy{}listings}\PYG{+w}{ }\PYG{l+s+ss}{\PYGZsq{}minted}\PYG{p}{))}
+\PYG{p}{(}\PYG{n+nv}{after!}\PYG{+w}{ }\PYG{n+nv}{org}
+\PYG{+w}{  }\PYG{p}{(}\PYG{n+nv}{setq!}\PYG{+w}{ }\PYG{n+nv}{org\PYGZhy{}latex\PYGZhy{}minted\PYGZhy{}options}
+\PYG{+w}{         }\PYG{o}{\PYGZsq{}}\PYG{p}{(}
+\PYG{+w}{             }\PYG{p}{(}\PYG{l+s}{\PYGZdq{}fontsize\PYGZdq{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}scriptsize\PYGZdq{}}\PYG{p}{)}
+\PYG{+w}{             }\PYG{p}{(}\PYG{l+s}{\PYGZdq{}breaklines\PYGZdq{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}true\PYGZdq{}}\PYG{p}{)}
+\PYG{+w}{             }\PYG{p}{(}\PYG{l+s}{\PYGZdq{}breakanywhere\PYGZdq{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}true\PYGZdq{}}\PYG{p}{)}
+\PYG{+w}{             }\PYG{p}{)}
+\PYG{+w}{                }\PYG{p}{))}
+\end{Verbatim}

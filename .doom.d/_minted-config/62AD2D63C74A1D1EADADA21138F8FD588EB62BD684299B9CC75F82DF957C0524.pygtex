@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{p}{(}\PYG{n+nv}{setq!}\PYG{+w}{ }\PYG{n+nv}{doom\PYGZhy{}private\PYGZhy{}dir}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}\PYGZti{}/dotfiles/.doom.d/\PYGZdq{}}\PYG{p}{)}
+\PYG{p}{(}\PYG{n+nv}{setq!}\PYG{+w}{ }\PYG{n+nv}{doom\PYGZhy{}font}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nf}{font\PYGZhy{}spec}\PYG{+w}{ }\PYG{n+nb}{:family}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}JetBrainsMono Nerd Font Mono\PYGZdq{}}\PYG{p}{))}
+\end{Verbatim}

@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{p}{(}\PYG{n+nv}{after!}\PYG{+w}{ }\PYG{n+nv}{org}
+\PYG{p}{(}\PYG{n+nb}{defun}\PYG{+w}{ }\PYG{n+nv}{david/babel\PYGZhy{}ansi}\PYG{+w}{ }\PYG{p}{()}
+\PYG{+w}{  }\PYG{p}{(}\PYG{n+nv}{when\PYGZhy{}let}\PYG{+w}{ }\PYG{p}{((}\PYG{n+nv}{beg}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nv}{org\PYGZhy{}babel\PYGZhy{}where\PYGZhy{}is\PYGZhy{}src\PYGZhy{}block\PYGZhy{}result}\PYG{+w}{ }\PYG{n+no}{nil}\PYG{+w}{ }\PYG{n+no}{nil}\PYG{p}{)))}
+\PYG{+w}{    }\PYG{p}{(}\PYG{k}{save\PYGZhy{}excursion}
+\PYG{+w}{      }\PYG{p}{(}\PYG{n+nf}{goto\PYGZhy{}char}\PYG{+w}{ }\PYG{n+nv}{beg}\PYG{p}{)}
+\PYG{+w}{      }\PYG{p}{(}\PYG{n+nb}{when}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nf}{looking\PYGZhy{}at}\PYG{+w}{ }\PYG{n+nv}{org\PYGZhy{}babel\PYGZhy{}result\PYGZhy{}regexp}\PYG{p}{)}
+\PYG{+w}{        }\PYG{p}{(}\PYG{k}{let}\PYG{+w}{ }\PYG{p}{((}\PYG{n+nv}{end}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nv}{org\PYGZhy{}babel\PYGZhy{}result\PYGZhy{}end}\PYG{p}{))}
+\PYG{+w}{              }\PYG{p}{(}\PYG{n+nv}{ansi\PYGZhy{}color\PYGZhy{}context\PYGZhy{}region}\PYG{+w}{ }\PYG{n+no}{nil}\PYG{p}{))}
+\PYG{+w}{          }\PYG{p}{(}\PYG{n+nv}{ansi\PYGZhy{}color\PYGZhy{}apply\PYGZhy{}on\PYGZhy{}region}\PYG{+w}{ }\PYG{n+nv}{beg}\PYG{+w}{ }\PYG{n+nv}{end}\PYG{p}{))))))}
+\PYG{p}{(}\PYG{n+nv}{add\PYGZhy{}hook}\PYG{+w}{ }\PYG{l+s+ss}{\PYGZsq{}org\PYGZhy{}babel\PYGZhy{}after\PYGZhy{}execute\PYGZhy{}hook}\PYG{+w}{ }\PYG{l+s+ss}{\PYGZsq{}david/babel\PYGZhy{}ansi}\PYG{p}{)}
+\PYG{p}{)}
+\end{Verbatim}

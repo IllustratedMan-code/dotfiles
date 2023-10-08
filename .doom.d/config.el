@@ -164,6 +164,8 @@
 (after! org
   (setq! org-startup-with-latex-preview t)
   (setq! org-startup-with-inline-images t)
+  (setq! org-latex-default-figure-position "H") ;; requires float package
+  (add-to-list 'org-latex-caption-above 'src-block) ;; requires float package
   (setq! org-latex-image-default-width "0.7\\textwidth")
   (setq! org-cite-global-bibliography (list"~/dotfiles/citations.json"))
   (setq! org-cite-export-processors '(t csl))

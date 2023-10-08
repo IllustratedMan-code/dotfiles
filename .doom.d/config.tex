@@ -1,20 +1,6 @@
-% Created 2023-03-01 Wed 16:09
+% Created 2023-09-29 Fri 16:18
 % Intended LaTeX compiler: lualatex
-\documentclass[11pt]{article}
-\usepackage[margin=0.5in]{geometry}
-\usepackage{syntax}
-\usepackage{pdfpages}
-\usepackage{tcolorbox}
-\usepackage{etoolbox}
-\usepackage{environ}
-\usepackage[ruled]{algorithm2e}
-\let\oldtabular\tabular
-\let\oldendtabular\endtabular
-\RenewEnviron{tabular}[1]{\tcbox[left=0mm, right=0mm, top=0mm, bottom=0mm]{\oldtabular{#1}\BODY\oldendtabular}}
-\BeforeBeginEnvironment{minted}{\begin{tcolorbox}}%
-\AfterEndEnvironment{minted}{\end{tcolorbox}}%
-\BeforeBeginEnvironment{verbatim}{\begin{tcolorbox}}%
-\AfterEndEnvironment{verbatim}{\end{tcolorbox}}%
+\documentclass{assignments}
 \usepackage{graphicx}
 \usepackage{longtable}
 \usepackage{wrapfig}
@@ -34,56 +20,83 @@
  pdftitle={Doom configuration \#+STARTUP: overview},
  pdfkeywords={},
  pdfsubject={},
- pdfcreator={Emacs 28.2 (Org mode 9.6)}, 
+ pdfcreator={Emacs 30.0.50 (Org mode 9.7)}, 
  pdflang={English}}
 \begin{document}
 
 \maketitle
+
 \section*{Identity information}
-\label{sec:orgd36877d}
-\begin{minted}[fontsize=\scriptsize]{elisp}
+\label{sec:orge2912e9}
+\begin{minted}[fontsize=\scriptsize,breaklines=true,breakanywhere=true]{elisp}
 (setq user-full-name "David Lewis"
       user-mail-address "davidalewis00@gmail.com")
 \end{minted}
 \section*{Doom config}
-\label{sec:orgb551322}
-\begin{minted}[fontsize=\scriptsize]{elisp}
+\label{sec:orga58354c}
+\begin{minted}[fontsize=\scriptsize,breaklines=true,breakanywhere=true]{elisp}
 (setq! doom-private-dir "~/dotfiles/.doom.d/")
+(setq! doom-font (font-spec :family "JetBrainsMono Nerd Font Mono"))
 \end{minted}
+
 \section*{Build information}
-\label{sec:org7dcb728}
-\begin{minted}[fontsize=\scriptsize]{sh}
+\label{sec:org0b87200}
+\begin{minted}[fontsize=\scriptsize,breaklines=true,breakanywhere=true]{sh}
 ./configure -with-json -with-imagemagick --with-xpm=ifavailable --with-native-compilation
 \end{minted}
 \section*{Theme}
-\label{sec:org055797f}
+\label{sec:orgfbf4118}
 set theme with doom-theme or load theme with load-theme
-\begin{minted}[fontsize=\scriptsize]{elisp}
+\begin{minted}[fontsize=\scriptsize,breaklines=true,breakanywhere=true]{elisp}
 (setq doom-theme 'doom-base16)
 (setq doom-themes-treemacs-theme "doom-colors")
 (add-hook 'pdf-tools-enabled-hook 'pdf-view-themed-minor-mode)
 \end{minted}
 \section*{Org Setup}
-\label{sec:org937f742}
+\label{sec:org9e68c63}
 \subsection*{Org Directory}
-\label{sec:org66a2746}
-\begin{minted}[fontsize=\scriptsize]{elisp}
+\label{sec:org6a13c51}
+\begin{minted}[fontsize=\scriptsize,breaklines=true,breakanywhere=true]{elisp}
 (setq org-directory "~/Dropbox/org/")
 \end{minted}
+\subsection*{ansi escape codes}
+\label{sec:org943e50a}
+\begin{minted}[fontsize=\scriptsize,breaklines=true,breakanywhere=true]{elisp}
+(after! org
+(defun david/babel-ansi ()
+  (when-let ((beg (org-babel-where-is-src-block-result nil nil)))
+    (save-excursion
+      (goto-char beg)
+      (when (looking-at org-babel-result-regexp)
+        (let ((end (org-babel-result-end))
+              (ansi-color-context-region nil))
+          (ansi-color-apply-on-region beg end))))))
+(add-hook 'org-babel-after-execute-hook 'david/babel-ansi)
+)
+\end{minted}
+
+\subsection*{Hide end of file lines}
+\label{sec:org752197e}
+\begin{minted}[fontsize=\scriptsize,breaklines=true,breakanywhere=true]{elisp}
+;;(fringe-mode 'default')
+;;(setq! indicate-empty-lines nil)
+(remove-hook 'text-mode-hook #'vi-tilde-fringe-mode)
+\end{minted}
+
 \subsection*{Hide emphasis markers}
-\label{sec:org005aab1}
-\begin{minted}[fontsize=\scriptsize]{elisp}
+\label{sec:org07307dd}
+\begin{minted}[fontsize=\scriptsize,breaklines=true,breakanywhere=true]{elisp}
 (setq org-hide-emphasis-markers 't)
 \end{minted}
 \subsection*{Org Tab behaviour}
-\label{sec:org8ccac4b}
-\begin{minted}[fontsize=\scriptsize]{elisp}
+\label{sec:orge35615c}
+\begin{minted}[fontsize=\scriptsize,breaklines=true,breakanywhere=true]{elisp}
   (after! evil-org
     (setq org-tab-first-hook nil))
 \end{minted}
 \subsection*{org code blocks}
-\label{sec:org89e475b}
-\begin{minted}[fontsize=\scriptsize]{elisp}
+\label{sec:org51c48b1}
+\begin{minted}[fontsize=\scriptsize,breaklines=true,breakanywhere=true]{elisp}
 (defun insert-jupyter-python-block ()
   "Inserts a python code block"
   (interactive)
@@ -138,8 +151,8 @@ set theme with doom-theme or load theme with load-theme
 \end{minted}
 
 \subsection*{Functions}
-\label{sec:orgefa17a3}
-\begin{minted}[fontsize=\scriptsize]{elisp}
+\label{sec:org042f503}
+\begin{minted}[fontsize=\scriptsize,breaklines=true,breakanywhere=true]{elisp}
 (defun cache-address ()
  (interactive)
  (progn
@@ -152,18 +165,55 @@ set theme with doom-theme or load theme with load-theme
 \end{minted}
 
 \subsection*{Org default image size}
-\label{sec:orge1a5c14}
-\begin{minted}[fontsize=\scriptsize]{elisp}
+\label{sec:orge98f05f}
+\begin{minted}[fontsize=\scriptsize,breaklines=true,breakanywhere=true]{elisp}
 (after! evil-org
 (setq org-image-actual-width 400))
 \end{minted}
+\subsection*{emacs-jupyter direnv fix}
+\label{sec:orgf7ee09b}
+\begin{minted}[fontsize=\scriptsize,breaklines=true,breakanywhere=true]{elisp}
+
+(after! jupyter
+  (advice-add 'jupyter-command :around #'envrc-propagate-environment)
+  )
+\end{minted}
+
+\subsection*{Emacs anki setup}
+\label{sec:org127df47}
+\begin{minted}[fontsize=\scriptsize,breaklines=true,breakanywhere=true]{elisp}
+(defun insert-anki-note (heading)
+  "Inserts an anki note"
+  (interactive "MNote Title:")
+  (progn
+    (anki-editor--insert-note-skeleton "prefix" "IDA" heading "Basic" '("Back"))
+    )
+  )
+(defun make-anki-note (deck)
+  (interactive (list (read-string "Deck: " "IDA")))
+  (progn
+    (unless (save-excursion
+                (org-up-heading-safe)
+                ;; don't insert `ANKI_DECK' if some ancestor already has
+                ;; the same value
+                (and (not (string-blank-p deck))
+                    (string= deck (org-entry-get-with-inheritance anki-editor-prop-deck)))))
+    (org-set-property anki-editor-prop-note-type "Basic")
+    )
+  )
+(use-package anki-editor
+  :after org)
+\end{minted}
 
 \subsection*{org keymap}
-\label{sec:org8b9ad5d}
-\begin{minted}[fontsize=\scriptsize]{elisp}
+\label{sec:orga072c9d}
+\begin{minted}[fontsize=\scriptsize,breaklines=true,breakanywhere=true]{elisp}
 (map! (:after org
        :map org-mode-map
        :nvi "S-<return>" #'copy-down-x
+       :leader (:prefix ("C" . "Anki cards")
+                :desc "insert anki note" "i" #'insert-anki-note
+                :desc "make anki note" "m" #'make-anki-note)
        :leader
        (:prefix ("j" . "jupyter-source")
         :desc "jupyter-python" "p" #'insert-jupyter-python-block
@@ -174,13 +224,13 @@ set theme with doom-theme or load theme with load-theme
 \end{minted}
 
 \subsection*{org headline}
-\label{sec:orga19f8de}
-\begin{minted}[fontsize=\scriptsize]{elisp}
+\label{sec:org81731c2}
+\begin{minted}[fontsize=\scriptsize,breaklines=true,breakanywhere=true]{elisp}
 (setq org-fontify-todo-headline t)
 \end{minted}
 \subsection*{org-fancy-priorities-mode work around}
-\label{sec:org62df01f}
-\begin{minted}[fontsize=\scriptsize]{elisp}
+\label{sec:orge0906fd}
+\begin{minted}[fontsize=\scriptsize,breaklines=true,breakanywhere=true]{elisp}
 (defadvice! +org-dont-fontify-my-thangs-a (orig-fn &rest args)
   :around '(org-superstar-mode org-fancy-priorities-mode)
   (letf! ((#'font-lock-ensure #'ignore)
@@ -189,51 +239,52 @@ set theme with doom-theme or load theme with load-theme
     (apply orig-fn args)))
 \end{minted}
 \subsection*{org-safe-variables}
-\label{sec:org0854516}
+\label{sec:orgb435381}
 \subsubsection*{html export}
-\label{sec:org6b035c0}
-\begin{minted}[fontsize=\scriptsize]{elisp}
+\label{sec:org5c8e1ae}
+\begin{minted}[fontsize=\scriptsize,breaklines=true,breakanywhere=true]{elisp}
 (add-to-list 'safe-local-eval-forms '(add-hook 'after-save-hook 'org-html-export-to-html t t))
 (add-to-list 'safe-local-eval-forms '(add-hook 'after-save-hook 'org-re-reveal-export-to-html t t))
 \end{minted}
 \subsubsection*{Latex Export}
-\label{sec:org49ac0df}
-\begin{minted}[fontsize=\scriptsize]{elisp}
+\label{sec:org194d912}
+\begin{minted}[fontsize=\scriptsize,breaklines=true,breakanywhere=true]{elisp}
 (add-to-list 'safe-local-eval-forms '(add-hook 'after-save-hook 'org-latex-export-to-pdf t t))
 \end{minted}
 \subsubsection*{Org-babel}
-\label{sec:org329f61c}
-\begin{minted}[fontsize=\scriptsize]{elisp}
+\label{sec:orgfb70850}
+\begin{minted}[fontsize=\scriptsize,breaklines=true,breakanywhere=true]{elisp}
 (add-to-list 'safe-local-eval-forms '(add-hook 'after-save-hook 'org-babel-tangle t t))
 \end{minted}
 \subsection*{format all error}
-\label{sec:org220b226}
-\begin{minted}[fontsize=\scriptsize]{elisp}
+\label{sec:orgb54ac59}
+\begin{minted}[fontsize=\scriptsize,breaklines=true,breakanywhere=true]{elisp}
 (add-to-list '+format-on-save-enabled-modes 'web-mode 1)
 \end{minted}
 \subsection*{gnuplot}
-\label{sec:orgf368232}
+\label{sec:org0797a64}
 This block changes the default term type for png file types
-\begin{minted}[fontsize=\scriptsize]{elisp}
+\begin{minted}[fontsize=\scriptsize,breaklines=true,breakanywhere=true]{elisp}
 (after! gnuplot (add-to-list '*org-babel-gnuplot-terms* '(png . "pngcairo transparent")))
 \end{minted}
 \subsection*{org-fragtog}
-\label{sec:org421d8b0}
-\begin{minted}[fontsize=\scriptsize]{elisp}
+\label{sec:org1af9b08}
+\begin{minted}[fontsize=\scriptsize,breaklines=true,breakanywhere=true]{elisp}
 (use-package! org-fragtog
   :after org
   :hook (org-mode . org-fragtog-mode)
   :config)
 \end{minted}
 \subsection*{ispell}
-\label{sec:org07cba94}
+\label{sec:org08a6e0c}
 \subsection*{Startup}
-\label{sec:orgbd5fd8e}
-\begin{minted}[fontsize=\scriptsize]{elisp}
+\label{sec:org2713d53}
+\begin{minted}[fontsize=\scriptsize,breaklines=true,breakanywhere=true]{elisp}
 (after! org
   (setq! org-startup-with-latex-preview t)
   (setq! org-startup-with-inline-images t)
-  (setq! org-latex-image-default-width "1in")
+  (setq! org-latex-default-figure-position "H") ;; requires float package
+  (setq! org-latex-image-default-width "0.7\\textwidth")
   (setq! org-cite-global-bibliography (list"~/dotfiles/citations.json"))
   (setq! org-cite-export-processors '(t csl))
   (setq! yas/triggers-in-field t)
@@ -258,31 +309,20 @@ This block changes the default term type for png file types
 
 (with-eval-after-load 'ox-latex
  (add-to-list 'org-latex-classes `("Assignment"
-                                   ,(string-join '("\\documentclass[11pt]{article}"
-                                           "\\usepackage[margin=0.5in]{geometry}"
-                                           "\\usepackage{syntax}"
-                                           "\\usepackage{pdfpages}"
-                                           "\\usepackage{tcolorbox}"
-                                           "\\usepackage{etoolbox}"
-                                           "\\usepackage{environ}"
-                                           "\\usepackage[ruled]{algorithm2e}"
-                                           "\\let\\oldtabular\\tabular"
-                                           "\\let\\oldendtabular\\endtabular"
-                                           "\\RenewEnviron{tabular}[1]{\\tcbox[left=0mm, right=0mm, top=0mm, bottom=0mm]{\\oldtabular{#1}\\BODY\\oldendtabular}}"
-                                           "\\BeforeBeginEnvironment{minted}{\\begin{tcolorbox}}%"
-                                           "\\AfterEndEnvironment{minted}{\\end{tcolorbox}}"
-                                           "\\BeforeBeginEnvironment{verbatim}{\\begin{tcolorbox}}%"
-                                           "\\AfterEndEnvironment{verbatim}{\\end{tcolorbox}}"
+                                   ,(string-join '("\\documentclass{assignments}"
                                            ) "\n")
                                 ("\\section{%s}" . "\\section*{%s}")
                                 ("\\subsection{%s}" . "\\subsection*{%s}")
                                 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
                                 ("\\paragraph{%s}" . "\\paragraph*{%s}")
                                 ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
-
+(after! org
+  (setq! org-latex-default-table-environment "tabular"))
 (after! org
   (setq! org-latex-default-class "Assignment"))
 
+(after! org
+  (setq! org-babel-default-header-args:python '((:exports . "both"))))
 (after! org
   (setq! org-export-with-toc nil))
 
@@ -307,8 +347,8 @@ This block changes the default term type for png file types
 \end{minted}
 
 \subsection*{citations}
-\label{sec:org5ff32dd}
-\begin{minted}[fontsize=\scriptsize]{elisp}
+\label{sec:orgeb5ff94}
+\begin{minted}[fontsize=\scriptsize,breaklines=true,breakanywhere=true]{elisp}
 (use-package! bibtex-completion
   :defer t
   :config
@@ -361,29 +401,29 @@ This block changes the default term type for png file types
 \end{minted}
 
 \subsection*{set header args}
-\label{sec:org71cbdff}
-\begin{minted}[fontsize=\scriptsize]{elisp}
+\label{sec:org5fa03e0}
+\begin{minted}[fontsize=\scriptsize,breaklines=true,breakanywhere=true]{elisp}
 (setq! org-global-properties '(("header-args:latex" . ":results output file graphics :imagemagick yes :headers '(\"\\\\usepackage{tikz}\ \\\\usepackage{siunitx}\ \\\\usepackage{gensymb}\") :fit yes :iminoptions -density 600")
                                ("header-args" . ":pandoc t")))
 \end{minted}
 \subsection*{org-xournalpp}
-\label{sec:orgee51920}
-\begin{minted}[fontsize=\scriptsize]{elisp}
+\label{sec:orgf126b40}
+\begin{minted}[fontsize=\scriptsize,breaklines=true,breakanywhere=true]{elisp}
 ;;(use-package! org-xournalpp
  ;; :config
   ;;(add-hook 'org-mode-hook 'org-xournalpp-mode))
 
 \end{minted}
 \subsection*{Disable Line wrapping}
-\label{sec:org352ab9f}
-\begin{minted}[fontsize=\scriptsize]{elisp}
+\label{sec:org606c8a4}
+\begin{minted}[fontsize=\scriptsize,breaklines=true,breakanywhere=true]{elisp}
 (after! org
   (setq! org-startup-truncated 'nil)
   )
 \end{minted}
 \subsection*{Org pomodoro}
-\label{sec:org91a716b}
-\begin{minted}[fontsize=\scriptsize]{elisp}
+\label{sec:org8ff1392}
+\begin{minted}[fontsize=\scriptsize,breaklines=true,breakanywhere=true]{elisp}
 (setq alert-user-configuration (quote ((((:category . "org-pomodoro")) libnotify nil))))
 (defun david/org-pomodoro-time ()
   "Return the remaining pomodoro time"
@@ -391,13 +431,13 @@ This block changes the default term type for png file types
   (if (org-pomodoro-active-p)
       (cl-case org-pomodoro-state
         (:pomodoro
-           (format "Pomo: %d minutes - %s" (/ (org-pomodoro-remaining-seconds) 60) org-clock-heading))
+           (format "󰥔 %d minutes - %s" (/ (org-pomodoro-remaining-seconds) 60) org-clock-heading))
         (:short-break
-         (format "Short break time: %d minutes" (/ (org-pomodoro-remaining-seconds) 60)))
+         (format "󰾩 %d minutes" (/ (org-pomodoro-remaining-seconds) 60)))
         (:long-break
-         (format "Long break time: %d minutes" (/ (org-pomodoro-remaining-seconds) 60)))
+         (format "󰾩 %d minutes" (/ (org-pomodoro-remaining-seconds) 60)))
         (:overtime
-         (format "Overtime! %d minutes" (/ (org-pomodoro-remaining-seconds) 60))))
+         (format "󰗎 %d minutes" (/ (org-pomodoro-remaining-seconds) 60))))
     "No active pomo") "no active pomo"))
 (use-package org-pomodoro
   :ensure t
@@ -410,25 +450,27 @@ This block changes the default term type for png file types
 \end{minted}
 
 \subsection*{nix hack}
-\label{sec:org7f4e7c7}
-Org mode (latex export) has the wrong time. Not sure how to fix. This does not work.
+\label{sec:org53a8475}
+Org mode (latex export) has the wrong time. Not sure how to fix. This does not
+work. I guess this only happens when inside a flake environment. I wouldn't
+worry about it.
 \subsection*{plantuml}
-\label{sec:org47a8b62}
-\begin{minted}[fontsize=\scriptsize]{elisp}
+\label{sec:org8d808a5}
+\begin{minted}[fontsize=\scriptsize,breaklines=true,breakanywhere=true]{elisp}
 (after! org (setq! org-plantuml-exec-mode 'plantuml))
 \end{minted}
 \subsection*{mathjax}
-\label{sec:org34bc6b7}
+\label{sec:orgc11af64}
 
 \section*{Latex setup}
-\label{sec:org54fce2a}
+\label{sec:org1d3576d}
 \subsection*{Use LuaTex}
-\label{sec:org57cfc36}
-\begin{minted}[fontsize=\scriptsize]{elisp}
+\label{sec:org9f7b2b2}
+\begin{minted}[fontsize=\scriptsize,breaklines=true,breakanywhere=true]{elisp}
 (setq! TeX-engine 'luatex)
 (after! org
   ;(setq! org-latex-pdf-process '("PDFLATEX=lualatex LATEX=lualatex texi2dvi --pdf --clean --verbose --batch --shell-escape -output-directory=%o %f")))
-(setq! org-latex-pdf-process '("latexmk -f -pdf -%latex -interaction=nonstopmode -shell-escape -output-directory=%o %f")))
+(setq! org-latex-pdf-process '("latexmk -f -pdf -pdflatex=%latex -interaction=nonstopmode -shell-escape -output-directory=%o %f")))
 (after! org
   (setq! org-latex-compiler "lualatex"))
 (after! org
@@ -437,12 +479,14 @@ Org mode (latex export) has the wrong time. Not sure how to fix. This does not w
   (setq! org-latex-minted-options
          '(
              ("fontsize" "\\scriptsize")
+             ("breaklines" "true")
+             ("breakanywhere" "true")
              )
                 ))
 \end{minted}
 \subsection*{Extra Packages}
-\label{sec:org253b744}
-\begin{minted}[fontsize=\scriptsize]{elisp}
+\label{sec:orga3ce401}
+\begin{minted}[fontsize=\scriptsize,breaklines=true,breakanywhere=true]{elisp}
 (after! org
   (setq! org-latex-packages-alist '())
   (add-to-list 'org-latex-packages-alist '("" "physics" t))
@@ -451,8 +495,8 @@ Org mode (latex export) has the wrong time. Not sure how to fix. This does not w
 \end{minted}
 
 \subsection*{Keymap}
-\label{sec:org248e21a}
-\begin{minted}[fontsize=\scriptsize]{elisp}
+\label{sec:org3f20059}
+\begin{minted}[fontsize=\scriptsize,breaklines=true,breakanywhere=true]{elisp}
 (map!  (:after auctext
        :map LaTeX-mode-map
        :leader
@@ -460,30 +504,30 @@ Org mode (latex export) has the wrong time. Not sure how to fix. This does not w
 \end{minted}
 
 \section*{Spell setup}
-\label{sec:orgb972ac9}
+\label{sec:org1a92216}
 \subsection*{Personal Dictionary}
-\label{sec:org21f5499}
-\begin{minted}[fontsize=\scriptsize]{elisp}
+\label{sec:orgb8369a4}
+\begin{minted}[fontsize=\scriptsize,breaklines=true,breakanywhere=true]{elisp}
 (setq! ispell-personal-dictionary "~/.config/spell/dict.txt")
 \end{minted}
 \subsection*{Fix hunspell bug}
-\label{sec:org3c021ab}
-\begin{minted}[fontsize=\scriptsize]{elisp}
+\label{sec:org9bb128b}
+\begin{minted}[fontsize=\scriptsize,breaklines=true,breakanywhere=true]{elisp}
 (setq ispell-program-name "hunspell")
-(ispell-check-version)
+;;(ispell-check-version)
 \end{minted}
 
 \section*{Python setup}
-\label{sec:org77ff75a}
+\label{sec:orgb7d5038}
 
 \subsection*{Anaconda directory}
-\label{sec:orgd9d07f8}
-\begin{minted}[fontsize=\scriptsize]{elisp}
+\label{sec:org87491ff}
+\begin{minted}[fontsize=\scriptsize,breaklines=true,breakanywhere=true]{elisp}
 (setq conda-anaconda-home "~/opt/anaconda")
 \end{minted}
 \subsection*{LSP nix}
-\label{sec:orgbd303dc}
-\begin{minted}[fontsize=\scriptsize]{elisp}
+\label{sec:orgd315d0d}
+\begin{minted}[fontsize=\scriptsize,breaklines=true,breakanywhere=true]{elisp}
 (after! lsp-python-ms
   (setq lsp-python-ms-executable (executable-find "python-language-server"))
   (set-lsp-priority! 'mspyls 1))
@@ -494,13 +538,20 @@ Org mode (latex export) has the wrong time. Not sure how to fix. This does not w
 (after! lsp-clients-lua-language-server
   (setq lsp-clients-lua-language-server-bin (executable-find "lua-language-server"))
   (set-lsp-priority! 'lua-language-server 1))
+
+(after! lsp-clangd
+  (setq lsp-clients-clangd-executable (executable-find "clangd"))
+  (set-lsp-priority! 'clangd 1))
+(after! lsp-ts-ls
+  (setq lsp-clients-clangd-executable (executable-find "clangd"))
+  (set-lsp-priority! 'clangd 1))
 \end{minted}
 
 \section*{R setup}
-\label{sec:org6293492}
+\label{sec:org758312f}
 \subsection*{keymap}
-\label{sec:org3f5e656}
-\begin{minted}[fontsize=\scriptsize]{elisp}
+\label{sec:org08ea6db}
+\begin{minted}[fontsize=\scriptsize,breaklines=true,breakanywhere=true]{elisp}
 (map! (:after ess-mode
        :map ess-mode-map
        :nvi "C-<return>" #'ess-eval-line-and-step
@@ -509,10 +560,10 @@ Org mode (latex export) has the wrong time. Not sure how to fix. This does not w
       )
 \end{minted}
 \subsection*{Font lock keywords}
-\label{sec:org5d9b437}
+\label{sec:org5fd4a3e}
 \subsubsection*{R-major-mode}
-\label{sec:orge9ea913}
-\begin{minted}[fontsize=\scriptsize]{elisp}
+\label{sec:org97c190b}
+\begin{minted}[fontsize=\scriptsize,breaklines=true,breakanywhere=true]{elisp}
 (setq ess-R-font-lock-keywords '(
  (ess-R-fl-keyword:keywords . t)
  (ess-R-fl-keyword:constants . t)
@@ -531,8 +582,8 @@ Org mode (latex export) has the wrong time. Not sure how to fix. This does not w
 \end{minted}
 
 \subsubsection*{R-inferior-mode}
-\label{sec:orge64a3ba}
-\begin{minted}[fontsize=\scriptsize]{elisp}
+\label{sec:orge121a90}
+\begin{minted}[fontsize=\scriptsize,breaklines=true,breakanywhere=true]{elisp}
 (setq inferior-ess-r-font-lock-keywords '(
  (ess-R-fl-keyword:keywords . t)
  (ess-R-fl-keyword:constants . t)
@@ -550,8 +601,8 @@ Org mode (latex export) has the wrong time. Not sure how to fix. This does not w
 )
 \end{minted}
 \subsection*{Custom Functions}
-\label{sec:orgdb8d883}
-\begin{minted}[fontsize=\scriptsize]{elisp}
+\label{sec:orga18b5dd}
+\begin{minted}[fontsize=\scriptsize,breaklines=true,breakanywhere=true]{elisp}
 (defun insert-R-assign ()
   "Inserts the assign statement in R <-"
   (interactive)
@@ -560,20 +611,20 @@ Org mode (latex export) has the wrong time. Not sure how to fix. This does not w
 \end{minted}
 
 \section*{General configuration}
-\label{sec:org11bd8d2}
+\label{sec:orga901da2}
 \subsection*{remove line numbers}
-\label{sec:org86f91f2}
-\begin{minted}[fontsize=\scriptsize]{elisp}
+\label{sec:org873017e}
+\begin{minted}[fontsize=\scriptsize,breaklines=true,breakanywhere=true]{elisp}
 (setq display-line-numbers-type nil)
 \end{minted}
 \subsection*{Fix treemacs ace-window bug}
-\label{sec:orgd7ce2cb}
-\begin{minted}[fontsize=\scriptsize]{elisp}
+\label{sec:org4c07dba}
+\begin{minted}[fontsize=\scriptsize,breaklines=true,breakanywhere=true]{elisp}
 (require 'ace-window)
 \end{minted}
 \subsection*{deletes compilation buffer if successful (ignores python buffers)}
-\label{sec:org14ad4c5}
-\begin{minted}[fontsize=\scriptsize]{elisp}
+\label{sec:org95fc10d}
+\begin{minted}[fontsize=\scriptsize,breaklines=true,breakanywhere=true]{elisp}
 (add-hook 'compilation-finish-functions
           (lambda(buffer string)
             (if (and (null (string-match ".*exited abnormally.*" string))
@@ -587,21 +638,21 @@ Org mode (latex export) has the wrong time. Not sure how to fix. This does not w
                   (message "Compilation finished successfully")))))
 \end{minted}
 \subsection*{ligatures}
-\label{sec:org16ea084}
-\begin{minted}[fontsize=\scriptsize]{elisp}
+\label{sec:orgb1c9cd2}
+\begin{minted}[fontsize=\scriptsize,breaklines=true,breakanywhere=true]{elisp}
 (setq! +ligatures-extras-in-modes nil)
 \end{minted}
 \subsection*{ispell dictionary}
-\label{sec:orgb64e23a}
-\begin{minted}[fontsize=\scriptsize]{elisp}
+\label{sec:org7200548}
+\begin{minted}[fontsize=\scriptsize,breaklines=true,breakanywhere=true]{elisp}
 (setq! ispell-dictionary "en_US")
 \end{minted}
 
 \section*{Key Map}
-\label{sec:org9e3739e}
+\label{sec:org5e0ecf2}
 \subsection*{General Buffers}
-\label{sec:orgab431c1}
-\begin{minted}[fontsize=\scriptsize]{elisp}
+\label{sec:org6ddc57f}
+\begin{minted}[fontsize=\scriptsize,breaklines=true,breakanywhere=true]{elisp}
 (map! :leader
       :desc "treemacs" "0" #'treemacs
       :desc "last-buffer" "l" #'evil-switch-to-windows-last-buffer
@@ -610,8 +661,8 @@ Org mode (latex export) has the wrong time. Not sure how to fix. This does not w
        :desc "ace-window" "a" #'ace-window))
 \end{minted}
 \subsection*{Python mode map}
-\label{sec:orgfdb0abd}
-\begin{minted}[fontsize=\scriptsize]{elisp}
+\label{sec:org464cd4f}
+\begin{minted}[fontsize=\scriptsize,breaklines=true,breakanywhere=true]{elisp}
 (map!  (:map python-mode-map
         :localleader
         :desc "repl" "'" #'+python/open-ipython-repl
@@ -622,8 +673,8 @@ Org mode (latex export) has the wrong time. Not sure how to fix. This does not w
          :desc "statement" "s" #'python-shell-send-statement)))
 \end{minted}
 \subsection*{prolog map}
-\label{sec:org5997952}
-\begin{minted}[fontsize=\scriptsize]{elisp}
+\label{sec:org53bae5e}
+\begin{minted}[fontsize=\scriptsize,breaklines=true,breakanywhere=true]{elisp}
 (map!  (:map prolog-mode-map
         :localleader
         :desc "repl" "'" #'run-prolog
@@ -633,15 +684,15 @@ Org mode (latex export) has the wrong time. Not sure how to fix. This does not w
 \end{minted}
 
 \subsection*{Doc-view mode map}
-\label{sec:org1189e5d}
-\begin{minted}[fontsize=\scriptsize]{elisp}
+\label{sec:org3d1e100}
+\begin{minted}[fontsize=\scriptsize,breaklines=true,breakanywhere=true]{elisp}
 (map! (:map doc-view-mode-map
        :nv "l" #'doc-view-next-page
        :nv "h" #'doc-view-previous-page))
 \end{minted}
 \subsection*{mips mode map}
-\label{sec:org677d6e1}
-\begin{minted}[fontsize=\scriptsize]{elisp}
+\label{sec:orga1f1c7c}
+\begin{minted}[fontsize=\scriptsize,breaklines=true,breakanywhere=true]{elisp}
 (map! (:map mips-mode-map
        :localleader
        (:prefix ("s" . "send")
@@ -650,36 +701,36 @@ Org mode (latex export) has the wrong time. Not sure how to fix. This does not w
         :desc "buffer" "b" #'mips-run-region)))
 \end{minted}
 \subsection*{haskell map}
-\label{sec:org5a8c77c}
-\begin{minted}[fontsize=\scriptsize]{elisp}
+\label{sec:org916629d}
+\begin{minted}[fontsize=\scriptsize,breaklines=true,breakanywhere=true]{elisp}
 (map! (:map haskell-mode-map
        :localleader
        :desc "send-file" "f" #'haskell-process-load-file
        :desc "open-haskell" "'" #'run-haskell))
 \end{minted}
 \section*{remote}
-\label{sec:org02c0152}
-\begin{minted}[fontsize=\scriptsize]{elisp}
+\label{sec:org653c3e3}
+\begin{minted}[fontsize=\scriptsize,breaklines=true,breakanywhere=true]{elisp}
 (setq projectile-file-exists-remote-cache-expire nil)
 (setq tramp-auto-save-directory "~/Documents/tramp-autosave")
 \end{minted}
 
 \section*{Helpful info}
-\label{sec:org85917c5}
+\label{sec:orge1f8394}
 \subsection*{Font variables}
-\label{sec:orgb01dd28}
+\label{sec:org77cd603}
 \begin{itemize}
-\item doom-font (normal font)
-\item doom-variable-pitch-font (easy reading font)
-\item doom-big-font (doom-big-font-mode for presentations)
+\item doom-font \texttt{(normal font)}
+\item doom-variable-pitch-font \texttt{(easy reading font)}
+\item doom-big-font \texttt{(doom-big-font-mode for presentations)}
 \end{itemize}
 \subsection*{Useful customization functions}
-\label{sec:orgbe54749}
+\label{sec:orgb0e216e}
 \begin{itemize}
-\item load! (load external .el files)
-\item use-package! (for configuring packages)
-\item after! (runs config after packages has loaded)
-\item add-load-path! (adds directories to load-path variable)
-\item map! (binds keys)
+\item load! \texttt{(load external .el files)}
+\item use-package! \texttt{(for configuring packages)}
+\item after! \texttt{(runs config after packages has loaded)}
+\item add-load-path! \texttt{(adds directories to load-path variable)}
+\item map! \texttt{(binds keys)}
 \end{itemize}
 \end{document}

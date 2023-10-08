@@ -1,0 +1,23 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{p}{(}\PYG{n+nb}{defun}\PYG{+w}{ }\PYG{n+nv}{insert\PYGZhy{}anki\PYGZhy{}note}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nv}{heading}\PYG{p}{)}
+\PYG{+w}{  }\PYG{l+s}{\PYGZdq{}Inserts an anki note\PYGZdq{}}
+\PYG{+w}{  }\PYG{p}{(}\PYG{k}{interactive}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}MNote Title:\PYGZdq{}}\PYG{p}{)}
+\PYG{+w}{  }\PYG{p}{(}\PYG{k}{progn}
+\PYG{+w}{    }\PYG{p}{(}\PYG{n+nv}{anki\PYGZhy{}editor\PYGZhy{}\PYGZhy{}insert\PYGZhy{}note\PYGZhy{}skeleton}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}prefix\PYGZdq{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}IDA\PYGZdq{}}\PYG{+w}{ }\PYG{n+nv}{heading}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}Basic\PYGZdq{}}\PYG{+w}{ }\PYG{o}{\PYGZsq{}}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Back\PYGZdq{}}\PYG{p}{))}
+\PYG{+w}{    }\PYG{p}{)}
+\PYG{+w}{  }\PYG{p}{)}
+\PYG{p}{(}\PYG{n+nb}{defun}\PYG{+w}{ }\PYG{n+nv}{make\PYGZhy{}anki\PYGZhy{}note}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nv}{deck}\PYG{p}{)}
+\PYG{+w}{  }\PYG{p}{(}\PYG{k}{interactive}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nf}{list}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nf}{read\PYGZhy{}string}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}Deck: \PYGZdq{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}IDA\PYGZdq{}}\PYG{p}{)))}
+\PYG{+w}{  }\PYG{p}{(}\PYG{k}{progn}
+\PYG{+w}{    }\PYG{p}{(}\PYG{n+nb}{unless}\PYG{+w}{ }\PYG{p}{(}\PYG{k}{save\PYGZhy{}excursion}
+\PYG{+w}{                }\PYG{p}{(}\PYG{n+nv}{org\PYGZhy{}up\PYGZhy{}heading\PYGZhy{}safe}\PYG{p}{)}
+\PYG{+w}{                }\PYG{c+c1}{;; don\PYGZsq{}t insert `ANKI\PYGZus{}DECK\PYGZsq{} if some ancestor already has}
+\PYG{+w}{                }\PYG{c+c1}{;; the same value}
+\PYG{+w}{                }\PYG{p}{(}\PYG{k}{and}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nv}{not}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nv}{string\PYGZhy{}blank\PYGZhy{}p}\PYG{+w}{ }\PYG{n+nv}{deck}\PYG{p}{))}
+\PYG{+w}{                    }\PYG{p}{(}\PYG{n+nf}{string=}\PYG{+w}{ }\PYG{n+nv}{deck}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nv}{org\PYGZhy{}entry\PYGZhy{}get\PYGZhy{}with\PYGZhy{}inheritance}\PYG{+w}{ }\PYG{n+nv}{anki\PYGZhy{}editor\PYGZhy{}prop\PYGZhy{}deck}\PYG{p}{)))))}
+\PYG{+w}{    }\PYG{p}{(}\PYG{n+nv}{org\PYGZhy{}set\PYGZhy{}property}\PYG{+w}{ }\PYG{n+nv}{anki\PYGZhy{}editor\PYGZhy{}prop\PYGZhy{}note\PYGZhy{}type}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}Basic\PYGZdq{}}\PYG{p}{)}
+\PYG{+w}{    }\PYG{p}{)}
+\PYG{+w}{  }\PYG{p}{)}
+\PYG{p}{(}\PYG{n+nb}{use\PYGZhy{}package}\PYG{+w}{ }\PYG{n+nv}{anki\PYGZhy{}editor}
+\PYG{+w}{  }\PYG{n+nb}{:after}\PYG{+w}{ }\PYG{n+nv}{org}\PYG{p}{)}
+\end{Verbatim}

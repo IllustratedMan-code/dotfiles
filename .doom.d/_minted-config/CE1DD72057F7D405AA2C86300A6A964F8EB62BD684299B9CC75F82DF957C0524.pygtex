@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{;;(fringe\PYGZhy{}mode \PYGZsq{}default\PYGZsq{})}
+\PYG{c+c1}{;;(setq! indicate\PYGZhy{}empty\PYGZhy{}lines nil)}
+\PYG{p}{(}\PYG{n+nv}{remove\PYGZhy{}hook}\PYG{+w}{ }\PYG{l+s+ss}{\PYGZsq{}text\PYGZhy{}mode\PYGZhy{}hook}\PYG{+w}{ }\PYG{n+nf}{\PYGZsh{}\PYGZsq{}}\PYG{n+nv}{vi\PYGZhy{}tilde\PYGZhy{}fringe\PYGZhy{}mode}\PYG{p}{)}
+\end{Verbatim}
