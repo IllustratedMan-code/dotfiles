@@ -162,6 +162,7 @@
   :config)
 
 (after! org
+  (setq! org-download-method 'directory)
   (setq! org-startup-with-latex-preview t)
   (setq! org-startup-with-inline-images t)
   (add-to-list 'org-latex-caption-above 'src-block) ;; requires float package
